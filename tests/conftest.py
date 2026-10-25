@@ -19,3 +19,38 @@ def no_network_delays(monkeypatch):
     monkeypatch.setattr("tenacity.nap.time.sleep", lambda s: None)
     monkeypatch.delenv("NCBI_API_KEY", raising=False)
     monkeypatch.setenv("NCBI_EMAIL", "test@example.com")
+
+
+class FakeAPI:
+    """Stands in for anthropic.Anthropic: records calls, answers via a responder function.
+
+    responder(kwargs) returns a dict (sent back as JSON text) or a full response object.
+    """
+
+    def __init__(self, responder):
+        import json
+        from types import SimpleNamespace
+
+        self.calls = []
+
+        def create(**kwargs):
+            self.calls.append(kwargs)
+            out = responder(kwargs)
+            if isinstance(out, dict):
+                return SimpleNamespace(
+                    model=kwargs["model"],
+                    stop_reason="end_turn",
+                    stop_details=None,
+                    content=[SimpleNamespace(type="thinking", thinking=""),
+                             SimpleNamespace(type="text", text=json.dumps(out))],
+                    usage=SimpleNamespace(input_tokens=1000, output_tokens=200),
+                )
+            return out
+
+        self.messages = SimpleNamespace(create=create)
+        self.beta = SimpleNamespace(messages=SimpleNamespace(create=create))
+
+
+@pytest.fixture
+def fake_api():
+    return FakeAPI

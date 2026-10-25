@@ -3,6 +3,15 @@
 [models]
 brief = "claude-sonnet-5-5"   # writes the brief
 verify = "claude-haiku-5-5"   # claim verification (F17), later expansion/extraction
+brief_effort = "medium"       # low | medium | high | xhigh | max
+verify_effort = "medium"
+brief_max_tokens = 16000
+verify_max_tokens = 8000
+brief_fallback = true         # server-side refusal fallback for the brief model (Claude API only)
+
+[prices_per_mtok]             # USD per million tokens, for the cost log (AD-13)
+"claude-sonnet-5-5" = { input = 2.00, output = 10.00 }
+"claude-haiku-5-5" = { input = 0.10, output = 0.50 }
 
 [fetch]
 max_papers = 30          # PubMed abstracts fetched per query
@@ -32,6 +41,9 @@ recency_half_life_days = 180
 bm25_weight = 0.7        # score = 0.7 * bm25_norm + 0.3 * recency
 recency_weight = 0.3
 mmr_lambda = 0.7
+
+[log]
+runs_path = "logs/runs.jsonl"
 
 [cache]
 ttl_hours = 24
