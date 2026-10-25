@@ -114,3 +114,15 @@ def test_migrations_keep_existing_history(monkeypatch):
     with history.connect() as db:
         assert db.execute("PRAGMA user_version").fetchone()[0] == 2
     assert history.get_search(sid).row["note"] is None
+
+
+def test_latest_per_search_groups_repeats_newest_first():
+    _save("Dengue vaccine", now=T0)
+    _save("PCSK9", now=T0 + timedelta(minutes=1))
+    newest = _save("dengue  vaccine", now=T0 + timedelta(minutes=2))
+    history.save_search(query="dengue vaccine", window_months=12, status="error", error="x",
+                        now=T0 + timedelta(minutes=3))  # another window: its own row
+    grouped = history.latest_per_search(history.list_recent())
+    assert [(i.query, i.window_months, n) for i, n in grouped] == [
+        ("dengue vaccine", 12, 1), ("dengue  vaccine", 6, 2), ("PCSK9", 6, 1)]
+    assert grouped[1][0].id == newest

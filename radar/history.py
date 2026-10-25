@@ -190,6 +190,17 @@ def list_recent(limit: int = 20, text_filter: str | None = None, *,
                           r["supported_pct"]) for r in rows]
 
 
+def latest_per_search(items: list[SearchSummary]) -> list[tuple[SearchSummary, int]]:
+    """Collapse repeat runs: the newest run of each query + window, with how many runs it has.
+
+    Expects newest-first input (as list_recent returns) and keeps that order.
+    """
+    groups: dict[tuple[str, int], list[SearchSummary]] = {}
+    for item in items:
+        groups.setdefault((normalise(item.query), item.window_months), []).append(item)
+    return [(runs[0], len(runs)) for runs in groups.values()]
+
+
 def get_search(search_id: int, *, path: Path | None = None) -> SavedSearch | None:
     with connect(path) as db:
         row = db.execute("SELECT * FROM searches WHERE id = ?", (search_id,)).fetchone()

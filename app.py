@@ -5,6 +5,7 @@ Run with:  streamlit run app.py
 
 from __future__ import annotations
 
+from datetime import datetime
 from typing import Any
 
 import pandas as pd
@@ -60,6 +61,8 @@ def delete_search(search_id: int) -> None:
 def clear_history() -> None:
     history.clear_history()
     st.session_state.pop("result", None)
+    st.session_state.pop("history_open", None)
+    st.session_state.history_version = st.session_state.get("history_version", 0) + 1
 
 
 def run(query: str, months: int, refresh: bool) -> None:
@@ -202,36 +205,86 @@ def show_failed(row: dict[str, Any]) -> None:
     st.button("Run again", on_click=queue_run, args=(row["query"], row["window_months"], True))
 
 
+def short_when(ts: datetime) -> str:
+    """'18:36' for today, '25 Oct' otherwise: keeps the history table narrow."""
+    local = ts.astimezone()
+    today = datetime.now().astimezone().date()
+    return f"{local:%H:%M}" if local.date() == today else f"{local:%d %b}"
+
+
+def history_label(status: str, supported_pct: float | None) -> str:
+    if status == "ok":
+        return "–" if supported_pct is None else f"{supported_pct:.0f}%"
+    return "no results" if status == "no_results" else "error"
+
+
 def sidebar() -> None:
+    """Search history as one compact, scrollable table; click a row to open it (F29)."""
     sb = st.sidebar
     sb.header("Search history")
     text = sb.text_input("Filter", placeholder="Filter past searches",
                          label_visibility="collapsed")
-    recent = history.list_recent(20, text)
+    all_runs = sb.toggle("Show every run", help="Off: one row per search, newest run shown")
+    recent = history.list_recent(200, text)
     if not recent:
         sb.caption("No saved searches yet." if not text else "No matches.")
-    icons = {"ok": "📄", "no_results": "∅", "error": "⚠"}
-    for item in recent:
-        when = item.created_at.astimezone().strftime("%d %b, %H:%M")
-        stats = (f"{item.paper_count or 0} papers · {item.trial_count or 0} trials · "
-                 f"{item.supported_pct:.0f}% supported" if item.status == "ok"
-                 and item.supported_pct is not None else item.status.replace("_", " "))
-        sb.button(f"{icons[item.status]} {item.query} · {item.window_months} mo",
-                  key=f"open-{item.id}", on_click=open_search, args=(item.id,),
+        return
+    rows = [(item, 1) for item in recent] if all_runs else history.latest_per_search(recent)
+    default_months = settings()["brief"]["default_window_months"]
+
+    table = pd.DataFrame({
+        "Search": [f"{'⚠ ' if i.status != 'ok' else ''}{i.query}"
+                   + ("" if i.window_months == default_months else f" · {i.window_months} mo")
+                   + (f" ({n})" if n > 1 else "") for i, n in rows],
+        "When": [short_when(i.created_at) for i, _ in rows],
+        "OK": [history_label(i.status, i.supported_pct) for i, _ in rows],
+    })
+    event = sb.dataframe(
+        table, hide_index=True, use_container_width=True, on_select="rerun",
+        selection_mode="single-row", height=min(36 * (len(rows) + 1) + 2, 360),
+        key=f"history-{st.session_state.get('history_version', 0)}",
+        column_config={
+            "Search": st.column_config.TextColumn(
+                "Search", width=130,
+                help=f"Last {default_months} months unless shown; (n) = number of runs"),
+            "When": st.column_config.TextColumn("When", width=52),
+            "OK": st.column_config.TextColumn("✓", width=46, help="Share of claims supported"),
+        })
+    sb.caption(f"{len(rows)} search{'es' if len(rows) != 1 else ''}"
+               f"{'' if all_runs else f', {len(recent)} runs'} · click a row to open it")
+
+    picked = event.selection.rows
+    if picked:
+        item, runs = rows[picked[0]]
+        if st.session_state.get("history_open") != item.id:
+            st.session_state.history_open = item.id
+            open_search(item.id)
+            st.rerun()
+        detail = (f"{item.paper_count or 0} papers · {item.trial_count or 0} trials · "
+                  f"{item.india_count or 0} India" if item.status == "ok"
+                  else history_label(item.status, None))
+        sb.caption(f"**{item.query}** · last {item.window_months} months · "
+                   f"{item.created_at.astimezone():%d %b %Y, %H:%M} · {detail}"
+                   + (f" · newest of {runs} runs" if runs > 1 else ""))
+        sb.button("Delete this run", on_click=delete_and_reset, args=(item.id,),
                   use_container_width=True)
-        info, delete = sb.columns([4, 1], vertical_alignment="center")
-        info.caption(f"{when} · {stats}")
-        delete.button("✕", key=f"del-{item.id}", on_click=delete_search, args=(item.id,),
-                      help="Delete this search", type="tertiary")
-    if recent:
-        sb.download_button("Export history (CSV)", history.export_csv(),
+
+    with sb.expander("Manage history"):
+        st.download_button("Export history (CSV)", history.export_csv(),
                            file_name="literature-radar-history.csv", mime="text/csv",
                            use_container_width=True)
-        with sb.popover("Clear history", use_container_width=True):
+        with st.popover("Clear history", use_container_width=True):
             st.write("Delete every saved search and brief? This cannot be undone.")
             st.button("Yes, clear all", type="primary", on_click=clear_history)
-    sb.caption("Saved on this computer in data/radar.db. Briefs, IDs and links only; "
-               "no abstracts.")
+        st.caption("Saved on this computer in data/radar.db. Briefs, IDs and links only; "
+                   "no abstracts.")
+
+
+def delete_and_reset(search_id: int) -> None:
+    """Delete a run and clear the table selection (a new widget key resets it)."""
+    delete_search(search_id)
+    st.session_state.history_version = st.session_state.get("history_version", 0) + 1
+    st.session_state.pop("history_open", None)
 
 
 # --- Page ----------------------------------------------------------------------------------
