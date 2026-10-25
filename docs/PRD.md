@@ -141,6 +141,32 @@ Both sources are free, public and need no login; PubMed works without a key, and
 
 The India tab shows these records with links and cites them as `[CTRI:…]` and `[CDSCO:…]`, so the citation check and claim verification cover them too.
 
+**India CSV format (the M3 loader reads these directly)**
+
+`data/india/ctri.csv`
+
+```csv
+record_id,molecule,aliases,title,phase,sponsor,status,sites,date,url
+```
+
+`data/india/cdsco.csv`
+
+```csv
+record_id,molecule,aliases,title,decision_type,applicant,decision,date,url
+```
+
+| Field | Rule |
+| --- | --- |
+| `record_id` | CTRI: the CTRI number, e.g. `CTRI/2025/03/012345`. CDSCO: no single ID scheme, so committee + meeting date + item number, e.g. `SEC-ENDO-2025-12-09-04` (ENDO = Endocrinology & Metabolism, ANRH = Analgesic & Rheumatology, ONCO = Oncology) |
+| `molecule` | Lowercase, e.g. `semaglutide` |
+| `aliases` | Separated by `;`, e.g. `Ozempic;Wegovy;Rybelsus` |
+| `sites` | CTRI site cities, separated by `;` |
+| `decision_type` | `approval` or `SEC recommendation` |
+| `date` | `YYYY-MM-DD`. CTRI: study start date as shown on the registry record. CDSCO: meeting or approval date |
+| `url` | Link to the source page or PDF, so every row can be cited |
+
+Files are UTF-8; fields containing commas are wrapped in double quotes (standard CSV), so titles can contain commas safely.
+
 **Demo molecules:** semaglutide (generic wave after India's March 2026 patent expiry), denosumab (new biosimilar wave), trastuzumab including its antibody-drug conjugate form (mature biosimilar market) and nivolumab (immuno-oncology biosimilar frontier). Ahmedabad-based Zydus is active in all four, Intas in denosumab and Torrent in semaglutide, so the tab is visibly richer than global tools and relevant to a Vadodara audience. Start hand-collecting with semaglutide and denosumab.
 
 ## Brief format and AI guardrails
