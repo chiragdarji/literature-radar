@@ -1,0 +1,24 @@
+# Gold list: 'dengue vaccine', last 6 months, drafted 2026-10-25
+# Source: PubMed Best Match top 20 of 228 for the query as typed.
+# Lines starting with # are ignored. Comment out papers that are not about the query.
+# Reviewed by Claude on 2026-10-25 from titles: off-topic papers are commented out with a reason.
+
+42020264  # Dengue vaccine. [article]
+# off-topic (dengue infection, not vaccine): 42881211  # Dengue virus infection. [Review]
+# off-topic (antiviral drug target): 42085491  # An orthoflavivirus inhibitor targeting multifunctional NS2A protein, a previously unidentified target. [article]
+42044179  # Optimizing dengue vaccination strategies. [Review]
+# off-topic (virus immune evasion): 42391596  # Dengue Virus Evasion of Host Innate Immunity. [Review]
+42256613  # Nanoparticle vaccine formulations for dengue virus. [Review]
+# off-topic (healthcare worker vaccination, general): 42392011  # Vaccination policies for healthcare personnel in Europe, 2026. [article]
+# off-topic (pathogenesis in mice): 42149728  # Strain-specific pathogenicity and antibody-dependent enhancement of dengue virus infection in Ifnar1-Ifngr1 do [article]
+42562883  # Dengue virus envelope epitope-specific antibodies are associated with protection from severe dengue. [article]
+# off-topic (virus biology): 42420242  # Lipid peroxidation impacts orthoflavivirus infection in a virus-dependent manner. [article]
+# off-topic (yellow fever): 42374049  # Proxy immunization enabling yellow fever vaccination after thymectomy. [article]
+# off-topic (transmission epidemiology): 42286757  # Autochthonous dengue transmission in Europe: epidemiology, mechanisms, and modelling insights. [Review]
+# off-topic (antiviral screen): 41796917  # Targeting dengue virus infection through a translation-modulator small-molecule screen. [article]
+# off-topic (outbreak report): 42157064  # Dengue virus serotype 4-leading serotype epidemic and its clinical and molecular characteristics in Vung Tau,  [article]
+# off-topic (natural-infection antibodies): 42323307  # Longitudinal antibody profiling after dengue reveals distinct dynamics by antibody specificity over 18 months. [article]
+# off-topic (West Nile virus): 42347620  # Advances and Challenges in Vaccine Development for West Nile Virus (WNV) Infection. [Review]
+42561070  # Dengue vaccines need long-term surveillance. [Letter]
+42773233  # Functional antibody responses and protection against symptomatic dengue. [Review]
+# off-topic (assay method): 42777006  # A multiplex serological assay for quantification of arbovirus antibody kinetics and neutralizing antibodies. [Research Support, Non-U.S. Gov't]

@@ -20,8 +20,9 @@ from typing import Any
 from radar import pipeline
 from radar.brief import SECTIONS, Brief, Claim
 from radar.config import ROOT
-from radar.fetch_pubmed import parse_efetch
+from radar.fetch_pubmed import parse_efetch, search_pubmed
 from radar.fetch_trials import parse_study
+from radar.rank import rank_papers
 from radar.verify import verify_brief
 
 QUERIES_PATH = ROOT / "tests" / "queries.txt"
@@ -75,6 +76,18 @@ def recall(gold: set[str] | None, found: list[str]) -> float | None:
     if not gold:
         return None
     return len(gold & set(found)) / len(gold)
+
+
+def recall_only(query: str, months: int, *, http: Any = None) -> dict[str, Any]:
+    """Fetch and rank only (no model calls, nothing saved): how much of the gold list we reach."""
+    gold = load_gold(query)
+    pubmed = search_pubmed(query, round(months * pipeline.DAYS_PER_MONTH), http=http)
+    fetched = [p.pmid for p in pubmed.papers]
+    sent = [s.record.pmid for s in rank_papers(query, pubmed.papers)]
+    return {"query": query, "months": months, "gold": len(gold or ()),
+            "hits": pubmed.hit_count, "recall_at_30": recall(gold, fetched),
+            "recall_at_10": recall(gold, sent),
+            "missed": sorted((gold or set()) - set(fetched))}
 
 
 def evaluate_query(query: str, months: int, *, api: Any = None, http: Any = None) -> dict[str, Any]:
@@ -136,10 +149,11 @@ def run_probe(*, api: Any = None) -> dict[str, Any]:
             "misses": misses}
 
 
-def report(rows: list[dict[str, Any]], probe: dict[str, Any] | None, started: datetime) -> str:
-    def pct(x: float | None) -> str:
-        return "n/a" if x is None else f"{x:.0%}"
+def pct(x: float | None) -> str:
+    return "n/a" if x is None else f"{x:.0%}"
 
+
+def report(rows: list[dict[str, Any]], probe: dict[str, Any] | None, started: datetime) -> str:
     lines = [f"# Evaluation — {started:%Y-%m-%d %H:%M}", "",
              f"Targets: 0 invalid citations, ≥ {TARGET_SUPPORT:.0%} of claims supported, "
              f"brief in < {TARGET_SECONDS} s.", "",
@@ -182,10 +196,19 @@ def main() -> None:
     parser = argparse.ArgumentParser(description="Run the evaluation queries live.")
     parser.add_argument("--only", nargs="*", help="run just these queries")
     parser.add_argument("--no-probe", action="store_true", help="skip the verifier probe")
+    parser.add_argument("--recall-only", action="store_true",
+                        help="fetch and rank only: recall against the gold lists, no model cost")
     args = parser.parse_args()
 
     started = datetime.now().astimezone()
     queries = [(q, m) for q, m in load_queries() if not args.only or q in args.only]
+    if args.recall_only:
+        print("| Query | Gold | PubMed hits | Recall@30 | Recall@10 |\n| --- | --- | --- | --- | --- |")
+        for query, months in queries:
+            r = recall_only(query, months)
+            print(f"| {query} | {r['gold']} | {r['hits']:,} | {pct(r['recall_at_30'])} | "
+                  f"{pct(r['recall_at_10'])} |", flush=True)
+        return
     rows = []
     for query, months in queries:
         row = evaluate_query(query, months)

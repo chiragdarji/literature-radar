@@ -1,0 +1,25 @@
+# Gold list: 'GLP-1 receptor', last 6 months, drafted 2026-10-25
+# Source: PubMed Best Match top 20 of 3,497 for the query as typed.
+# Lines starting with # are ignored. Comment out papers that are not about the query.
+# Reviewed by Claude on 2026-10-25 from titles: off-topic papers are commented out with a reason.
+
+41128495  # GLP-1 Receptor Agonists and Blood Pressure: A State-of-the-Art Review of Mechanisms, Evidence, and Clinical Im [Review, Research Support, Non-U.S. Gov't]
+42303931  # GLP-1 Receptor Agonists for Obesity Management in Older Adults: A Scoping Review on the Risk of Sarcopenia and [Scoping Review]
+42747605  # GLP-1 Receptor Agonists in Pulmonary Hypertension: Mechanistic Rationale, Preclinical Evidence, and Clinical K [Review]
+41889156  # Clinical Management of Weight Regain and Cardiometabolic Consequences After Discontinuation of GLP-1 Receptor  [Review]
+42252247  # GLP-1 receptor agonist use and cancer risk in obese nondiabetic adults. [article]
+42653112  # GLP-1 Receptor Agonists in Obstructive Sleep Apnea: A Translational Perspective on Mechanisms and Clinical Imp [Review]
+42330959  # Oral GLP-1 receptor agonist promotes astrocyte-neuron lactate and lipid transfer with neuroprotective effects. [article]
+41985454  # The weight-loss-independent hepatoprotective benefits of semaglutide are orchestrated by intrahepatic sinusoid [article]
+42219869  # Anti-inflammatory effects of GLP1-RA drugs. [Review]
+42479349  # Orforglipron: First Approval. [Review]
+41711341  # GLP-1 receptor agonists: Bridging diabetes, obesity, and periodontitis-A scoping review of emerging evidence. [Scoping Review]
+42021007  # GLP-1 receptor agonists: The good, the bad, and the ugly-A comprehensive guide for NPs. [Review]
+41703894  # GLP-1 agonists and the gut microbiome: A bidirectional relationship. [Review]
+42238011  # Balancing the benefits and risks of GLP-1 receptor agonists: a clinical guide for shared decision-making. [Review]
+42210888  # GLP-1-Induced Weight Loss and the Face: Anatomical Mechanisms and Rationale for Collagen-Stimulating and Volum [Review]
+# off-topic (editor's highlights): 42068165  # Editor's Highlights-June 2026. [Editorial]
+41951734  # Genetic predictors of GLP1 receptor agonist weight loss and side effects. [article]
+42922894  # GLP-1 receptor agonists and lymphedema: from weight loss to potential direct modulation of lymphatic function. [Review]
+42551415  # Weight-loss-independent actions of GLP-1 medicines. [article]
+42406865  # Cardiovascular Risk Reduction With GLP-1 RA Drugs. [Review]

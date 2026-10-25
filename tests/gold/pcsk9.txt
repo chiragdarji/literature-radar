@@ -1,0 +1,22 @@
+# Gold list: 'PCSK9', last 6 months, drafted 2026-10-25
+# Source: PubMed Best Match top 20 of 618 for the query as typed.
+# Lines starting with # are ignored. Comment out papers that are not about the query.
+# Reviewed by Claude on 2026-10-25 from titles: off-topic papers are commented out with a reason.
+
+42017875  # Oral PCSK9 Inhibitor Enlicitide Versus Oral Nonstatin Therapies: A Phase 3 Randomized Clinical Trial. [Randomized Controlled Trial, Clinical Trial, Phase III, Multicenter Study, Comparative Study]
+41945308  # Lerodalcibep: First Approval. [Review]
+# off-topic (no title/abstract): 42056434  # [Not Available]. [article]
+# off-topic (no title/abstract): 42237650  # [Not Available]. [News]
+42140727  # PCSK9 expression in human atherosclerotic lesions and vascular smooth muscle cells. [article]
+# off-topic (HoFH epidemiology): 42229223  # Homozygous familial hypercholesterolemia (HoFH) in Canada. [article]
+42096573  # Biocatalytic cascades enable manufacture of the macrocyclic peptide enlicitide. [article]
+# off-topic (FH review, general): 42761917  # Familial Hypercholesterolemia. [Review]
+# off-topic (metformin): 42196612  # The Molecular Mechanisms of Metformin's Action on Blood Lipid Profile in Diabetic Patients. [Review]
+42234492  # Safety of low lipoprotein(a) levels: the FOURIER trial. [article]
+# off-topic (lipoprotein genetics, general): 42241509  # Translating Lipoprotein Genetics Into New Therapies. [Review]
+41690582  # Safety and Efficacy of Oral PCSK9 Inhibitors in Hypercholesterolemia: A Systematic Review and Network Meta-Ana [Systematic Review, Network Meta-Analysis]
+# off-topic (renal lipotoxicity): 42201307  # Renal Lipotoxicity: Mechanisms and Therapeutic Perspectives. [article]
+41841775  # Proprotein convertase subtilisin/kexin Type 9 inhibitors: past, present, and future. [Review]
+42909140  # NAT10 exacerbates aortic valve calcification via PCSK9 mRNA ac4C acetylation. [article]
+# off-topic (lipid-lowering, general): 42210976  # Lipid-lowering therapy: Evidence and future perspective. [Review]
+# off-topic (proteomics, general): 42302926  # Plasma proteomics reveal key proteins mediating vascular aging. [article]

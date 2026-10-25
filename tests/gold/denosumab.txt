@@ -1,0 +1,24 @@
+# Gold list: 'denosumab', last 6 months, drafted 2026-10-25
+# Source: PubMed Best Match top 20 of 401 for the query as typed.
+# Lines starting with # are ignored. Comment out papers that are not about the query.
+# Reviewed by Claude on 2026-10-25 from titles: off-topic papers are commented out with a reason.
+
+# off-topic (general osteoporosis review): 41742825  # Management of postmenopausal osteoporosis. [Review]
+# off-topic (general hip fracture review): 42461643  # Hip Fractures: A Review. [Review]
+41643813  # Denosumab Therapy Beyond 10 Years: Subsequent Treatment and Densitometric Outcomes. [article]
+41327832  # Romosozumab and Denosumab Combination Therapy After Denosumab in Postmenopausal Osteoporosis. [article]
+# off-topic (osteogenesis imperfecta review): 42011197  # What's New in Osteogenesis Imperfecta. [Review]
+# off-topic (cancer bone pain, general): 42707706  # Management of Cancer-Induced Bone Pain in Hospice and Palliative Care. [article]
+42101135  # Discontinuing Long-Term Denosumab in Treating Fragile Bone: Why, for Whom, and How? [Review, Research Support, Non-U.S. Gov't]
+42572248  # Targeting RANKL Prevents Bone Loss, Improves Muscle Function and Extends Lifespan in Progeroid Mice. [article]
+# off-topic (position statement, general): 42464584  # Pregnancy- and lactation-associated osteoporosis: A position statement of the IAPM, IOF, ECTS, ESCEO, IMS, and [Review]
+42918617  # Denosumab Biosimilars Versus Denosumab in Postmenopausal Osteoporosis: Updated Systematic Review and Meta-Anal [Review]
+42494861  # Efficacy and safety of abaloparatide, denosumab, teriparatide, oral bisphosphonates, and intravenous bisphosph [Systematic Review, Network Meta-Analysis]
+42406060  # Denosumab therapy is associated with a reduced risk of clinically diagnosed rotator cuff tears: a multi-instit [article]
+42340144  # Denosumab discontinuation and fracture risk: getting the balance right. [article]
+42240269  # RANKL Inhibition and the Risk of Ocular Hypertension and Primary Open-Angle Glaucoma. [Multicenter Study, Observational Study, Research Support, Non-U.S. Gov't]
+# off-topic (bufalin, not denosumab): 42365695  # Bufalin suppresses breast cancer bone metastasis through targeting SEC13-mediated osteoclastogenesis. [article]
+42334992  # Alendronate for 6 or 12 months following denosumab discontinuation in women with postmenopausal osteoporosis:  [article]
+# off-topic (romosozumab): 42437851  # Osteoporosis medication exposure patterns and MRONJ occurrence in patients receiving romosozumab: a retrospect [Observational Study]
+# off-topic (general osteoporosis sequencing): 42084700  # Sequential Versus Step-Therapy Approaches for Osteoporosis Management in Orthopedic Subspecialties. [Review]
+42266703  # Denosumab in osteoarthritis: from mechanism to clinical translation. [article]

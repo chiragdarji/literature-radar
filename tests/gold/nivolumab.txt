@@ -1,0 +1,25 @@
+# Gold list: 'nivolumab', last 6 months, drafted 2026-10-25
+# Source: PubMed Best Match top 20 of 869 for the query as typed.
+# Lines starting with # are ignored. Comment out papers that are not about the query.
+# Reviewed by Claude on 2026-10-25 from titles: off-topic papers are commented out with a reason.
+
+41687718  # Nivolumab plus chemotherapy as first-line treatment for advanced gastric, gastroesophageal junction, and esoph [Randomized Controlled Trial, Clinical Trial, Phase III, Multicenter Study]
+42224490  # Adjuvant Nivolumab vs Observation in Resected Non-Small Cell Lung Cancer: A Randomized Clinical Trial. [Randomized Controlled Trial, Clinical Trial, Phase III, Multicenter Study, Comparative Study]
+41786248  # Nivolumab plus ipilimumab versus sunitinib for first-line treatment of advanced renal cell carcinoma: final an [Clinical Trial, Phase III, Randomized Controlled Trial, Multicenter Study, Comparative Study]
+# off-topic (anti-PD-1 drug not named): 42432293  # Anti-LAG-3 with or without anti-PD-1 in recurrent glioblastoma: a phase 1 trial. [Clinical Trial, Phase I, Multicenter Study]
+42082273  # Discontinuation of combo immunotherapy and outcome of patients with melanoma brain metastases. [article]
+# off-topic (anti-CTLA-4): 42013417  # Cellular Neighborhoods Govern Antitumor T-cell Infiltration Following Anti-CTLA-4 in Melanoma with Primary Res [Clinical Trial, Phase II, Randomized Controlled Trial]
+41999744  # Gut microbiome is associated with recurrence-free survival in patients with resected high-risk melanoma receiv [Clinical Trial, Phase III]
+41173344  # Safety Profile of Neoadjuvant Chemoimmunotherapy With Nivolumab for Patients With Resectable Non-Small Cell Lu [Multicenter Study]
+42360104  # Early Detriment Analysis of First-Line Nivolumab plus Ipilimumab-Based Therapy in Patients with Metastatic Non [Randomized Controlled Trial, Clinical Trial, Phase III]
+40610007  # Nivolumab Plus Chemotherapy versus Placebo Plus Chemotherapy in Korean Patients with HER2-Negative, Untreated, [Randomized Controlled Trial, Multicenter Study, Clinical Trial, Phase III]
+# off-topic (melanoma editorial): 42870778  # Adjuvant management of resectable stage III/IV melanoma. [Editorial, Comment]
+42366526  # Efficacy and safety of cabozantinib plus nivolumab in advanced non-clear cell renal cell carcinoma: a nationwi [Multicenter Study]
+42140950  # Carboplatin with or without nivolumab in metastatic triple-negative breast cancer: a randomized phase II trial [Clinical Trial, Phase II, Randomized Controlled Trial, Multicenter Study]
+# off-topic (macrophage review): 42840964  # CLEVER-1+ tumor-associated macrophages in gastric cancer immunotherapy resistance: integrating metabolic repro [Review, Research Support, Non-U.S. Gov't]
+41720427  # Cabozantinib plus nivolumab and ipilimumab in previously untreated, advanced renal cell carcinoma: final resul [Clinical Trial, Phase III, Randomized Controlled Trial]
+42320551  # No Impact of Low-Dose Nivolumab Addition to JNJ-73763989 on Hepatitis B Surface Antigen Declines in Chronic He [article]
+42526889  # Impact of EBV status and histology on patient outcomes with nivolumab-AVD vs BV-AVD in advanced classic Hodgki [Randomized Controlled Trial, Clinical Trial, Phase III]
+41690366  # Four-Year Outcomes of First-Line Nivolumab Plus Ipilimumab for 6 Months Versus Continuation in Patients With A [Randomized Controlled Trial, Clinical Trial, Phase III, Equivalence Trial]
+42243276  # Intrathecal nivolumab in metastatic solid tumors with leptomeningeal disease: dose escalation part of the mult [Multicenter Study, Clinical Trial, Phase I]
+42265434  # FOLFOX plus nivolumab combination therapy for cisplatin-unfit patients with untreated advanced esophageal squa [article]

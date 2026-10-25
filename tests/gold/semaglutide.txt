@@ -1,0 +1,25 @@
+# Gold list: 'semaglutide', last 6 months, drafted 2026-10-25
+# Source: PubMed Best Match top 20 of 1,482 for the query as typed.
+# Lines starting with # are ignored. Comment out papers that are not about the query.
+# Reviewed by Claude on 2026-10-25 from titles: off-topic papers are commented out with a reason.
+
+# off-topic (unregulated peptides in general): 42757290  # Dangers of Injectable Peptides and Other Unregulated "Biohacking" Drugs. [Review]
+42522065  # Oral Semaglutide for Alcohol Use Disorder: A Randomized Clinical Trial. [Randomized Controlled Trial, Clinical Trial, Phase II]
+42251860  # Efficacy and safety of once-weekly cagrilintide-semaglutide (CagriSema) in adults with type 2 diabetes inadequ [Randomized Controlled Trial, Clinical Trial, Phase III, Multicenter Study, Research Support, Non-U.S. Gov't]
+42251856  # Cagrilintide-semaglutide (CagriSema) as an add-on to basal insulin in adults with type 2 diabetes (REIMAGINE 3 [Randomized Controlled Trial, Multicenter Study, Clinical Trial, Phase III, Research Support, Non-U.S. Gov't]
+41985454  # The weight-loss-independent hepatoprotective benefits of semaglutide are orchestrated by intrahepatic sinusoid [article]
+# off-topic (GLP-1 class editorial): 42691159  # (Un)intended consequences of mass-prescribing GLP-1s. [Editorial]
+# off-topic (GLP-1 class, not semaglutide): 42441883  # GLP-1 Receptor Agonists and Fertility: What Is Known So Far? [Review]
+42603240  # Effect of tirzepatide and semaglutide on blood pressure: A systematic review and meta-analysis. [Systematic Review, Meta-Analysis]
+# off-topic (drug not named): 41732031  # Reduced-Frequency GLP1 Therapy Maintains Weight, Body Composition, and Metabolic Syndrome Improvements: A Case [article]
+# off-topic (drug not named): 41520798  # Too much of a good thing. [Case Reports]
+41655226  # Skeletal effect of semaglutide and tirzepatide in patients with increased risk of fractures. [article]
+42225305  # Oral Semaglutide 25 mg Versus Orforglipron 36 mg in Obesity: A Population-Adjusted Indirect Treatment Comparis [Comparative Study]
+42419792  # Comparative effects of drugs for adults with overweight or obesity: systematic review and network meta-analysi [Systematic Review, Network Meta-Analysis, Comparative Study]
+# off-topic (not about semaglutide): 42410087  # Sirtuin 1 deficiency mediates chronic kidney disease-induced inflammaging cardiovascular calcification. [article]
+42070571  # Once-weekly semaglutide versus placebo in patients with alcohol use disorder and comorbid obesity: a randomise [Clinical Trial, Phase II, Randomized Controlled Trial]
+42567173  # Effect of semaglutide on kidney outcomes in the SELECT, FLOW, and SOUL trials: a prespecified pooled analysis. [Randomized Controlled Trial, Research Support, Non-U.S. Gov't]
+41816857  # Obesity Treatments and Weight Changes in Clinical Practice After Discontinuation of Semaglutide or Tirzepatide [article]
+42156721  # Semaglutide slows epigenetic aging in a randomized trial of HIV-associated lipohypertrophy. [Clinical Trial, Phase II, Multicenter Study, Randomized Controlled Trial]
+# off-topic (GLP-1 class network meta-analysis): 42337824  # Efficacy and Safety of GLP-1 Receptor Agonists on Combined Cardiovascular and Renal Outcomes in Patients With  [Systematic Review, Network Meta-Analysis]
+41951015  # Semaglutide ameliorates aortic endothelial cell dysfunction in sarcopenia through the SIRT1/cGAS-STING signali [article]

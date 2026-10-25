@@ -1,0 +1,25 @@
+# Gold list: 'HER2', last 6 months, drafted 2026-10-25
+# Source: PubMed Best Match top 20 of 3,010 for the query as typed.
+# Lines starting with # are ignored. Comment out papers that are not about the query.
+# Reviewed by Claude on 2026-10-25 from titles: off-topic papers are commented out with a reason.
+
+41882473  # Sevabertinib: First Approval. [Review]
+# off-topic (breast cancer treatment, general): 42842904  # Advances in Systemic Treatment of Breast Cancer. [Review]
+# off-topic (no title/abstract): 42708992  # [Not Available]. [Review, English Abstract]
+42167229  # Reimagining HER2 therapy: Bridging oncogene addiction and immune modulation. [Review]
+42177028  # Autologous T-cell antigen coupler targeting HER2 (TAC01-HER2) in advanced or metastatic solid tumors. [Clinical Trial, Phase I]
+41448488  # Trastuzumab Deruxtecan in Patients With HER2-Overexpressing NSCLC: Results From Part 1 of the Open-Label, Mult [Clinical Trial, Phase I, Multicenter Study]
+42278436  # HER2 Therapies in Non-Small Cell Lung Cancer (NSCLC). [Review]
+42562949  # AKAP13 regulates GLI1/ULK1 axis and drive tumor resistance to next-generation HER2-targeted therapies. [article]
+41654396  # Contextualizing the Development of Anti-HER2 Therapies for Patients with Advanced Urothelial Carcinoma. [Editorial]
+42142430  # "Neoadjuvant trastuzumab deruxtecan for high-risk HER2-positive early breast cancer: Does the evidence support [article]
+41032684  # Trastuzumab deruxtecan: An antibody-drug conjugates for non-small cell lung cancer. [Review]
+# off-topic (CAR signalling): 42014923  # T-cell protrusions enable fast, localised initiation of chimeric antigen receptor signalling. [article]
+41824277  # Expression of HER2, HER3, and TROP2 in primary tumors and brain metastases of breast cancer. [article]
+42423636  # Beyond Amplification: Precision Approaches to Targeting HER2. [article]
+# off-topic (HER2-negative disease): 42687443  # Implementing liquid biopsy in HR+/HER2- metastatic breast cancer: challenges and opportunities. [Review]
+41797190  # High-throughput screened kaempferitrin potentiates trastuzumab efficacy in HER2-positive gastric cancer by tar [article]
+# off-topic (HER2-negative disease): 42878072  # Next-generation CDK inhibitors in HR+/HER2- breast cancer. [Review]
+42155177  # Cancer-associated fibroblast-derived protein S100-A11 influences the response to anti-HER2 therapies in HER2-p [Research Support, Non-U.S. Gov't]
+41932614  # ERBB2-Activating Mutations and Co-Occurring Genomic Alterations Contribute to Disease Heterogeneity in Patient [article]
+42700699  # Decluttering chemotherapy agents for HER2+early breast cancer: Do we still need carboplatin? [Review]

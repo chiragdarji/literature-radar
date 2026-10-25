@@ -1,0 +1,25 @@
+# Gold list: 'sickle cell disease', last 12 months, drafted 2026-10-25
+# Source: PubMed Best Match top 20 of 1,970 for the query as typed.
+# Lines starting with # are ignored. Comment out papers that are not about the query.
+# Reviewed by Claude on 2026-10-25 from titles: off-topic papers are commented out with a reason.
+
+41831848  # Sickle cell disease. [Review, Research Support, N.I.H., Extramural]
+39794549  # CRISPR/Cas9 System as a Promising Therapy in Thalassemia and Sickle Cell Disease: A Systematic Review of Clini [Systematic Review]
+41905703  # Gene Therapy for Sickle Cell Disease: Practice Recommendations from the American Society for Transplantation a [Review, Practice Guideline]
+41347992  # Sickle cell disease: managing thromboembolism. [Review]
+40945973  # Metabolomics in sickle cell disease: Current knowledge and gaps - A scoping review. [Scoping Review]
+41359799  # Increased prevalence of clonal hematopoiesis in children with sickle cell disease. [article]
+42679830  # Paediatric Drug Optimization for Sickle Cell Disease: priorities for research and development in children. [Review]
+41059931  # Targeting PIEZO1-TMEM16F Coupling to Mitigate Sickle Cell Disease Complications. [Research Support, Non-U.S. Gov't, Research Support, N.I.H., Extramural]
+41437446  # Sickle Cell Disease: Treatment Options of the Past, Present, and Future. [Review, Research Support, N.I.H., Extramural]
+41046099  # Mitochondrial retention and autophagy dysregulation drive oxidative stress in sickle cell disease erythrocytes [article]
+42007797  # Discontinued therapies for sickle cell disease: status and future directions. [Review]
+41557517  # Pyruvate kinase deficiency modifies sickle hemoglobin carrier and sickle cell disease phenotypes in mice. [Research Support, N.I.H., Extramural]
+42134075  # Sickle cell disease-associated pulmonary hypertension: an integrated framework linking pathologies, mechanisms [Review]
+40544472  # Risk of cancer in patients with thalassemia and sickle cell disease: a systematic review. [Systematic Review, Research Support, Non-U.S. Gov't]
+40997624  # Combined haptoglobin and hemopexin therapy for the treatment of cardiopulmonary dysfunction in sickle cell dis [article]
+41830511  # Genetics and Genomics in Sickle Cell Disease in Africa. [Review]
+41597459  # Pharmacogenomics and Opioid Efficacy in Sickle Cell Disease. [Review]
+41521575  # Infertility and family building perspectives among adults with sickle cell disease. [article]
+41423621  # CRISPR editing of HPFH3 genotype induces γ-globin expression and reverses sickle cell disease and β-thalassemi [article]
+41467844  # Fetal Hemoglobin Research and Clinical Relevance in Sickle Cell Disease. [Review, Research Support, N.I.H., Intramural]

@@ -66,3 +66,19 @@ def test_report_table():
     assert "| x | 6 mo | 0 | 9/10 (90%) | 1 | 0 | n/a | n/a | 20 s | $0.050 | ✓ |" in text
     assert "error: NoRecords" in text
     assert "1/2 queries pass" in text and "caught 8/8 planted errors" in text
+
+
+def test_recall_only_makes_no_model_calls(fixture_text, monkeypatch, tmp_path):
+    monkeypatch.setattr(evaluate, "GOLD_DIR", tmp_path)
+    (tmp_path / "semaglutide.txt").write_text("42886550  # a title\n# off-topic: 42610532\n"
+                                              "99999999\n", encoding="utf-8")
+    r = evaluate.recall_only("semaglutide", 6, http=_http(fixture_text))
+    assert r["gold"] == 2 and r["recall_at_30"] == pytest.approx(0.5)
+    assert r["missed"] == ["99999999"] and r["hits"] == 1455
+    assert history.list_recent() == []  # nothing saved
+
+
+def test_repo_gold_lists_parse():
+    for query, _ in evaluate.load_queries():
+        gold = evaluate.load_gold(query)
+        assert gold and all(p.isdigit() for p in gold), query

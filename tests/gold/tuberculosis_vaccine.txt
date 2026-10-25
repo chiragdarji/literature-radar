@@ -1,0 +1,24 @@
+# Gold list: 'tuberculosis vaccine', last 6 months, drafted 2026-10-25
+# Source: PubMed Best Match top 20 of 466 for the query as typed.
+# Lines starting with # are ignored. Comment out papers that are not about the query.
+# Reviewed by Claude on 2026-10-25 from titles: off-topic papers are commented out with a reason.
+
+42449209  # Route of BCG administration determines success. [Review]
+# off-topic (lab biosafety): 40188869  # Laboratory-associated infections and biosafety. [Review]
+42151479  # The host immune response to Mycobacterium tuberculosis determining protection or disease progression. [Review]
+# off-topic (sepsis): 42627899  # Metabolic-epigenetic rewiring of CCR5hi monocytes sustains long-term trained immunity against lethal sepsis. [article]
+42286358  # mRNA-based tuberculosis vaccines BNT164a1 and BNT164b1 are immunogenic, well tolerated and efficacious in rode [article]
+# off-topic (TB persistence biology): 42335893  # Monocytic niches escape T cell surveillance and promote Mycobacterium tuberculosis persistence in lymph nodes. [article]
+# off-topic (TB diagnosis and management): 42191344  # Tuberculosis Infection: Diagnosis and Management. [article]
+# off-topic (TB immunology, not vaccine): 42343006  # Airway immune signatures of protection and disease progression in recent human tuberculosis household contacts [article]
+# off-topic (TB in child contacts): 41092118  # Asymptomatic Tuberculosis in Children With Household Exposure to Mycobacterium tuberculosis. [Research Support, N.I.H., Extramural]
+# off-topic (healthcare worker vaccination, general): 42392011  # Vaccination policies for healthcare personnel in Europe, 2026. [article]
+# off-topic (biologics and infections): 42228091  # [Biologics and infections: treat and prevent]. [Review, English Abstract]
+# off-topic (BCG in bladder cancer): 42508433  # Intravesical cretostimogene grenadenorepvec oncolytic immunotherapy in high-risk, BCG-unresponsive, non-muscle [Clinical Trial, Phase III, Multicenter Study]
+# off-topic (bladder cancer): 42362299  # Emerging Intravesical Therapies for Non-Muscle-Invasive Bladder Cancer. [Review]
+# off-topic (BCG in bladder cancer): 41633899  # Bacillus Calmette-Guérin Plus Mitomycin Versus Bacillus Calmette-Guérin Alone for Bacillus Calmette-Guérin-naï [Randomized Controlled Trial, Clinical Trial, Phase III, Comparative Study, Multicenter Study]
+42812022  # The BCG Vaccine: Pharmacological Biotechnology and Expanding Immunological Horizons. [Review]
+# off-topic (bladder cancer): 41825577  # Advances in intravesical therapy for non-muscle-invasive bladder cancer. [Review]
+# off-topic (BCG in bladder cancer): 41858138  # Refining BCG-failure classifications in non-muscle-invasive bladder cancer. [Multicenter Study]
+# off-topic (BCG in bladder cancer): 42342497  # Predicting the Development of BCG-unresponsive Disease Among Patients with High-grade Non-muscle-invasive Blad [Multicenter Study]
+# off-topic (BCG in bladder cancer): 42216050  # Nano-armed bcg delivers Cu-Fe MOF to trigger dual cell death in bladder cancer. [article]
