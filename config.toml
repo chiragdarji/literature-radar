@@ -14,7 +14,8 @@ brief_fallback = true         # server-side refusal fallback for the brief model
 "claude-haiku-5-5" = { input = 0.10, output = 0.50 }
 
 [fetch]
-max_papers = 30          # PubMed abstracts fetched per query
+relevance_papers = 20    # PubMed Best Match top papers fetched per query
+newest_papers = 10       # plus the newest papers not already among them
 max_trials = 20          # ClinicalTrials.gov studies fetched per query
 broad_query_hits = 5000  # above this, F25 broad-query rule applies
 timeout_s = 20.0

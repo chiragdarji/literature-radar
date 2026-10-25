@@ -1,4 +1,3 @@
-import json
 from datetime import date
 from urllib.parse import parse_qs
 
@@ -7,15 +6,24 @@ import pytest
 
 from radar.fetch_pubmed import build_term, parse_efetch, search_pubmed
 
+SEMA = '("semaglutide"[tiab] OR "semaglutide"[MeSH Terms] OR (semaglutide))'
+
 
 def test_build_term_single():
-    assert build_term(["semaglutide"]) == '("semaglutide"[tiab] OR "semaglutide"[MeSH Terms])'
+    assert build_term(["semaglutide"]) == SEMA
 
 
-def test_build_term_or_joins_and_strips_quotes():
-    term = build_term(['PCSK9', ' "evolocumab" ', ""])
-    assert term == ('(("PCSK9"[tiab] OR "PCSK9"[MeSH Terms]) OR '
-                    '("evolocumab"[tiab] OR "evolocumab"[MeSH Terms]))')
+def test_build_term_adds_pubmed_term_matching_for_phrases():
+    assert build_term(["tuberculosis vaccine"]) == (
+        '("tuberculosis vaccine"[tiab] OR "tuberculosis vaccine"[MeSH Terms] '
+        'OR (tuberculosis vaccine))')
+
+
+def test_build_term_or_joins_and_strips_query_syntax():
+    term = build_term(['PCSK9', ' "evolocumab" ', "(GLP-1)  [receptor]", ""])
+    assert term == ('(("PCSK9"[tiab] OR "PCSK9"[MeSH Terms] OR (PCSK9)) OR '
+                    '("evolocumab"[tiab] OR "evolocumab"[MeSH Terms] OR (evolocumab)) OR '
+                    '("GLP-1 receptor"[tiab] OR "GLP-1 receptor"[MeSH Terms] OR (GLP-1 receptor)))')
 
 
 def test_build_term_empty():
@@ -67,32 +75,61 @@ def _esearch_json(count, ids):
     return {"esearchresult": {"count": str(count), "idlist": ids}}
 
 
-def test_search_pubmed_end_to_end(fixture_text):
-    search = json.loads(fixture_text("pubmed_esearch_semaglutide.json"))
+def test_search_pubmed_best_match_plus_newest(fixture_text):
     fetch_xml = fixture_text("pubmed_efetch_semaglutide.xml")
+    relevant, by_date = ["42886550", "42610532", "42669356"], ["42610532", "42330703",
+                                                               "42894545", "42886550"]
     calls = []
 
     def handler(request: httpx.Request) -> httpx.Response:
         params = parse_qs(request.url.query.decode())
         calls.append((request.url.path, params))
         if request.url.path.endswith("esearch.fcgi"):
-            return httpx.Response(200, json=search)
+            ids = relevant if params["sort"] == ["relevance"] else by_date
+            return httpx.Response(200, json=_esearch_json(1455, ids))
         return httpx.Response(200, text=fetch_xml)
 
     result = search_pubmed("semaglutide", 180, http=_mock_client(handler))
 
-    assert result.hit_count == 1455
-    assert not result.broad_query
-    assert len(result.papers) == 5 and result.retracted == []
+    (_, rel), (_, new), (fetch_path, fetch) = calls
+    assert rel["sort"] == ["relevance"] and rel["retmax"] == ["20"]
+    assert new["sort"] == ["pub_date"] and new["retmax"] == ["30"]
+    for params in (rel, new):
+        assert params["term"] == [SEMA]
+        assert params["datetype"] == ["pdat"] and params["reldate"] == ["180"]
+        assert params["tool"] == ["literature-radar"] and params["email"] == ["test@example.com"]
+        assert "api_key" not in params
+    # Best Match first, then newest not already included, no duplicates
+    assert fetch["id"] == ["42886550,42610532,42669356,42330703,42894545"]
+    assert [p.pmid for p in result.papers] == ["42886550", "42610532", "42669356",
+                                               "42330703", "42894545"]
+    assert result.hit_count == 1455 and not result.broad_query
 
-    (path, params), (_, fetch_params) = calls
-    assert path.endswith("esearch.fcgi")
-    assert params["term"] == ['("semaglutide"[tiab] OR "semaglutide"[MeSH Terms])']
-    assert params["datetype"] == ["pdat"] and params["reldate"] == ["180"]
-    assert params["sort"] == ["pub_date"] and params["retmax"] == ["30"]
-    assert params["tool"] == ["literature-radar"] and params["email"] == ["test@example.com"]
-    assert "api_key" not in params
-    assert fetch_params["id"] == [",".join(search["esearchresult"]["idlist"])]
+
+def test_newest_capped_at_ten_and_skipped_when_all_fetched():
+    def handler(request):
+        params = parse_qs(request.url.query.decode())
+        if request.url.path.endswith("esearch.fcgi"):
+            if params["sort"] == ["relevance"]:
+                return httpx.Response(200, json=_esearch_json(500, [str(i) for i in range(20)]))
+            return httpx.Response(200, json=_esearch_json(500, [str(i) for i in range(5, 35)]))
+        ids = params["id"][0].split(",")
+        assert ids == [str(i) for i in range(20)] + [str(i) for i in range(20, 30)]
+        return httpx.Response(200, text="<PubmedArticleSet/>")
+
+    search_pubmed("x", 180, http=_mock_client(handler))
+
+    sorts = []
+
+    def small(request):
+        params = parse_qs(request.url.query.decode())
+        if request.url.path.endswith("esearch.fcgi"):
+            sorts.append(params["sort"][0])
+            return httpx.Response(200, json=_esearch_json(2, ["1", "2"]))
+        return httpx.Response(200, text="<PubmedArticleSet/>")
+
+    search_pubmed("y", 180, http=_mock_client(small))  # "x" would be served from the API cache
+    assert sorts == ["relevance"]  # every hit already fetched: no newest query
 
 
 def test_search_pubmed_splits_retracted(fixture_text):
@@ -108,19 +145,14 @@ def test_search_pubmed_splits_retracted(fixture_text):
     assert [p.pmid for p in result.retracted] == ["41532579"]
 
 
-def test_broad_query_re_sorts_by_relevance():
-    sorts = []
-
+def test_broad_query_flagged():
     def handler(request):
-        params = parse_qs(request.url.query.decode())
         if request.url.path.endswith("esearch.fcgi"):
-            sorts.append(params["sort"][0])
             return httpx.Response(200, json=_esearch_json(12000, []))
         raise AssertionError("efetch should not be called with no ids")
 
     result = search_pubmed("cancer", 180, http=_mock_client(handler))
-    assert result.broad_query
-    assert sorts == ["pub_date", "relevance"]
+    assert result.broad_query and result.hit_count == 12000
 
 
 def test_retries_on_server_error(fixture_text):

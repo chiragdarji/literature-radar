@@ -121,7 +121,7 @@ def test_api_cache_skips_network_on_rerun(fixture_text, fake_api, isolated):
     pipeline.run_brief("semaglutide", 6, api=api, http=_http(fixture_text, calls=calls))
     first = len(calls)
     pipeline.run_brief("semaglutide", 6, api=api, http=_http(fixture_text, calls=calls))
-    assert first == 3 and len(calls) == first  # esearch, efetch, trials: all served from cache
+    assert first == 4 and len(calls) == first  # 2 esearch, efetch, trials: all from cache
 
 
 def test_outage_falls_back_to_saved_and_logs_error(fixture_text, fake_api, isolated,

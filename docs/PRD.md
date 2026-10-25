@@ -72,7 +72,7 @@ The whole product is one screen: a search box in, a cited brief out.
 
 1. The user types a query: a molecule ("semaglutide"), a target ("PCSK9") or a disease ("dengue vaccine").
 2. They choose a time window: last 3, 6 or 12 months (default 6).
-3. The app fetches up to 30 recent paper abstracts and up to 20 clinical trials.
+3. The app fetches up to 30 paper abstracts (the 20 most relevant and the 10 newest in the window) and up to 20 clinical trials.
 4. It ranks them, keeps the 10 most relevant papers and 10 trials, and sends only those to the AI model.
 5. The model writes the brief, citing every claim with a source ID.
 6. The app checks every citation against the fetched records and drops any sentence whose citation does not match.
@@ -126,10 +126,10 @@ Both sources are free, public and need no login; PubMed works without a key, and
 
 **PubMed query rules**
 
-1. Search titles and abstracts plus MeSH: each term becomes `("term"[tiab] OR "term"[MeSH Terms])`; expanded terms (F15) are joined with OR.
-2. Filter by publication date with `datetype=pdat` and `reldate=<days>`; sort by publication date, then re-rank (see "Math and algorithms").
+1. Search titles and abstracts, MeSH and PubMed's own term matching: each term becomes `("term"[tiab] OR "term"[MeSH Terms] OR (term))`; the unquoted form lets PubMed's automatic term mapping catch plurals and word-order variants ("tuberculosis vaccines", "vaccine against dengue") that the exact phrase misses. Expanded terms (F15) are joined with OR. (Changed 25 Oct 2026 after the recall check, docs/eval/2026-10-25-recall.md.)
+2. Filter by publication date with `datetype=pdat` and `reldate=<days>`. Fetch PubMed's Best Match top 20 (`sort=relevance`) plus the 10 newest (`sort=pub_date`) not already among them, then re-rank (see "Math and algorithms"). Newest-only gave a thin recent slice of hundreds of hits and missed the papers PubMed ranks most relevant; relevance-only would drop this week's papers. (Changed 25 Oct 2026.)
 3. Fetch publication types with each record; use them to tag reviews, meta-analyses, trials and retractions (F23) instead of guessing from text.
-4. Read the hit count from esearch first; if it exceeds 5,000, apply F25's broad-query rule.
+4. Read the hit count from esearch; if it exceeds 5,000, show F25's broad-query notice suggesting a narrower term (the fetch is already relevance-led).
 5. Optional filters for later: English only (`english[lang]`), human studies (`humans[MeSH Terms]`).
 
 **Copyright.** Abstracts belong to their publishers. Use them to generate the brief, but store them only in the local cache and never include them in exports or shared pages (F26).

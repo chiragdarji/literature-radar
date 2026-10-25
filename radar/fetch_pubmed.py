@@ -1,7 +1,8 @@
 """Fetch recent PubMed papers via NCBI E-utilities (esearch + efetch).
 
-Follows the PubMed query rules in docs/PRD.md: tiab + MeSH search, publication-date
-window, publication types for tagging, retractions split out (F23), broad-query rule (F25).
+Follows the PubMed query rules in docs/PRD.md: exact phrase in title/abstract or MeSH, plus
+PubMed's own term matching; Best Match top 20 plus the 10 newest within the publication-date
+window; publication types for tagging; retractions split out (F23); broad-query notice (F25).
 """
 
 from __future__ import annotations
@@ -35,18 +36,26 @@ class PubMedResult:
     papers: list[Paper]
     retracted: list[Paper]
     hit_count: int
-    broad_query: bool  # hit_count above the F25 threshold; results sorted by relevance
+    broad_query: bool  # hit_count above the F25 threshold (the app suggests narrowing)
     term: str
     errors: list[str] = field(default_factory=list)
 
 
+QUERY_SYNTAX = str.maketrans("", "", '"[]()')
+
+
 def build_term(terms: Iterable[str]) -> str:
-    """Each term searches title/abstract and MeSH; terms are OR-ed (ready for F15)."""
+    """Each term: exact phrase in title/abstract, MeSH heading, or PubMed's own term matching.
+
+    The unquoted form lets PubMed's automatic term mapping find plurals and word-order
+    variants ("tuberculosis vaccines", "vaccine against dengue") that the exact phrase
+    misses. Terms are OR-ed (ready for F15). Quotes, brackets and parentheses are removed.
+    """
     parts = []
     for raw in terms:
-        t = raw.strip().replace('"', "")
+        t = " ".join(raw.translate(QUERY_SYNTAX).split())
         if t:
-            parts.append(f'("{t}"[tiab] OR "{t}"[MeSH Terms])')
+            parts.append(f'("{t}"[tiab] OR "{t}"[MeSH Terms] OR ({t}))')
     if not parts:
         raise ValueError("empty query")
     return parts[0] if len(parts) == 1 else "(" + " OR ".join(parts) + ")"
@@ -110,21 +119,27 @@ def search_pubmed(
     *,
     http: httpx.Client | None = None,
 ) -> PubMedResult:
-    """Search, fetch and split papers into usable and retracted (F23)."""
+    """Best Match top papers plus the newest ones, fetched and split into usable and retracted.
+
+    Newest-only would give a thin recent slice of hundreds of hits; relevance-only would drop
+    this week's papers. The ranker then picks the 10 for the brief from this mix.
+    """
     terms = [query] if isinstance(query, str) else list(query)
     term = build_term(terms)
     cfg = settings()["fetch"]
-    count, pmids = esearch(term, days, retmax=cfg["max_papers"], http=http)
-    broad = count > cfg["broad_query_hits"]
-    if broad:
-        # F25: too many hits for "newest first" to be meaningful; take the top by relevance.
-        count, pmids = esearch(term, days, retmax=cfg["max_papers"], sort="relevance", http=http)
-    papers = efetch(pmids, http=http)
+    count, relevant = esearch(term, days, retmax=cfg["relevance_papers"], sort="relevance",
+                              http=http)
+    newest: list[str] = []
+    if count > len(relevant):
+        _, by_date = esearch(term, days, retmax=cfg["relevance_papers"] + cfg["newest_papers"],
+                             sort="pub_date", http=http)
+        newest = [p for p in by_date if p not in set(relevant)][:cfg["newest_papers"]]
+    papers = efetch(relevant + newest, http=http)
     return PubMedResult(
         papers=[p for p in papers if not p.retracted],
         retracted=[p for p in papers if p.retracted],
         hit_count=count,
-        broad_query=broad,
+        broad_query=count > cfg["broad_query_hits"],
         term=term,
     )
 

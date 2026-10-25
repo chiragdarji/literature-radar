@@ -148,8 +148,8 @@ def run_brief(query: str, months: int, *, progress: Progress | None = None, api:
     ctri = sum(1 for r in india_records if r.source == "CTRI")
     notes = []
     if pubmed.broad_query:
-        notes.append(f"Very broad query: {pubmed.hit_count:,} papers matched, so the 30 most "
-                     "relevant were used. A narrower term will give a sharper brief.")
+        notes.append(f"Very broad query: {pubmed.hit_count:,} papers matched, and only the most "
+                     "relevant and newest were read. A narrower term will give a sharper brief.")
     if len(papers) + len(trial_list) < 5:
         notes.append("Few recent records were found. Try a 12-month window or another name "
                      "for the target (brand name, gene symbol).")

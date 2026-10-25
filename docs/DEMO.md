@@ -45,8 +45,8 @@ the India picture global tools miss, and the sources behind every line."
 - **An abbreviation like "MS" or "PD":** the app asks which meaning; pick one.
 - **A claim shows ⚠ partly supported:** that is the verifier working. Say so; it is the point.
 
-## Numbers to quote (evaluation of 25 Oct 2026, docs/eval/2026-10-25.md)
+## Numbers to quote (evaluation of 25 Oct 2026, docs/eval/2026-10-25-after-search-fix.md)
 
-- 10 queries: 0 invalid citations; 96% of claims supported; median 20 s per brief; about
-  $0.045 per brief.
+- 10 queries: 0 invalid citations; 97% of claims supported; median 16 s per brief; about
+  $0.047 per brief.
 - Verifier probe: caught 8 of 8 deliberately wrong claims, passed 6 of 6 true ones.
