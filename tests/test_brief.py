@@ -85,7 +85,7 @@ def test_check_citations_rules():
     assert reasons["uncited"] == "no citation"
     assert reasons["malformed"] == "unknown id: PMID:abc"
     assert reasons["gap with bad id"] == "unknown id: NCT00000000"
-    assert brief.invalid_citations == 5
+    assert brief.invalid_citations == 4 and brief.uncited == 1
 
 
 def test_context_tags_every_record_and_marks_reviews():
@@ -148,4 +148,5 @@ def test_context_gives_exact_counts():
     assert ("- Trials: 2; by status: COMPLETED 1, RECRUITING 1; "
             "by phase: PHASE2/PHASE3 1, no phase 1") in ctx
     assert "- India records: 1 CTRI, 1 CDSCO" in ctx
+    assert "India records: none" in build_context("x", 6, [PAPER])
     assert ctx.index("Counts") < ctx.index("<records>")

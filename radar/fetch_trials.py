@@ -68,7 +68,7 @@ def search_trials(
     }
     if flt := advanced_filter(days, phases):
         params["filter.advanced"] = flt
-    data = rhttp.get(settings()["trials"]["base_url"], params, http=http).json()
+    data = rhttp.get(settings()["trials"]["base_url"], params, http=http, cache=True).json()
     studies = data.get("studies", [])
     return TrialsResult(
         trials=[parse_study(s) for s in studies],

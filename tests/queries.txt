@@ -1,0 +1,12 @@
+# Evaluation queries (F27 lean: 10). One per line; "query | months" overrides the 6-month default.
+# Mix: 4 demo molecules, 3 targets, 3 diseases. Swap in STBI incubatees' targets when known.
+semaglutide
+denosumab
+trastuzumab
+nivolumab
+PCSK9
+GLP-1 receptor
+HER2
+dengue vaccine
+tuberculosis vaccine
+sickle cell disease | 12

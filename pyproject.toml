@@ -43,4 +43,5 @@ select = ["E", "F", "I", "UP", "B"]
 # Prompt text and CSV fixtures read better unwrapped.
 "radar/brief.py" = ["E501"]
 "radar/verify.py" = ["E501"]
+"radar/evaluate.py" = ["E501"]
 "tests/test_india.py" = ["E501"]

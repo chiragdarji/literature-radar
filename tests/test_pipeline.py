@@ -5,17 +5,19 @@ from urllib.parse import parse_qs
 import httpx
 import pytest
 
-from radar import pipeline
+from radar import history, pipeline
 from radar.config import settings
 from tests.test_brief import CDSCO, CTRI
 
 
-def _http(fixture_text, *, empty=False, down=False):
+def _http(fixture_text, *, empty=False, down=False, calls=None):
     esearch = json.loads(fixture_text("pubmed_esearch_semaglutide.json"))
     efetch = fixture_text("pubmed_efetch_semaglutide.xml")
     trials = json.loads(fixture_text("trials_semaglutide.json"))
 
     def handler(request):
+        if calls is not None:
+            calls.append(request.url.path)
         if down:
             raise httpx.ConnectError("offline", request=request)
         path = request.url.path
@@ -46,12 +48,11 @@ def _responder(kwargs):
 
 
 @pytest.fixture
-def isolated(monkeypatch, tmp_path):
-    """Fixed India records, no log writes, and a throwaway cache file."""
+def isolated(monkeypatch):
+    """Fixed India records and no log writes (conftest already gives a fresh database)."""
     logged = []
     monkeypatch.setattr(pipeline.runlog, "append", logged.append)
     monkeypatch.setattr(pipeline.india, "load_for_query", lambda q: [CTRI, CDSCO])
-    monkeypatch.setitem(settings()["cache"], "path", str(tmp_path / "cache.sqlite"))
     return logged
 
 
@@ -76,48 +77,75 @@ def test_run_brief_end_to_end(fixture_text, fake_api, isolated):
     assert log["records_sent"] == 17 and log["cost_usd"] > 0
 
 
-def test_payload_is_json_and_has_no_abstracts(fixture_text, fake_api, isolated):
+def test_saved_view_has_no_abstracts_and_keeps_scores(fixture_text, fake_api, isolated):
     result = pipeline.run_brief("semaglutide", 6, api=fake_api(_responder),
                                 http=_http(fixture_text))
-    payload = pipeline.to_payload(result)
-    text = json.dumps(payload)
+    sid = pipeline.save_result(result, "semaglutide", 6)
+    with history.connect() as db:
+        dump = "\n".join(str(tuple(r)) for t in ("searches", "briefs", "search_sources")
+                         for r in db.execute(f"SELECT * FROM {t}"))
     abstract_bit = result.ranked[0].record.abstract[:60]
-    summary_bit = next(s.record for s in result.ranked if s.record.source_id.startswith("NCT")
-                       ).summary[:60]
-    assert abstract_bit not in text and summary_bit not in text
+    summary_bit = next(s.record for s in result.ranked
+                       if s.record.source_id.startswith("NCT")).summary[:60]
+    assert abstract_bit not in dump and summary_bit not in dump  # F26: history has no abstracts
+
+    payload = pipeline.open_saved(sid).payload
+    json.dumps(payload)
+    assert payload["markdown"] == result.markdown
     assert sum(s["cited"] for s in payload["sources"]) == 2
+    assert {"relevance", "recency", "score", "rank", "kind", "who"} <= set(payload["sources"][0])
     assert payload["india"][0]["cited"] and not payload["india"][1]["cited"]
-    assert {"relevance", "recency", "score", "rank"} <= set(payload["sources"][0])
+    assert payload["india"][0]["sponsor"].startswith("Dr. Reddy's")  # joined from the CSV
+    row = history.get_search(sid).row
+    assert row["status"] == "ok" and row["paper_count"] == 5 and row["trial_count"] == 20
+    assert row["invalid_citations"] == 1 and row["supported_pct"] == 100.0
+    assert row["input_tokens"] > 0 and row["model"] == "claude-sonnet-5-5"
 
 
-def test_get_brief_uses_cache_then_refresh(fixture_text, fake_api, isolated):
+def test_get_brief_reuses_saved_then_refreshes(fixture_text, fake_api, isolated):
     api = fake_api(_responder)
     first = pipeline.get_brief("semaglutide", 6, api=api, http=_http(fixture_text))
     second = pipeline.get_brief("Semaglutide", 6, api=api, http=_http(fixture_text))
-    assert first.source == "live" and second.source == "cache"
+    assert first.source == "live" and second.source == "saved"
+    assert second.search_id == first.search_id and "saved brief" in second.notice
     assert second.payload["markdown"] == first.payload["markdown"]
     calls = len(api.calls)
     third = pipeline.get_brief("semaglutide", 6, refresh=True, api=api, http=_http(fixture_text))
-    assert third.source == "live" and len(api.calls) > calls
+    assert third.source == "live" and third.search_id != first.search_id
+    assert len(api.calls) > calls
 
 
-def test_get_brief_falls_back_to_stale_cache_when_down(fixture_text, fake_api, isolated,
-                                                       monkeypatch):
+def test_api_cache_skips_network_on_rerun(fixture_text, fake_api, isolated):
+    calls = []
+    api = fake_api(_responder)
+    pipeline.run_brief("semaglutide", 6, api=api, http=_http(fixture_text, calls=calls))
+    first = len(calls)
+    pipeline.run_brief("semaglutide", 6, api=api, http=_http(fixture_text, calls=calls))
+    assert first == 3 and len(calls) == first  # esearch, efetch, trials: all served from cache
+
+
+def test_outage_falls_back_to_saved_and_logs_error(fixture_text, fake_api, isolated,
+                                                  monkeypatch):
     api = fake_api(_responder)
     pipeline.get_brief("semaglutide", 6, api=api, http=_http(fixture_text))
-    monkeypatch.setitem(settings()["cache"], "ttl_hours", -1)  # everything is now stale
+    monkeypatch.setitem(settings()["history"], "reuse_brief_hours", 0)
+    monkeypatch.setitem(settings()["history"], "api_cache_hours", 0)
     outcome = pipeline.get_brief("semaglutide", 6, api=api, http=_http(fixture_text, down=True))
-    assert outcome.source == "stale cache" and "unreachable" in outcome.notice
+    assert outcome.source == "saved (offline)" and "unreachable" in outcome.notice
 
     with pytest.raises(pipeline.SourcesDown):
         pipeline.get_brief("pcsk9", 6, api=api, http=_http(fixture_text, down=True))
+    statuses = [(r.query, r.status) for r in history.list_recent()]
+    assert statuses[:3] == [("pcsk9", "error"), ("semaglutide", "error"), ("semaglutide", "ok")]
 
 
-def test_no_records(fixture_text, fake_api, isolated, monkeypatch):
+def test_no_records_is_saved(fixture_text, fake_api, isolated, monkeypatch):
     monkeypatch.setattr(pipeline.india, "load_for_query", lambda q: [])
     with pytest.raises(pipeline.NoRecords):
-        pipeline.run_brief("zzqx", 6, api=fake_api(lambda k: pytest.fail("no model call")),
+        pipeline.get_brief("zzqx", 6, api=fake_api(lambda k: pytest.fail("no model call")),
                            http=_http(fixture_text, empty=True))
+    (row,) = history.list_recent()
+    assert (row.query, row.status) == ("zzqx", "no_results")
 
 
 def test_ambiguous_meanings():

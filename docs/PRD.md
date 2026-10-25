@@ -20,6 +20,7 @@ Literature Radar turns a molecule, target or disease into a one-page, cited rese
 | Evidence map (F18), trial landscape (F19), what changed (F21) |  | ✓ |  |
 | Theme clusters (F20), evidence score (A4) |  | ✓ |  |
 | Research momentum chart (A3) |  |  | ✓ (optional small chart at most) |
+| Search history in local SQLite (F29) | ✓ | Powers "what changed" (F21) |  |
 
 **How it earns money:** not as a subscription tool, but as an "India Biosimilar & Generics Radar" service — monthly watch reports on 5–10 molecules per client, or ₹3–5 lakh portfolio-selection sprints, with Literature Radar as the engine behind the analyst.
 
@@ -105,6 +106,7 @@ The whole product is one screen: a search box in, a cited brief out.
 | F26 | Exports contain the brief, the claims' citations and links only — never copied abstracts | Must |
 | F27 | Evaluation harness: 15 fixed queries (10 for the lean build); per query record invalid citations, claim-support rate, recall against a manual PubMed search, time to first brief and cost; run after every milestone | Must |
 | F28 | India tab: CTRI trials and CDSCO approvals and SEC recommendations for the demo molecules, loaded from curated CSV files, cited as [CTRI:…] and [CDSCO:…] and covered by the citation check and claim verification | Must (lean build) |
+| F29 | Search history: every run (including failures) is saved to a local SQLite database with its query, settings, counts, quality scores, cost, the rendered brief and the cited source IDs; a sidebar lists past searches; opening one shows the saved brief instantly with no API calls; the user can re-run, delete one or clear all | Must (lean build) |
 
 ## Data sources and API details
 
@@ -250,7 +252,7 @@ literature-radar/
     rank.py           # BM25 + recency + MMR, trim to top 10 + 10
     brief.py          # prompt, model call (JSON claims), citation check
     verify.py         # claim verification (F17)
-    cache.py          # SQLite cache
+    history.py        # SQLite search history + 24-hour API cache (F29)
   data/india/         # ctri.csv, cdsco.csv (hand-collected)
   tests/              # pytest + saved sample responses
   tests/queries.txt   # 10 evaluation queries
@@ -259,6 +261,77 @@ literature-radar/
   config.toml         # model names and limits
   .env                # ANTHROPIC_API_KEY, NCBI_API_KEY, NCBI_EMAIL (never commit)
 ```
+
+**Search history and cache (F29) — local SQLite**
+
+One file, `data/radar.db`, git-ignored, holds two separate things: a 24-hour cache of raw API responses (F11) and a permanent search history. The cache can be wiped at any time; the history is the record of what was searched and what the brief said.
+
+```sql
+-- PRAGMA journal_mode = WAL; PRAGMA foreign_keys = ON; PRAGMA user_version = 1;
+
+CREATE TABLE searches (
+  id                INTEGER PRIMARY KEY,
+  created_at        TEXT    NOT NULL,          -- ISO 8601 UTC
+  query             TEXT    NOT NULL,          -- as typed
+  query_norm        TEXT    NOT NULL,          -- lowercase, trimmed: groups repeat searches
+  window_months     INTEGER NOT NULL,          -- 3, 6 or 12
+  status            TEXT    NOT NULL CHECK (status IN ('ok','no_results','error')),
+  error             TEXT,
+  model             TEXT,
+  paper_count       INTEGER,
+  trial_count       INTEGER,
+  india_count       INTEGER,
+  retracted_count   INTEGER,
+  invalid_citations INTEGER,                   -- dropped by the citation check
+  supported_pct     REAL,                      -- claim verification (F17)
+  latency_ms        INTEGER,
+  input_tokens      INTEGER,
+  output_tokens     INTEGER
+);
+CREATE INDEX idx_searches_query ON searches(query_norm, created_at DESC);
+
+CREATE TABLE briefs (
+  search_id   INTEGER PRIMARY KEY REFERENCES searches(id) ON DELETE CASCADE,
+  brief_md    TEXT NOT NULL,                   -- rendered brief, as shown
+  claims_json TEXT NOT NULL                    -- claims with source IDs and verification labels
+);
+
+CREATE TABLE search_sources (
+  search_id   INTEGER NOT NULL REFERENCES searches(id) ON DELETE CASCADE,
+  source_id   TEXT    NOT NULL,                -- PMID:…, NCT…, CTRI/…, SEC-…
+  source_type TEXT    NOT NULL CHECK (source_type IN ('pmid','nct','ctri','cdsco')),
+  rank        INTEGER,
+  cited       INTEGER NOT NULL DEFAULT 0,      -- 1 if the brief cites it
+  title       TEXT,
+  date        TEXT,
+  status      TEXT,                            -- trial status, for "what changed"
+  url         TEXT,
+  PRIMARY KEY (search_id, source_id)
+);
+
+CREATE TABLE api_cache (
+  cache_key   TEXT PRIMARY KEY,                -- source + normalised query + window
+  payload     TEXT NOT NULL,                   -- raw JSON/XML response
+  fetched_at  TEXT NOT NULL
+);
+```
+
+**Behaviour**
+
+- Write one `searches` row per run, including failed and empty runs, so problems are visible later.
+- The sidebar shows the 20 most recent searches (query, date, counts, supported %), with a filter box.
+- Opening a past search shows the saved brief and sources instantly, with a "Saved on <date>" label and a **Run again** button; this doubles as the offline backup for the STBI demo.
+- **Delete** removes one search (cascades to its brief and sources); **Clear history** removes all after a confirmation.
+- **Export history** downloads a CSV of the `searches` table (metadata only).
+- History never stores abstracts — only the rendered brief, IDs, titles, dates and links (F26). Abstracts live only in `api_cache`, which expires after 24 hours.
+- Schema changes go through `PRAGMA user_version` migrations in `radar/history.py`, so old history survives upgrades.
+- Hosting note: Streamlit Community Cloud does not keep files between restarts, so history there is temporary; your laptop keeps it permanently.
+
+**What it enables later:** F21 "what changed since last run" compares `search_sources` of the latest two runs with the same `query_norm` and window — new IDs, and trials whose `status` changed.
+
+**Claude Code prompt (add to M4)**
+
+"Add `radar/history.py` using the standard-library `sqlite3`: create `data/radar.db` with the schema in docs/PRD.md (WAL mode, foreign keys on, user_version migrations); functions `save_search(...)`, `list_recent(limit=20, text_filter=None)`, `get_search(id)`, `delete_search(id)`, `clear_history()`, `export_csv()`; move the 24-hour API cache into the `api_cache` table. In app.py add a sidebar with recent searches, open/re-run/delete buttons, Clear history with confirmation, and Export history. Write pytest tests using a temporary database. Add data/radar.db to .gitignore."
 
 **Non-functional targets:** first brief in under 60 seconds; at most 10 records per type in the brief prompt; no personal data stored; API keys only in `.env`; log the token count of each brief so you know the cost per brief.
 
@@ -287,7 +360,7 @@ Each decision favours speed of building and learning for a solo, part-time found
 | AD-7 | Output format | Model returns JSON (claims with source IDs); code renders Markdown | Model writes Markdown directly | Each claim can be checked against its IDs before display | — |
 | AD-8 | Citation integrity | Code validation drops any claim with an unknown ID | Trusting the model | Zero invented citations is the demo's core promise | — |
 | AD-9 | Agent framework | None: plain functions | LangChain, LlamaIndex | Fewer layers to learn and debug; the pipeline is linear | Multi-step agents with tools (v2+) |
-| AD-10 | Storage | SQLite: 24-hour cache plus brief history | Redis, Postgres | Zero setup, one file | Hosted multi-user version |
+| AD-10 | Storage | SQLite (`data/radar.db`): 24-hour API cache plus permanent search history (F29) | Redis, Postgres | Zero setup, one file | Hosted multi-user version |
 | AD-11 | Hosting | Laptop for the meeting; Streamlit Community Cloud for a shareable link | Cloud VM, containers | Free and instant | Client pilots with SLAs |
 | AD-12 | Secrets | `.env` with `python-dotenv`, git-ignored | Secret manager | Simple and safe for one developer | Team or hosted deployment |
 | AD-13 | Observability | Log query, record counts, tokens, latency, invalid-citation count to a JSON-lines file | Monitoring platforms | Enough to know cost and quality | Paying clients |
@@ -362,6 +435,7 @@ Python 3.11+, Streamlit, httpx, SQLite. Keys only in .env (never commit .env).
 - Run claim verification (F17) before display; never show unsupported claims.
 - Model names and limits live in config.toml; Sonnet for briefs, Haiku for expansion, extraction, verification.
 - Exports carry summaries, citations and links only, never copied abstracts.
+- Search history lives in data/radar.db (git-ignored); it stores briefs, IDs and links, never abstracts.
 
 ## Workflow
 - Plan first, then code; keep functions small and typed.

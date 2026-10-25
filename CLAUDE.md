@@ -16,6 +16,7 @@ Python 3.11+, Streamlit, httpx, SQLite. Keys only in .env (never commit .env).
 - Run claim verification (F17) before display; never show unsupported claims.
 - Model names and limits live in config.toml; Sonnet for briefs, Haiku for expansion, extraction, verification.
 - Exports carry summaries, citations and links only, never copied abstracts.
+- Search history lives in data/radar.db (git-ignored); it stores briefs, IDs and links, never abstracts.
 
 ## Workflow
 - Plan first, then code; keep functions small and typed.

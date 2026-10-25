@@ -40,6 +40,7 @@ Never give clinical, dosing or treatment advice.
 Output format: JSON matching the schema. Each claim has "text" (one plain sentence, with no IDs inside it) and "ids" (the record IDs that support it, copied exactly as shown in the records, e.g. "PMID:41532579", "NCT07891156", "CTRI:CTRI/2025/06/088110", "CDSCO:SEC-ENDO-2025-12-09-04"). The ids field is how this brief ends each sentence with its sources.
 
 Rules for every claim:
+- Cite only the record IDs shown in square brackets at the start of each record. An abstract or summary may mention other trial or paper IDs (such as an NCT number of the trial a paper reports); never cite those, cite the record itself.
 - Say only what the cited records state. You see a small sample, so do not characterise the wider literature or field ("dominated by", "the main focus", "a wide pipeline", "growing interest").
 - For any count of records, phases or statuses, use the "Counts" lines given with the records; never estimate.
 - Some records mention the query only in passing (as a comparator, or among other drugs or diseases). Describe what each paper or trial actually studies, and leave out records that are not about the query.
@@ -47,7 +48,7 @@ Rules for every claim:
 
 Sections:
 - in_one_line: exactly one claim, the single most important development, about one or two specific records.
-- research: 3 to 6 claims on what the new papers report. Say when a paper is a review or meta-analysis rather than an original study.
+- research: 3 to 6 claims on what the new papers report, each about one paper or a small group of related papers. When 3 or more relevant papers are given, write at least 3 claims. Say when a paper is a review or meta-analysis rather than an original study.
 - trials: 1 to 4 claims on clinical trial activity: how many trials, their phases and statuses, main sponsors, and a notable trial and why it matters, using only facts in its record (phase, population, comparator, design).
 - india: claims on the CTRI trials and CDSCO decisions given. An SEC (Subject Expert Committee) recommendation is not a final approval; say "recommended" unless a record says approved. Empty list if no India records are given.
 - gaps: what the records disagree on or do not cover; ids optional.
@@ -99,7 +100,13 @@ class Brief:
 
     @property
     def invalid_citations(self) -> int:
-        return sum(1 for d in self.dropped if d.reason.startswith(("no citation", "unknown id")))
+        """Claims dropped for citing an ID that was not fetched or is malformed (F6)."""
+        return sum(1 for d in self.dropped if d.reason.startswith("unknown id"))
+
+    @property
+    def uncited(self) -> int:
+        """Factual claims dropped for having no citation at all."""
+        return sum(1 for d in self.dropped if d.reason == "no citation")
 
 
 # --- Context ----------------------------------------------------------------------------------
@@ -146,8 +153,12 @@ def record_counts(records: list[Record]) -> str:
                      f"by phase: {_tally(phases)}")
     else:
         lines.append("- Trials: 0")
-    lines.append(f"- India records: {sum(r.source == 'CTRI' for r in india)} CTRI, "
-                 f"{sum(r.source == 'CDSCO' for r in india)} CDSCO")
+    if india:
+        lines.append(f"- India records: {sum(r.source == 'CTRI' for r in india)} CTRI, "
+                     f"{sum(r.source == 'CDSCO' for r in india)} CDSCO")
+    else:
+        lines.append("- India records: none, so return an empty india list (the app shows "
+                     "its own 'no India records' note)")
     return "\n".join(lines)
 
 

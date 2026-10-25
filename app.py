@@ -10,7 +10,7 @@ from typing import Any
 import pandas as pd
 import streamlit as st
 
-from radar import export, india, pipeline
+from radar import export, history, india, pipeline
 from radar.config import settings
 from radar.llm import ModelError, ModelRefusal
 
@@ -24,12 +24,42 @@ def pdf_bytes(markdown: str) -> bytes:
     return export.to_pdf(markdown)
 
 
-def queue_run(query: str | None = None) -> None:
-    """Button callback: optionally set the query, then run on this rerun."""
+def queue_run(query: str | None = None, months: int | None = None, live: bool = False) -> None:
+    """Button callback: optionally set the query (and window), then run on this rerun."""
     if query is not None:
         st.session_state.query = query
+    if months is not None:
+        st.session_state.months = months
     st.session_state.pending = True
+    st.session_state.force_live = live
     st.session_state.pop("ambiguous", None)
+
+
+def open_search(search_id: int) -> None:
+    """Sidebar callback: show a saved search instantly, with no API calls (F29)."""
+    st.session_state.pop("ambiguous", None)
+    saved = history.get_search(search_id)
+    if saved is None:
+        st.session_state.pop("result", None)
+    elif saved.brief_md is None:
+        st.session_state.result = {"failed": saved.row}
+    else:
+        outcome = pipeline.open_saved(search_id)
+        st.session_state.result = {"query": saved.row["query"],
+                                   "months": saved.row["window_months"], "outcome": outcome}
+
+
+def delete_search(search_id: int) -> None:
+    history.delete_search(search_id)
+    result = st.session_state.get("result") or {}
+    if getattr(result.get("outcome"), "search_id", None) == search_id or \
+            (result.get("failed") or {}).get("id") == search_id:
+        st.session_state.pop("result", None)
+
+
+def clear_history() -> None:
+    history.clear_history()
+    st.session_state.pop("result", None)
 
 
 def run(query: str, months: int, refresh: bool) -> None:
@@ -38,7 +68,7 @@ def run(query: str, months: int, refresh: bool) -> None:
     try:
         with status:
             outcome = pipeline.get_brief(query, months, refresh=refresh, progress=status.write)
-        status.update(label="Brief ready" if outcome.source == "live" else "Loaded from cache",
+        status.update(label="Brief ready" if outcome.source == "live" else "Opened saved brief",
                       state="complete", expanded=False)
     except Exception as exc:  # noqa: BLE001 - every failure gets a message, unknown ones in full
         status.update(label="Stopped", state="error", expanded=False)
@@ -66,15 +96,19 @@ def explain_failure(exc: Exception, query: str, months: int) -> None:
 
 def show_result(query: str, outcome: pipeline.Outcome) -> None:
     payload = outcome.payload
-    if outcome.notice:
-        (st.warning if outcome.source == "stale cache" else st.info)(outcome.notice)
+    if outcome.source != "live":
+        note, again = st.columns([4, 1])
+        (note.warning if outcome.source == "saved (offline)" else note.info)(outcome.notice)
+        again.button("Run again", on_click=queue_run,
+                     args=(payload["query"], payload["months"], True),
+                     help="Fetch the latest papers and trials and write a new brief")
 
     markdown = payload["markdown"]
     slug = "-".join(query.lower().split())
     left, right, _ = st.columns([1, 1, 2])
-    left.download_button("Download Markdown", export.to_markdown(markdown),
+    left.download_button("⬇ Markdown", export.to_markdown(markdown),
                          file_name=f"literature-radar-{slug}.md", mime="text/markdown")
-    right.download_button("Download PDF", pdf_bytes(markdown),
+    right.download_button("⬇ PDF", pdf_bytes(markdown),
                           file_name=f"literature-radar-{slug}.pdf", mime="application/pdf")
 
     india_rows = payload["india"]
@@ -160,6 +194,46 @@ def show_run_details(log: dict[str, Any]) -> None:
     st.dataframe(pd.DataFrame(log["tokens"]), hide_index=True)
 
 
+def show_failed(row: dict[str, Any]) -> None:
+    when = history.parse_ts(row["created_at"]).astimezone().strftime("%d %b %Y, %H:%M")
+    what = "found no results" if row["status"] == "no_results" else "failed"
+    st.warning(f"This search for **{row['query']}** (last {row['window_months']} months) {what} "
+               f"on {when}.\n\n{row['error'] or ''}")
+    st.button("Run again", on_click=queue_run, args=(row["query"], row["window_months"], True))
+
+
+def sidebar() -> None:
+    sb = st.sidebar
+    sb.header("Search history")
+    text = sb.text_input("Filter", placeholder="Filter past searches",
+                         label_visibility="collapsed")
+    recent = history.list_recent(20, text)
+    if not recent:
+        sb.caption("No saved searches yet." if not text else "No matches.")
+    icons = {"ok": "📄", "no_results": "∅", "error": "⚠"}
+    for item in recent:
+        when = item.created_at.astimezone().strftime("%d %b, %H:%M")
+        stats = (f"{item.paper_count or 0} papers · {item.trial_count or 0} trials · "
+                 f"{item.supported_pct:.0f}% supported" if item.status == "ok"
+                 and item.supported_pct is not None else item.status.replace("_", " "))
+        sb.button(f"{icons[item.status]} {item.query} · {item.window_months} mo",
+                  key=f"open-{item.id}", on_click=open_search, args=(item.id,),
+                  use_container_width=True)
+        info, delete = sb.columns([4, 1], vertical_alignment="center")
+        info.caption(f"{when} · {stats}")
+        delete.button("✕", key=f"del-{item.id}", on_click=delete_search, args=(item.id,),
+                      help="Delete this search", type="tertiary")
+    if recent:
+        sb.download_button("Export history (CSV)", history.export_csv(),
+                           file_name="literature-radar-history.csv", mime="text/csv",
+                           use_container_width=True)
+        with sb.popover("Clear history", use_container_width=True):
+            st.write("Delete every saved search and brief? This cannot be undone.")
+            st.button("Yes, clear all", type="primary", on_click=clear_history)
+    sb.caption("Saved on this computer in data/radar.db. Briefs, IDs and links only; "
+               "no abstracts.")
+
+
 # --- Page ----------------------------------------------------------------------------------
 
 st.title("📡 Literature Radar")
@@ -175,10 +249,11 @@ for col, example in zip(example_cols, EXAMPLES, strict=True):
     col.button(example, on_click=queue_run, args=(example,), use_container_width=True)
 
 left, right = st.columns([3, 1])
-months = left.radio("Time window", cfg["windows_months"], horizontal=True,
-                    index=cfg["windows_months"].index(cfg["default_window_months"]),
+st.session_state.setdefault("months", cfg["default_window_months"])
+months = left.radio("Time window", cfg["windows_months"], horizontal=True, key="months",
                     format_func=lambda m: f"Last {m} months")
-refresh = right.checkbox("Ignore cache", help="Run live even if this query ran in the last 24 h")
+refresh = right.checkbox("Run live", help="Write a new brief even if this search was saved "
+                                          "in the last 24 hours")
 st.button("Generate brief", type="primary", on_click=queue_run)
 
 query = st.session_state.get("query", "").strip()
@@ -187,7 +262,7 @@ if st.session_state.pop("pending", False) and query:
         st.session_state.ambiguous = (query, meanings)
         st.session_state.pop("result", None)  # don't leave the previous brief under the question
     else:
-        run(query, months, refresh)
+        run(query, months, refresh or st.session_state.pop("force_live", False))
 
 if ambiguous := st.session_state.get("ambiguous"):
     abbrev, meanings = ambiguous
@@ -195,7 +270,12 @@ if ambiguous := st.session_state.get("ambiguous"):
     st.button("Use this meaning", type="primary", on_click=queue_run, args=(choice,))
 
 if result := st.session_state.get("result"):
-    show_result(result["query"], result["outcome"])
+    if "failed" in result:
+        show_failed(result["failed"])
+    else:
+        show_result(result["query"], result["outcome"])
+
+sidebar()
 
 st.divider()
 st.caption("AI-generated from public sources. Verify before use. Not medical advice. "

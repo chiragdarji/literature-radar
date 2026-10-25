@@ -26,6 +26,7 @@ htmlcov/
 
 # App runtime
 logs/
-cache/
 *.sqlite
 *.sqlite3
+data/radar.db
+data/radar.db-*

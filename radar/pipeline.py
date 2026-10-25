@@ -1,7 +1,9 @@
-"""End-to-end run: fetch → rank → brief → citation check → verify → render → log → cache.
+"""End-to-end run: fetch → rank → brief → citation check → verify → render → log → history.
 
-`get_brief` is what the app calls: it serves the 24-hour cache, runs live otherwise, and
-falls back to a stale cached brief when a live source is down (F11, F25).
+`get_brief` is what the app calls. It reopens a saved brief for the same query and window
+from the last 24 hours, runs live otherwise, saves every run (including failures) to the
+search history (F29), and falls back to the latest saved brief when a source is down (F25).
+The app always displays what was saved, so a reopened search looks exactly like a live one.
 """
 
 from __future__ import annotations
@@ -17,7 +19,7 @@ from typing import Any
 import anthropic
 import httpx
 
-from radar import cache, india, runlog
+from radar import history, india, runlog
 from radar.brief import Brief, Record, generate_brief
 from radar.config import settings
 from radar.fetch_pubmed import PubMedResult, search_pubmed
@@ -50,12 +52,14 @@ class RunResult:
     ranked: list[Scored[Any]]  # papers then trials sent to the model, with score parts
     india: list[IndiaRecord]
     retracted: list[Paper]
+    fetched_pmids: list[str]  # every non-retracted paper fetched, before ranking (for recall)
 
 
 @dataclass
 class Outcome:
     payload: dict[str, Any]
-    source: str  # "live", "cache" or "stale cache"
+    source: str  # "live", "saved" or "saved (offline)"
+    search_id: int
     notice: str | None = None
 
 
@@ -67,20 +71,39 @@ def ambiguous_meanings(query: str) -> list[str] | None:
 
 def get_brief(query: str, months: int, *, refresh: bool = False, progress: Progress | None = None,
               api: Any = None, http: httpx.Client | None = None) -> Outcome:
-    if not refresh and (hit := cache.get(query, months)):
-        return Outcome(hit.payload, "cache", f"Cached brief from {_when(hit.created_at)}.")
+    reuse_h = settings()["history"]["reuse_brief_hours"]
+    if not refresh and (sid := history.latest_ok(query, months, max_age_hours=reuse_h)):
+        return open_saved(sid)
     try:
         result = run_brief(query, months, progress=progress, api=api, http=http)
+    except NoRecords as exc:
+        history.save_search(query=query, window_months=months, status="no_results",
+                            error=str(exc), model=settings()["models"]["brief"])
+        raise
     except (httpx.HTTPError, anthropic.APIConnectionError, anthropic.APIStatusError) as exc:
-        if stale := cache.get(query, months, allow_stale=True):
-            return Outcome(stale.payload, "stale cache",
-                           f"Live sources are unreachable ({type(exc).__name__}), so this is the "
-                           f"cached brief from {_when(stale.created_at)}.")
+        save_error(query, months, exc)
+        if sid := history.latest_ok(query, months):
+            outcome = open_saved(sid)
+            outcome.source = "saved (offline)"
+            outcome.notice = (f"Live sources are unreachable ({type(exc).__name__}), so this is "
+                              f"{outcome.notice[0].lower()}{outcome.notice[1:]}")
+            return outcome
         raise SourcesDown("A data source or the AI service did not respond. Please try again "
                           "in a minute.") from exc
-    payload = to_payload(result)
-    cache.put(query, months, payload)
-    return Outcome(payload, "live")
+    except Exception as exc:
+        save_error(query, months, exc)
+        raise
+    outcome = open_saved(save_result(result, query, months))
+    outcome.source, outcome.notice = "live", None
+    return outcome
+
+
+def open_saved(search_id: int) -> Outcome:
+    saved = history.get_search(search_id)
+    if saved is None or saved.brief_md is None:
+        raise KeyError(f"no saved brief for search {search_id}")
+    return Outcome(payload_from_saved(saved), "saved", search_id,
+                   f"The saved brief from {_when(saved.created_at)}.")
 
 
 def run_brief(query: str, months: int, *, progress: Progress | None = None, api: Any = None,
@@ -147,38 +170,85 @@ def run_brief(query: str, months: int, *, progress: Progress | None = None, api:
     log = _log_entry(query, months, pubmed, trials, records, brief, stats, timings)
     runlog.append(log)
     return RunResult(markdown, brief, stats, stamp, log, [*ranked_papers, *ranked_trials],
-                     india_records, pubmed.retracted)
+                     india_records, pubmed.retracted, [p.pmid for p in pubmed.papers])
 
 
-def to_payload(result: RunResult) -> dict[str, Any]:
-    """JSON-safe view for the app and the cache. No abstracts or trial summaries (F26)."""
+def save_result(result: RunResult, query: str, months: int) -> int:
+    """Write a successful run to the search history (F29). No abstracts or summaries (F26)."""
     cited = {i for c in result.brief.claims() for i in c.ids}
-    sources = []
+    log = result.log
+    ranking, sources = {}, []
     for s in result.ranked:
         r = s.record
         paper = isinstance(r, Paper)
-        sources.append({
-            "id": r.source_id, "kind": "Paper" if paper else "Trial", "title": r.title,
+        ranking[r.source_id] = {
+            "kind": "Paper" if paper else "Trial",
+            "who": r.journal if paper else r.sponsor,
             "detail": (", ".join(r.publication_types) if paper
                        else f"{r.status} · {'/'.join(r.phases) or 'no phase'}"),
-            "who": r.journal if paper else r.sponsor,
+            "relevance": round(s.bm25, 3), "recency": round(s.recency, 3),
+            "score": round(s.score, 3)}
+        sources.append({
+            "source_id": r.source_id, "source_type": "pmid" if paper else "nct", "rank": s.rank,
+            "cited": r.source_id in cited, "title": r.title,
             "date": str((r.pub_date if paper else r.last_update) or ""),
-            "url": r.url, "rank": s.rank, "relevance": round(s.bm25, 3),
-            "recency": round(s.recency, 3), "score": round(s.score, 3),
-            "cited": r.source_id in cited,
-        })
-    india_rows = [{"id": r.source_id, "source": r.source, "title": r.title,
-                   "date": str(r.date or ""), "url": r.url, **r.details,
-                   "cited": r.source_id in cited} for r in result.india]
-    return {
-        "markdown": result.markdown,
-        "run_at": result.stamp.run_at.isoformat(timespec="seconds"),
-        "log": result.log,
-        "sources": sources,
-        "india": india_rows,
+            "status": None if paper else r.status, "url": r.url})
+    sources += [{"source_id": r.source_id, "source_type": r.source.lower(), "rank": None,
+                 "cited": r.source_id in cited, "title": r.title, "date": str(r.date or ""),
+                 "status": r.details.get("status") or r.details.get("decision_type"),
+                 "url": r.url} for r in result.india]
+    details = {
+        "claims": {sec: [{"text": c.text, "ids": list(c.ids), "label": c.label, "note": c.note}
+                         for c in claims] for sec, claims in result.brief.sections.items()},
+        "dropped": log["dropped"],
+        "log": log,
+        "ranking": ranking,
         "retracted": [{"id": p.source_id, "title": p.title, "url": p.url}
                       for p in result.retracted],
     }
+    return history.save_search(
+        query=query, window_months=months, status="ok", model=settings()["models"]["brief"],
+        paper_count=log["papers_fetched"], trial_count=log["trials_fetched"],
+        india_count=len(result.india), retracted_count=log["retracted"],
+        invalid_citations=log["invalid_citations"],
+        supported_pct=None if log["support_rate"] is None else round(100 * log["support_rate"], 1),
+        latency_ms=round(1000 * log["total_s"]),
+        input_tokens=sum(t["in"] for t in log["tokens"]),
+        output_tokens=sum(t["out"] for t in log["tokens"]),
+        brief_md=result.markdown, details=details, sources=sources)
+
+
+def payload_from_saved(saved: history.SavedSearch) -> dict[str, Any]:
+    """The app's view of a saved search: brief, ranked sources, India rows, run details."""
+    ranking = saved.details.get("ranking", {})
+    sources = [{"id": s["source_id"], "title": s["title"], "date": s["date"], "url": s["url"],
+                "rank": s["rank"], "cited": bool(s["cited"]), **ranking.get(s["source_id"], {})}
+               for s in saved.sources if s["source_type"] in ("pmid", "nct")]
+    curated = {r.source_id: r for r in india.load_all()}
+    india_rows = []
+    for s in saved.sources:
+        if s["source_type"] not in ("ctri", "cdsco"):
+            continue
+        rec = curated.get(s["source_id"])
+        india_rows.append({"id": s["source_id"], "source": s["source_type"].upper(),
+                           "title": s["title"], "date": s["date"], "url": s["url"],
+                           **(rec.details if rec else {}), "cited": bool(s["cited"])})
+    return {
+        "markdown": saved.brief_md,
+        "run_at": saved.row["created_at"],
+        "query": saved.row["query"],
+        "months": saved.row["window_months"],
+        "log": saved.details.get("log", {}),
+        "sources": sources,
+        "india": india_rows,
+        "retracted": saved.details.get("retracted", []),
+    }
+
+
+def save_error(query: str, months: int, exc: BaseException) -> None:
+    history.save_search(query=query, window_months=months, status="error",
+                        error=f"{type(exc).__name__}: {exc}"[:500],
+                        model=settings()["models"]["brief"])
 
 
 def _log_entry(query, months, pubmed, trials, records, brief, stats, timings) -> dict[str, Any]:
@@ -189,6 +259,7 @@ def _log_entry(query, months, pubmed, trials, records, brief, stats, timings) ->
         "months": months,
         "pubmed_hits": pubmed.hit_count,
         "papers_fetched": len(pubmed.papers),
+        "trials_fetched": len(trials.trials),
         "retracted": len(pubmed.retracted),
         "trials_total": trials.total_count,
         "records_sent": len(records),
@@ -196,6 +267,7 @@ def _log_entry(query, months, pubmed, trials, records, brief, stats, timings) ->
                    for u in brief.usage],
         "cost_usd": round(sum(c for c in costs if c is not None), 5),
         "invalid_citations": brief.invalid_citations,
+        "uncited": brief.uncited,
         "claims_verified": stats.total,
         "supported": stats.supported,
         "partial": stats.partial,
@@ -207,8 +279,8 @@ def _log_entry(query, months, pubmed, trials, records, brief, stats, timings) ->
     }
 
 
-def _when(ts: float) -> str:
-    return datetime.fromtimestamp(ts).astimezone().strftime("%d %b %Y, %H:%M")
+def _when(ts: datetime) -> str:
+    return ts.astimezone().strftime("%d %b %Y, %H:%M")
 
 
 def main() -> None:
@@ -216,7 +288,8 @@ def main() -> None:
     parser.add_argument("query")
     parser.add_argument("--months", type=int, default=settings()["brief"]["default_window_months"],
                         choices=settings()["brief"]["windows_months"])
-    parser.add_argument("--refresh", action="store_true", help="ignore the 24-hour cache")
+    parser.add_argument("--refresh", action="store_true",
+                        help="run live even if this search was saved in the last 24 hours")
     args = parser.parse_args()
 
     outcome = get_brief(args.query, args.months, refresh=args.refresh,

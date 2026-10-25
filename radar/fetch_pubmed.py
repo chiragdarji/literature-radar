@@ -68,7 +68,8 @@ def _delay() -> float:
 
 def _get(endpoint: str, params: dict[str, Any], http: httpx.Client | None) -> httpx.Response:
     url = settings()["pubmed"]["base_url"] + endpoint
-    return rhttp.get(url, {**_base_params(), **params}, min_interval_s=_delay(), http=http)
+    return rhttp.get(url, {**_base_params(), **params}, min_interval_s=_delay(), http=http,
+                     cache=True)
 
 
 def esearch(

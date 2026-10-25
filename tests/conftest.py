@@ -13,8 +13,11 @@ def fixture_text():
 
 
 @pytest.fixture(autouse=True)
-def no_network_delays(monkeypatch):
-    """Tests use saved responses; skip rate-limit sleeps and keep keys out."""
+def no_network_delays(monkeypatch, tmp_path):
+    """Tests use saved responses; skip rate-limit sleeps, keep keys out, use a fresh database."""
+    from radar.config import settings
+
+    monkeypatch.setitem(settings()["history"], "path", str(tmp_path / "radar.db"))
     monkeypatch.setattr(rhttp, "throttle", lambda host, interval: None)
     monkeypatch.setattr("tenacity.nap.time.sleep", lambda s: None)
     monkeypatch.delenv("NCBI_API_KEY", raising=False)

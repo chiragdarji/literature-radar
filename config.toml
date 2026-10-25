@@ -45,9 +45,10 @@ mmr_lambda = 0.7
 [log]
 runs_path = "logs/runs.jsonl"
 
-[cache]
-ttl_hours = 24
-path = "cache/radar.sqlite"  # results and briefs only; abstracts are never stored here
+[history]                    # F29: search history + 24-hour API cache, one SQLite file
+path = "data/radar.db"
+api_cache_hours = 24         # raw PubMed / ClinicalTrials.gov responses (F11)
+reuse_brief_hours = 24       # the same query + window within this opens the saved brief
 
 [ambiguous]                  # F25: abbreviations that need the user to pick a meaning
 "MS" = ["multiple sclerosis", "mass spectrometry"]
