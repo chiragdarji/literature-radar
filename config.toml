@@ -47,3 +47,14 @@ runs_path = "logs/runs.jsonl"
 
 [cache]
 ttl_hours = 24
+path = "cache/radar.sqlite"  # results and briefs only; abstracts are never stored here
+
+[ambiguous]                  # F25: abbreviations that need the user to pick a meaning
+"MS" = ["multiple sclerosis", "mass spectrometry"]
+"PD" = ["Parkinson disease", "PD-1 (programmed cell death protein 1)", "peritoneal dialysis"]
+"RA" = ["rheumatoid arthritis", "retinoic acid"]
+"ALS" = ["amyotrophic lateral sclerosis", "acid labile subunit"]
+"CAD" = ["coronary artery disease", "computer-aided drug design"]
+"AD" = ["Alzheimer disease", "atopic dermatitis"]
+"CF" = ["cystic fibrosis", "cardiac failure"]
+"PCA" = ["prostate cancer", "posterior cortical atrophy"]

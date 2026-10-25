@@ -26,5 +26,6 @@ htmlcov/
 
 # App runtime
 logs/
+cache/
 *.sqlite
 *.sqlite3

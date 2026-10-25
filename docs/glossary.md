@@ -76,3 +76,11 @@ Domain terms met while building, one line each. Add to it every session.
 - **Citation check (F6)**: code drops any claim whose ID is malformed or was not fetched.
 - **Claim verification (F17)**: a second model labels each claim supported, partial or unsupported against its cited records; unsupported claims are removed.
 - **Faithfulness (support rate)**: supported claims ÷ verified claims; the demo target is at least 90%.
+
+## Ranking
+
+- **BM25**: a keyword relevance score; rewards query words that appear often in a document but rarely across all documents, with diminishing returns and a length correction (k1 = 1.5, b = 0.75).
+- **IDF (inverse document frequency)**: how rare a word is across the set; rare words count more. We use log(1 + (N − n + 0.5)/(n + 0.5)), which never goes negative.
+- **Recency weight**: 2^(−age in days / 180); a paper six months old counts half as much as one from today.
+- **TF-IDF vector**: a document as word counts weighted by rarity; cosine similarity between two vectors measures how alike two documents are.
+- **MMR (maximal marginal relevance)**: picks the next record by relevance minus similarity to those already picked (λ = 0.7), so the top ten cover different angles.
