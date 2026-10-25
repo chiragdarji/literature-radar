@@ -110,9 +110,9 @@ def test_api_cache_expiry():
 
 def test_migrations_keep_existing_history(monkeypatch):
     sid = _save()
-    monkeypatch.setitem(history.MIGRATIONS, 2, "ALTER TABLE searches ADD COLUMN note TEXT;")
+    monkeypatch.setitem(history.MIGRATIONS, 3, "ALTER TABLE searches ADD COLUMN note TEXT;")
     with history.connect() as db:
-        assert db.execute("PRAGMA user_version").fetchone()[0] == 2
+        assert db.execute("PRAGMA user_version").fetchone()[0] == 3
     assert history.get_search(sid).row["note"] is None
 
 
@@ -126,3 +126,42 @@ def test_latest_per_search_groups_repeats_newest_first():
     assert [(i.query, i.window_months, n) for i, n in grouped] == [
         ("dengue vaccine", 12, 1), ("dengue  vaccine", 6, 2), ("PCSK9", 6, 1)]
     assert grouped[1][0].id == newest
+
+
+def test_version_1_database_upgrades_with_archive_column(tmp_path):
+    old = tmp_path / "v1.db"
+    db = sqlite3.connect(old)
+    db.executescript(history.MIGRATIONS[1])
+    db.execute("PRAGMA user_version = 1")
+    db.execute("INSERT INTO searches (created_at, query, query_norm, window_months, status) "
+               "VALUES ('2026-10-25T12:00:00+00:00', 'PCSK9', 'pcsk9', 6, 'ok')")
+    db.commit()
+    db.close()
+    (item,) = history.list_recent(path=old)
+    assert item.query == "PCSK9" and item.archived is False
+    with history.connect(old) as conn:
+        assert conn.execute("PRAGMA user_version").fetchone()[0] == 2
+
+
+def test_archive_and_delete_apply_to_all_runs_of_a_search():
+    _save("Dengue vaccine", now=T0)
+    _save("dengue vaccine", now=T0 + timedelta(minutes=1))
+    keep = _save("PCSK9", now=T0 + timedelta(minutes=2))
+    assert history.set_archived("DENGUE VACCINE", 6) == 2
+    assert [i.query for i in history.list_recent()] == ["PCSK9"]
+    assert {i.query for i in history.list_recent(archived=True)} == {"Dengue vaccine",
+                                                                      "dengue vaccine"}
+    assert len(history.list_recent(archived=None)) == 3
+    assert history.set_archived("dengue vaccine", 6, archived=False) == 2
+    assert len(history.list_recent()) == 3
+    assert history.delete_runs("dengue vaccine", 6) == 2
+    assert [i.id for i in history.list_recent(archived=None)] == [keep]
+
+
+def test_date_bucket():
+    now = datetime(2026, 10, 25, 12, 0).astimezone()
+    assert history.date_bucket(now, now) == "Today"
+    assert history.date_bucket(now - timedelta(days=1), now) == "Yesterday"
+    assert history.date_bucket(now - timedelta(days=5), now) == "Previous 7 days"
+    assert history.date_bucket(now - timedelta(days=20), now) == "Previous 30 days"
+    assert history.date_bucket(now - timedelta(days=60), now) == "August 2026"

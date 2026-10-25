@@ -319,9 +319,9 @@ CREATE TABLE api_cache (
 **Behaviour**
 
 - Write one `searches` row per run, including failed and empty runs, so problems are visible later.
-- The sidebar shows the 20 most recent searches (query, date, counts, supported %), with a filter box.
+- The sidebar works like a chat history: a **New search** button, a filter box, then one row per search (repeat runs of the same query and window are grouped), newest first under **Today / Yesterday / Previous 7 days / Previous 30 days / month** headings, in a scrollable list. Hovering a row shows its date, counts, supported % and number of runs; the open search is highlighted.
 - Opening a past search shows the saved brief and sources instantly, with a "Saved on <date>" label and a **Run again** button; this doubles as the offline backup for the STBI demo.
-- **Delete** removes one search (cascades to its brief and sources); **Clear history** removes all after a confirmation.
+- Each row has a **⋯** menu: **Archive** hides the search (all its runs) in a collapsed **Archived** section, where **Restore** brings it back; **Delete** removes all its runs after a confirmation dialog (cascades to briefs and sources). **Clear history** (under Manage history) removes everything after a confirmation. Archiving adds `searches.archived INTEGER NOT NULL DEFAULT 0` (schema version 2).
 - **Export history** downloads a CSV of the `searches` table (metadata only).
 - History never stores abstracts — only the rendered brief, IDs, titles, dates and links (F26). Abstracts live only in `api_cache`, which expires after 24 hours.
 - Schema changes go through `PRAGMA user_version` migrations in `radar/history.py`, so old history survives upgrades.

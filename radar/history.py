@@ -25,7 +25,7 @@ from typing import Any
 
 from radar.config import ROOT, settings
 
-SCHEMA_VERSION = 1
+SCHEMA_VERSION = 2
 
 # One connection at a time per process: fetchers write the API cache from parallel threads,
 # and two first-time connections racing to set WAL mode and migrate would lock each other.
@@ -79,6 +79,8 @@ MIGRATIONS: dict[int, str] = {
       fetched_at  TEXT NOT NULL
     );
     """,
+    # Archive hides a search from the main list without deleting it (sidebar ⋯ menu).
+    2: "ALTER TABLE searches ADD COLUMN archived INTEGER NOT NULL DEFAULT 0;",
 }
 
 SEARCH_COLUMNS = ("query", "window_months", "status", "error", "model", "paper_count",
@@ -97,6 +99,7 @@ class SearchSummary:
     trial_count: int | None
     india_count: int | None
     supported_pct: float | None
+    archived: bool = False
 
 
 @dataclass(frozen=True)
@@ -174,20 +177,27 @@ def save_search(*, query: str, window_months: int, status: str, brief_md: str | 
 
 
 def list_recent(limit: int = 20, text_filter: str | None = None, *,
-                path: Path | None = None) -> list[SearchSummary]:
+                archived: bool | None = False, path: Path | None = None) -> list[SearchSummary]:
+    """Newest first. archived=False (default) hides archived runs, True shows only them,
+    None shows both."""
     sql = ("SELECT id, created_at, query, window_months, status, paper_count, trial_count, "
-           "india_count, supported_pct FROM searches")
-    params: list[Any] = []
+           "india_count, supported_pct, archived FROM searches")
+    where, params = [], []
     if text_filter and text_filter.strip():
-        sql += " WHERE query_norm LIKE ?"
+        where.append("query_norm LIKE ?")
         params.append(f"%{normalise(text_filter)}%")
+    if archived is not None:
+        where.append("archived = ?")
+        params.append(int(archived))
+    if where:
+        sql += " WHERE " + " AND ".join(where)
     sql += " ORDER BY created_at DESC, id DESC LIMIT ?"
     params.append(limit)
     with connect(path) as db:
         rows = db.execute(sql, params).fetchall()
     return [SearchSummary(r["id"], parse_ts(r["created_at"]), r["query"], r["window_months"],
                           r["status"], r["paper_count"], r["trial_count"], r["india_count"],
-                          r["supported_pct"]) for r in rows]
+                          r["supported_pct"], bool(r["archived"])) for r in rows]
 
 
 def latest_per_search(items: list[SearchSummary]) -> list[tuple[SearchSummary, int]]:
@@ -199,6 +209,21 @@ def latest_per_search(items: list[SearchSummary]) -> list[tuple[SearchSummary, i
     for item in items:
         groups.setdefault((normalise(item.query), item.window_months), []).append(item)
     return [(runs[0], len(runs)) for runs in groups.values()]
+
+
+def date_bucket(ts: datetime, now: datetime | None = None) -> str:
+    """Sidebar group for a run, in local time: Today, Yesterday, Previous 7 / 30 days, or month."""
+    local, today = ts.astimezone(), (now or datetime.now(UTC)).astimezone().date()
+    days = (today - local.date()).days
+    if days <= 0:
+        return "Today"
+    if days == 1:
+        return "Yesterday"
+    if days < 7:
+        return "Previous 7 days"
+    if days < 30:
+        return "Previous 30 days"
+    return f"{local:%B %Y}"
 
 
 def get_search(search_id: int, *, path: Path | None = None) -> SavedSearch | None:
@@ -234,6 +259,22 @@ def latest_ok(query: str, window_months: int, *, max_age_hours: float | None = N
 def delete_search(search_id: int, *, path: Path | None = None) -> bool:
     with connect(path) as db:
         return db.execute("DELETE FROM searches WHERE id = ?", (search_id,)).rowcount > 0
+
+
+def set_archived(query: str, window_months: int, archived: bool = True, *,
+                 path: Path | None = None) -> int:
+    """Archive (or restore) every run of one search: query + window, like a conversation."""
+    with connect(path) as db:
+        return db.execute("UPDATE searches SET archived = ? WHERE query_norm = ? "
+                          "AND window_months = ?",
+                          (int(archived), normalise(query), window_months)).rowcount
+
+
+def delete_runs(query: str, window_months: int, *, path: Path | None = None) -> int:
+    """Delete every run of one search (cascades to briefs and sources)."""
+    with connect(path) as db:
+        return db.execute("DELETE FROM searches WHERE query_norm = ? AND window_months = ?",
+                          (normalise(query), window_months)).rowcount
 
 
 def clear_history(*, path: Path | None = None) -> int:
