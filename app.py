@@ -85,9 +85,9 @@ def confirm_delete(query: str, months: int, runs: int) -> None:
     st.write(f"**{query}** (last {months} months) and {what} will be deleted. "
              "This cannot be undone.")
     cancel, delete = st.columns(2)
-    if cancel.button("Cancel", use_container_width=True):
+    if cancel.button("Cancel", width="stretch"):
         st.rerun()
-    if delete.button("Delete", type="primary", use_container_width=True):
+    if delete.button("Delete", type="primary", width="stretch"):
         history.delete_runs(query, months)
         if current_search() == (history.normalise(query), months):
             st.session_state.pop("result", None)
@@ -171,7 +171,7 @@ def show_sources(sources: list[dict[str, Any]]) -> None:
                "180 days), then picked for variety so near-duplicates don't crowd the list.")
     df = pd.DataFrame(sources)[["rank", "id", "title", "score", "relevance", "recency", "cited",
                                 "kind", "who", "date", "detail", "url"]]
-    st.dataframe(df, hide_index=True, use_container_width=True, column_config={
+    st.dataframe(df, hide_index=True, width="stretch", column_config={
         "rank": st.column_config.NumberColumn("#", width="small"),
         "id": "ID", "kind": "Type", "title": st.column_config.TextColumn("Title", width="large"),
         "who": "Journal or sponsor", "date": "Date", "detail": "Type / status · phase",
@@ -203,7 +203,7 @@ def show_india(rows: list[dict[str, Any]]) -> None:
         df = pd.DataFrame(part).reindex(columns=cols)
         if "sites" in df:
             df["sites"] = df["sites"].str.replace(";", ", ")
-        st.dataframe(df, hide_index=True, use_container_width=True, column_config={
+        st.dataframe(df, hide_index=True, width="stretch", column_config={
             "id": "ID", "title": st.column_config.TextColumn("Title", width="large"),
             "phase": "Phase", "sponsor": "Sponsor", "status": "Status", "sites": "Sites",
             "applicant": "Applicant", "decision": st.column_config.TextColumn("Decision",
@@ -226,7 +226,7 @@ def show_run_details(log: dict[str, Any]) -> None:
                f"{log['verify_s']} s · {log['records_sent']} records sent to the model")
     if log["dropped"]:
         st.markdown("**Claims removed before display**")
-        st.dataframe(pd.DataFrame(log["dropped"]), hide_index=True, use_container_width=True)
+        st.dataframe(pd.DataFrame(log["dropped"]), hide_index=True, width="stretch")
     st.markdown("**Tokens**")
     st.dataframe(pd.DataFrame(log["tokens"]), hide_index=True)
 
@@ -282,7 +282,7 @@ def history_row(item: history.SearchSummary, runs: int, active: bool, archived: 
     """One search: its title opens it; the ⋯ menu archives (or restores) or deletes it."""
     title, menu = st.columns([0.85, 0.15], gap="small", vertical_alignment="center")
     title.button(row_label(item), key=f"open-{item.id}", on_click=open_search, args=(item.id,),
-                 type="secondary" if active else "tertiary", use_container_width=True,
+                 type="secondary" if active else "tertiary", width="stretch",
                  help=row_details(item, runs))
     menu_key = f"menu-{'a' if archived else 'h'}-{item.id}"
     with menu.popover("⋯", type="tertiary", key=menu_key, on_change="rerun"):
@@ -290,10 +290,10 @@ def history_row(item: history.SearchSummary, runs: int, active: bool, archived: 
                   icon=":material/unarchive:" if archived else ":material/archive:",
                   key=f"archive-{menu_key}", on_click=archive_search,
                   args=(item.query, item.window_months, not archived, menu_key),
-                  use_container_width=True)
+                  width="stretch")
         st.button("Delete", icon=":material/delete:", key=f"delete-{menu_key}",
                   on_click=ask_delete, args=(item.query, item.window_months, runs, menu_key),
-                  use_container_width=True)
+                  width="stretch")
 
 
 def sidebar() -> None:
@@ -301,7 +301,7 @@ def sidebar() -> None:
     sb = st.sidebar
     sb.markdown(SIDEBAR_CSS, unsafe_allow_html=True)
     sb.button("New search", icon=":material/edit_square:", on_click=new_search,
-              use_container_width=True)
+              width="stretch")
     text = sb.text_input("Filter", placeholder="Search your history",
                          label_visibility="collapsed")
     active = current_search()
@@ -332,8 +332,8 @@ def sidebar() -> None:
     with sb.expander("Manage history"):
         st.download_button("Export history (CSV)", history.export_csv(),
                            file_name="literature-radar-history.csv", mime="text/csv",
-                           use_container_width=True)
-        with st.popover("Clear history", use_container_width=True):
+                           width="stretch")
+        with st.popover("Clear history", width="stretch"):
             st.write("Delete every saved search and brief, including archived ones? "
                      "This cannot be undone.")
             st.button("Yes, clear all", type="primary", on_click=clear_history)
@@ -353,7 +353,7 @@ st.text_input("Molecule, target or disease", key="query", placeholder="e.g. sema
               on_change=queue_run)
 example_cols = st.columns(len(EXAMPLES))
 for col, example in zip(example_cols, EXAMPLES, strict=True):
-    col.button(example, on_click=queue_run, args=(example,), use_container_width=True)
+    col.button(example, on_click=queue_run, args=(example,), width="stretch")
 
 left, right = st.columns([3, 1])
 st.session_state.setdefault("months", cfg["default_window_months"])

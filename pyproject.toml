@@ -24,6 +24,7 @@ dependencies = [
 dev = [
     "pytest>=8.0",
     "ruff>=0.6",
+    "watchdog>=4.0",  # lets Streamlit reload changed radar/ modules, not just app.py
 ]
 
 [tool.setuptools.packages.find]
