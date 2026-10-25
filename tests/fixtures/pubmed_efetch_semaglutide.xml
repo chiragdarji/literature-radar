@@ -1,0 +1,638 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PubmedArticleSet PUBLIC "-//NLM//DTD PubMedArticle, 1st January 2025//EN" "https://dtd.nlm.nih.gov/ncbi/pubmed/out/pubmed_250101.dtd">
+<PubmedArticleSet>
+<PubmedArticle><MedlineCitation Status="MEDLINE" Owner="NLM" IndexingMethod="Automated"><PMID Version="1">42886550</PMID><DateCompleted><Year>2026</Year><Month>10</Month><Day>16</Day></DateCompleted><DateRevised><Year>2026</Year><Month>10</Month><Day>22</Day></DateRevised><Article PubModel="Print-Electronic"><Journal><ISSN IssnType="Electronic">1819-6357</ISSN><JournalIssue CitedMedium="Internet"><Volume>21</Volume><Issue>1</Issue><PubDate><Year>2026</Year><Month>Dec</Month><Day>31</Day></PubDate></JournalIssue><Title>The Libyan journal of medicine</Title><ISOAbbreviation>Libyan J Med</ISOAbbreviation></Journal><ArticleTitle>Pharmacy students' knowledge and attitudes regarding GLP-1 receptor agonist adverse effects in obesity management: a cross-sectional study.</ArticleTitle><Pagination><StartPage>2749899</StartPage><MedlinePgn>2749899</MedlinePgn></Pagination><ELocationID EIdType="pii" ValidYN="Y">2749899</ELocationID><ELocationID EIdType="doi" ValidYN="Y">10.1080/19932820.2026.2749899</ELocationID><Abstract><AbstractText>Glucagon-like peptide-1 receptor agonists (GLP-1 RAs) are important therapeutic options for obesity and type 2 diabetes mellitus. Despite their increasing use, safety concerns remain, and pharmacy students' knowledge of their adverse effects is unclear. This study evaluated pharmacy students' knowledge and attitudes regarding GLP-1 RA adverse effects in obesity management. A cross-sectional questionnaire-based study was conducted among undergraduate Doctor of Pharmacy (Pharm.D.) students (1st-7th year) at Umm Al-Qura University, Saudi Arabia, between November and December 2025. A newly developed questionnaire, reviewed by two experts and pilot-tested among 10 students, assessed 17 knowledge and five attitude items covering indications, mechanisms, adverse effects, and clinical scenarios. Of 1,118 eligible students, 296 completed the survey (response rate: 26.5%). Descriptive statistics and multivariable regression analyses were performed using RStudio (version 2024.9.1.394). Among participants (63.9% male), the mean knowledge score was 7.6 &#xb1; 4.0/17. Most agreed that adverse effects significantly impact clinical use (59.4%) and supported further education on less common side effects (61.1%). Nausea was the most frequently recognized adverse effect (59.1%), whereas thyroid C-cell tumors observed in rodent studies (25.0%) and diabetic retinopathy complications (36.5%) were less commonly identified. Only 37.2% correctly recognized that hypoglycemia is uncommon with GLP-1 RA monotherapy. Higher knowledge scores were significantly associated with greater confidence in knowledge (OR = 1.11, 95% CI: 1.06-1.17; <i>p</i> &lt; 0.001) and stronger endorsement of further education on less common side effects (OR = 1.11, 95% CI: 1.06-1.18; <i>p</i> &lt; 0.001), whereas gender and academic year were not significant predictors of any attitude item. Pharmacy students demonstrated limited knowledge but generally positive attitudes regarding GLP-1 RA safety. These findings highlight the need to strengthen pharmacovigilance and evidence-based medication safety education within pharmacy curricula to improve clinical preparedness and patient counseling.</AbstractText></Abstract><AuthorList CompleteYN="Y"><Author ValidYN="Y"><LastName>Khojah</LastName><ForeName>Alaa A</ForeName><Initials>AA</Initials><AffiliationInfo><Affiliation>Pharmaceutical Sciences Department, College of Pharmacy, Umm Al-Qura University, Makkah, Saudi Arabia.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Gazzaz</LastName><ForeName>Malaz J</ForeName><Initials>MJ</Initials><AffiliationInfo><Affiliation>Pharmaceutical practices Department, College of Pharmacy, Umm Al-Qura University, Makkah, Saudi Arabia.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Aldurdunji</LastName><ForeName>Mohammed M</ForeName><Initials>MM</Initials><AffiliationInfo><Affiliation>Pharmaceutical practices Department, College of Pharmacy, Umm Al-Qura University, Makkah, Saudi Arabia.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Safiraldeen</LastName><ForeName>Ahmad E</ForeName><Initials>AE</Initials><AffiliationInfo><Affiliation>College of Pharmacy, Umm Al-Qura University, Makkah, Saudi Arabia.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Al-Qurashi</LastName><ForeName>Ibrahim R</ForeName><Initials>IR</Initials><AffiliationInfo><Affiliation>College of Pharmacy, Umm Al-Qura University, Makkah, Saudi Arabia.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Alhazmi</LastName><ForeName>Mohammad A</ForeName><Initials>MA</Initials><AffiliationInfo><Affiliation>College of Pharmacy, Umm Al-Qura University, Makkah, Saudi Arabia.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Abdalla</LastName><ForeName>Ashraf N</ForeName><Initials>AN</Initials><AffiliationInfo><Affiliation>Pharmacology and Toxicology Department, College of Pharmacy, Umm Al-Qura University, Makkah, Saudi Arabia.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Alqurashi</LastName><ForeName>Roaya S</ForeName><Initials>RS</Initials><AffiliationInfo><Affiliation>Pharmacology and Toxicology Department, College of Pharmacy, Umm Al-Qura University, Makkah, Saudi Arabia.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Wali</LastName><ForeName>Saad M</ForeName><Initials>SM</Initials><Identifier Source="ORCID">0009-0006-0080-4799</Identifier><AffiliationInfo><Affiliation>Pharmacology and Toxicology Department, College of Pharmacy, Umm Al-Qura University, Makkah, Saudi Arabia.</Affiliation></AffiliationInfo></Author></AuthorList><Language>eng</Language><PublicationTypeList><PublicationType UI="D016428">Journal Article</PublicationType></PublicationTypeList><ArticleDate DateType="Electronic"><Year>2026</Year><Month>10</Month><Day>16</Day></ArticleDate></Article><MedlineJournalInfo><Country>United States</Country><MedlineTA>Libyan J Med</MedlineTA><NlmUniqueID>101299403</NlmUniqueID><ISSNLinking>1819-6357</ISSNLinking></MedlineJournalInfo><ChemicalList><Chemical><RegistryNumber>0</RegistryNumber><NameOfSubstance UI="D000097789">Glucagon-Like Peptide-1 Receptor Agonists</NameOfSubstance></Chemical><Chemical><RegistryNumber>0</RegistryNumber><NameOfSubstance UI="D007004">Hypoglycemic Agents</NameOfSubstance></Chemical></ChemicalList><CitationSubset>IM</CitationSubset><MeshHeadingList><MeshHeading><DescriptorName UI="D006801" MajorTopicYN="N">Humans</DescriptorName></MeshHeading><MeshHeading><DescriptorName UI="D003430" MajorTopicYN="N">Cross-Sectional Studies</DescriptorName></MeshHeading><MeshHeading><DescriptorName UI="D008297" MajorTopicYN="N">Male</DescriptorName></MeshHeading><MeshHeading><DescriptorName UI="D005260" MajorTopicYN="N">Female</DescriptorName></MeshHeading><MeshHeading><DescriptorName UI="D007722" MajorTopicYN="Y">Health Knowledge, Attitudes, Practice</DescriptorName></MeshHeading><MeshHeading><DescriptorName UI="D013339" MajorTopicYN="Y">Students, Pharmacy</DescriptorName><QualifierName UI="Q000706" MajorTopicYN="N">statistics &amp; numerical data</QualifierName><QualifierName UI="Q000523" MajorTopicYN="N">psychology</QualifierName></MeshHeading><MeshHeading><DescriptorName UI="D012529" MajorTopicYN="N" Type="Geographic">Saudi Arabia</DescriptorName></MeshHeading><MeshHeading><DescriptorName UI="D011795" MajorTopicYN="N">Surveys and Questionnaires</DescriptorName></MeshHeading><MeshHeading><DescriptorName UI="D009765" MajorTopicYN="Y">Obesity</DescriptorName><QualifierName UI="Q000188" MajorTopicYN="N">drug therapy</QualifierName></MeshHeading><MeshHeading><DescriptorName UI="D000097789" MajorTopicYN="Y">Glucagon-Like Peptide-1 Receptor Agonists</DescriptorName></MeshHeading><MeshHeading><DescriptorName UI="D000328" MajorTopicYN="N">Adult</DescriptorName></MeshHeading><MeshHeading><DescriptorName UI="D003924" MajorTopicYN="N">Diabetes Mellitus, Type 2</DescriptorName><QualifierName UI="Q000188" MajorTopicYN="N">drug therapy</QualifierName></MeshHeading><MeshHeading><DescriptorName UI="D055815" MajorTopicYN="N">Young Adult</DescriptorName></MeshHeading><MeshHeading><DescriptorName UI="D007004" MajorTopicYN="N">Hypoglycemic Agents</DescriptorName><QualifierName UI="Q000009" MajorTopicYN="N">adverse effects</QualifierName></MeshHeading></MeshHeadingList><KeywordList Owner="NOTNLM"><Keyword MajorTopicYN="N">GLP-1 receptor agonists</Keyword><Keyword MajorTopicYN="N">attitudes</Keyword><Keyword MajorTopicYN="N">knowledge</Keyword><Keyword MajorTopicYN="N">obesity</Keyword><Keyword MajorTopicYN="N">pharmacovigilance</Keyword><Keyword MajorTopicYN="N">pharmacy students</Keyword><Keyword MajorTopicYN="N">semaglutide</Keyword></KeywordList><CoiStatement>No potential conflict of interest was reported by the author(s).</CoiStatement></MedlineCitation><PubmedData><History><PubMedPubDate PubStatus="medline"><Year>2026</Year><Month>10</Month><Day>16</Day><Hour>19</Hour><Minute>6</Minute></PubMedPubDate><PubMedPubDate PubStatus="pubmed"><Year>2026</Year><Month>10</Month><Day>16</Day><Hour>19</Hour><Minute>5</Minute></PubMedPubDate><PubMedPubDate PubStatus="entrez"><Year>2026</Year><Month>10</Month><Day>16</Day><Hour>12</Hour><Minute>33</Minute></PubMedPubDate><PubMedPubDate PubStatus="pmc-release"><Year>2026</Year><Month>10</Month><Day>16</Day></PubMedPubDate></History><PublicationStatus>ppublish</PublicationStatus><ArticleIdList><ArticleId IdType="pubmed">42886550</ArticleId><ArticleId IdType="pmc">PMC13678873</ArticleId><ArticleId IdType="doi">10.1080/19932820.2026.2749899</ArticleId></ArticleIdList><ReferenceList><Reference><Citation>
+World Health Organization . Obesity and overweight. Geneva: WHO; 2024. https://www.WHO.int/news-room/fact-sheets/detail/obesity-and-overweight
+</Citation></Reference><Reference><Citation>Apovian CM. Obesity: definition, comorbidities, causes, and burden. Am J Manag Care. 2016;22(7 Suppl):s176&#x2013;s185.</Citation><ArticleIdList><ArticleId IdType="pubmed">27356115</ArticleId></ArticleIdList></Reference><Reference><Citation>Lovic D, Piperidou A, Zografou I, et al. The growing epidemic of diabetes mellitus. Curr Vasc Pharmacol. 2020;18(2):104&#x2013;109. doi: 10.2174/1570161117666190405165911</Citation><ArticleIdList><ArticleId IdType="doi">10.2174/1570161117666190405165911</ArticleId><ArticleId IdType="pubmed">30961501</ArticleId></ArticleIdList></Reference><Reference><Citation>Alhyas L, McKay A, Balasanthiran A, et al. Prevalences of overweight, obesity, hyperglycaemia, hypertension and dyslipidaemia in the gulf: systematic review. JRSM Short Rep. 2011;2(7):55&#x2013;16. doi: 10.1258/shorts.2011.011019</Citation><ArticleIdList><ArticleId IdType="doi">10.1258/shorts.2011.011019</ArticleId><ArticleId IdType="pmc">PMC3147233</ArticleId><ArticleId IdType="pubmed">21847437</ArticleId></ArticleIdList></Reference><Reference><Citation>Salem V, AlHusseini N, Abdul Razack HI, et al. Prevalence, risk factors, and interventions for obesity in Saudi Arabia: a systematic review. Obes Rev. 2022;23(7):e13448. doi: 10.1111/obr.13448</Citation><ArticleIdList><ArticleId IdType="doi">10.1111/obr.13448</ArticleId><ArticleId IdType="pmc">PMC9287009</ArticleId><ArticleId IdType="pubmed">35338558</ArticleId></ArticleIdList></Reference><Reference><Citation>Sun H, Saeedi P, Karuranga S, et al. IDF diabetes Atlas: global, regional and country-level diabetes prevalence estimates for 2021 and projections for 2045. Diabetes Res Clin Pract. 2022;183:109119. doi: 10.1016/j.diabres.2021.109119</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.diabres.2021.109119</ArticleId><ArticleId IdType="pmc">PMC11057359</ArticleId><ArticleId IdType="pubmed">34879977</ArticleId></ArticleIdList></Reference><Reference><Citation>Tak YJ, Lee SY. Anti-obesity drugs: long-term efficacy and safety: an updated review. World J Mens Health. 2021;39(2):208&#x2013;221. doi: 10.5534/wjmh.200010</Citation><ArticleIdList><ArticleId IdType="doi">10.5534/wjmh.200010</ArticleId><ArticleId IdType="pmc">PMC7994651</ArticleId><ArticleId IdType="pubmed">32202085</ArticleId></ArticleIdList></Reference><Reference><Citation>Drucker DJ. Mechanisms of action and therapeutic application of glucagon-like Peptide-1. Cell Metab. 2018;27(4):740&#x2013;756. doi: 10.1016/j.cmet.2018.03.001</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.cmet.2018.03.001</ArticleId><ArticleId IdType="pubmed">29617641</ArticleId></ArticleIdList></Reference><Reference><Citation>Pi-Sunyer X, Astrup A, Fujioka K, et al. A randomized, controlled trial of 3.0 mg of liraglutide in weight management. NEJM. 2015;373(1):11&#x2013;22. doi: 10.1056/NEJMoa1411892</Citation><ArticleIdList><ArticleId IdType="doi">10.1056/NEJMoa1411892</ArticleId><ArticleId IdType="pubmed">26132939</ArticleId></ArticleIdList></Reference><Reference><Citation>Wilding JPH, Batterham RL, Calanna S, et al. Once-weekly semaglutide in adults with overweight or obesity. NEJM. 2021;384(11):989&#x2013;1002. doi: 10.1056/NEJMoa2032183</Citation><ArticleIdList><ArticleId IdType="doi">10.1056/NEJMoa2032183</ArticleId><ArticleId IdType="pubmed">33567185</ArticleId></ArticleIdList></Reference><Reference><Citation>Filippatos TD, Panagiotopoulou TV, Elisaf MS. Adverse effects of GLP-1 receptor agonists. Rev Diabet Stud. 2014;11(3-4):202&#x2013;230. doi: 10.1900/RDS.2014.11.202</Citation><ArticleIdList><ArticleId IdType="doi">10.1900/RDS.2014.11.202</ArticleId><ArticleId IdType="pmc">PMC5397288</ArticleId><ArticleId IdType="pubmed">26177483</ArticleId></ArticleIdList></Reference><Reference><Citation>Nauck MA, Quast DR, Wefers J, et al. GLP-1 receptor agonists in the treatment of type 2 diabetes - state-of-the-art. Mol Metab. 2021;46:101102. doi: 10.1016/j.molmet.2020.101102</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.molmet.2020.101102</ArticleId><ArticleId IdType="pmc">PMC8085572</ArticleId><ArticleId IdType="pubmed">33068776</ArticleId></ArticleIdList></Reference><Reference><Citation>American Diabetes Association . 9. Pharmacologic approaches to glycemic treatment: standards of care in Diabetes&#x2014;2025. Diabetes Care. 2025;48(Suppl 1):S181&#x2013;S218.</Citation><ArticleIdList><ArticleId IdType="pmc">PMC11635045</ArticleId><ArticleId IdType="pubmed">39651989</ArticleId></ArticleIdList></Reference><Reference><Citation>Phillips E, Traina A, Smolarz BG. A survey of obesity education and training in United States pharmacy schools. Am J Pharm Educ. 2023;87(8):100109. doi: 10.1016/j.ajpe.2023.100109</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.ajpe.2023.100109</ArticleId><ArticleId IdType="pubmed">37597919</ArticleId></ArticleIdList></Reference><Reference><Citation>Alsieni MA, Babader RB, Kenany SA, et al. The prevalence regarding the use of glucagon-like peptide-1 (GLP-1) agonists as an obesity treatment among adult patients at king abdulaziz university medical services center, jeddah, Saudi Arabia: a descriptive cross-sectional study. JKAU Med Sci. 2024;31(2):1&#x2013;12. doi: 10.4197/Med.31-2.1</Citation><ArticleIdList><ArticleId IdType="doi">10.4197/Med.31-2.1</ArticleId></ArticleIdList></Reference><Reference><Citation>Alhussain K, Alshakhs Z, Albaqshi L, et al. Prevalence and factors associated with GLP-1 receptor agonist use for weight management among overweight and obese adults in the eastern province of Saudi Arabia. Healthcare. 2026;14(3):345. doi: 10.3390/healthcare14030345</Citation><ArticleIdList><ArticleId IdType="doi">10.3390/healthcare14030345</ArticleId><ArticleId IdType="pmc">PMC12897281</ArticleId><ArticleId IdType="pubmed">41682196</ArticleId></ArticleIdList></Reference><Reference><Citation>Sedgwick P. Cross sectional studies: advantages and disadvantages. BMJ. 2014;348:g2276&#x2013;g2276. doi: 10.1136/bmj.g2276</Citation><ArticleIdList><ArticleId IdType="doi">10.1136/bmj.g2276</ArticleId><ArticleId IdType="pubmed">25134102</ArticleId></ArticleIdList></Reference><Reference><Citation>Tavakol M, Dennick R. Making sense of Cronbach's alpha. Int J Med Educ. 2011;2:53&#x2013;55. doi: 10.5116/ijme.4dfb.8dfd</Citation><ArticleIdList><ArticleId IdType="doi">10.5116/ijme.4dfb.8dfd</ArticleId><ArticleId IdType="pmc">PMC4205511</ArticleId><ArticleId IdType="pubmed">28029643</ArticleId></ArticleIdList></Reference><Reference><Citation>Xie Y, Choi T, Al-Aly Z. Mapping the effectiveness and risks of GLP-1 receptor agonists. Nat Med. 2025;31(3):951&#x2013;962. doi: 10.1038/s41591-024-03412-w</Citation><ArticleIdList><ArticleId IdType="doi">10.1038/s41591-024-03412-w</ArticleId><ArticleId IdType="pubmed">39833406</ArticleId></ArticleIdList></Reference><Reference><Citation>Bjerre Knudsen L, Madsen LW, Andersen S, et al. Glucagon-like Peptide-1 receptor agonists activate rodent thyroid C-cells causing calcitonin release and C-cell proliferation. Endocrinology. 2010;151(4):1473&#x2013;1486. doi: 10.1210/en.2009-1272</Citation><ArticleIdList><ArticleId IdType="doi">10.1210/en.2009-1272</ArticleId><ArticleId IdType="pubmed">20203154</ArticleId></ArticleIdList></Reference><Reference><Citation>Le Roux CW, Koroleva A, Larsen S, et al. Anti-obesity treatment preferences of healthcare providers and people living with obesity: a survey-based study. Clin Obes. 2025;15(1):e12704. doi: 10.1111/cob.12704</Citation><ArticleIdList><ArticleId IdType="doi">10.1111/cob.12704</ArticleId><ArticleId IdType="pmc">PMC11706755</ArticleId><ArticleId IdType="pubmed">39468412</ArticleId></ArticleIdList></Reference><Reference><Citation>Al-Mahzoum K, Abdelaziz DH, Alenezi F, et al. Health beliefs and obesity bias as determinants of attitudes toward the rising tides of GLP-1 medications: mounjaro and ozempic. Diabetes Metab Syndr Obes. 2025;18:1389&#x2013;1409. doi: 10.2147/DMSO.S518994</Citation><ArticleIdList><ArticleId IdType="doi">10.2147/DMSO.S518994</ArticleId><ArticleId IdType="pmc">PMC12059217</ArticleId><ArticleId IdType="pubmed">40343227</ArticleId></ArticleIdList></Reference><Reference><Citation>DeVellis RF, Thorpe CT. Scale Development: Theory and Applications. 5th ed. Thousand Oaks, CA: SAGE Publications; 2022.</Citation></Reference><Reference><Citation>
+Badran IG. Knowledge, attitude and practice the three pillars of excellence and wisdom: a place in the medical profession. EMHJ - East Mediterr Health J. 1995;1(1):8&#x2013;16. https://iris.who.int/handle/10665/116905
+</Citation></Reference></ReferenceList></PubmedData></PubmedArticle><PubmedArticle><MedlineCitation Status="MEDLINE" Owner="NLM" IndexingMethod="Automated"><PMID Version="1">42610532</PMID><DateCompleted><Year>2026</Year><Month>08</Month><Day>18</Day></DateCompleted><DateRevised><Year>2026</Year><Month>08</Month><Day>21</Day></DateRevised><Article PubModel="Print-Electronic"><Journal><ISSN IssnType="Electronic">1748-2631</ISSN><JournalIssue CitedMedium="Internet"><Volume>21</Volume><Issue>1</Issue><PubDate><Year>2026</Year><Month>Dec</Month><Day>31</Day></PubDate></JournalIssue><Title>International journal of qualitative studies on health and well-being</Title><ISOAbbreviation>Int J Qual Stud Health Well-being</ISOAbbreviation></Journal><ArticleTitle>Hunger pain and its reduction; qualitative insight from people with schizophrenia on semaglutide.</ArticleTitle><Pagination><StartPage>2717809</StartPage><MedlinePgn>2717809</MedlinePgn></Pagination><ELocationID EIdType="pii" ValidYN="Y">2717809</ELocationID><ELocationID EIdType="doi" ValidYN="Y">10.1080/17482631.2026.2717809</ELocationID><Abstract><AbstractText Label="PURPOSE" NlmCategory="UNASSIGNED">It is often reported that people with schizophrenia experience weight gain and disordered eating, partly due to antipsychotics. As part of the RCT "Home-based Intervention with Semaglutide Treatment of Neuroleptic-Related Prediabetes, HISTORI", the present study investigates experiences of hunger and eating habits in people using antipsychotics during semaglutide treatment.</AbstractText><AbstractText Label="METHODS" NlmCategory="UNASSIGNED">Eleven semi-structured interviews were conducted 4 months to 1,5 years after treatment completion. Six women and 5 men were interviewed. The interviews were analysed using Braun &amp; Clarke's reflexive thematic analysis.</AbstractText><AbstractText Label="RESULTS" NlmCategory="UNASSIGNED">Three themes were identified; "Hunger pain induced by antipsychotic medicine", "Positive and negative experiences of reduced hunger", and "Eating habits and what influences them". The term "Hunger pain" was applied. It defines an excruciating combination of feeling extremely hungry, never achieving satiety, and relentless preoccupation with thoughts about food. The analysis suggested a focus on the patients' coping styles.</AbstractText><AbstractText Label="CONCLUSION" NlmCategory="UNASSIGNED">The hunger pain, probably induced by antipsychotics, seemed to reinforce maladaptive coping styles. The relief from hunger pain due to semaglutide was in most cases a liberation. Yet, it is important also to pay attention to the negative effects of reduced hunger. It is relevant to assess patients' eating problems prior to semaglutide treatment.</AbstractText></Abstract><AuthorList CompleteYN="Y"><Author ValidYN="Y"><LastName>Rasmussen</LastName><ForeName>Belinda Sewohl</ForeName><Initials>BS</Initials><Identifier Source="ORCID">0009-0007-6197-7834</Identifier><AffiliationInfo><Affiliation>Department of Research, Central and Western Zealand Hospital, Copenhagen University Hospital, Slagelse, Denmark.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Simon&#xff;</LastName><ForeName>Charlotte</ForeName><Initials>C</Initials><Identifier Source="ORCID">0000-0003-1189-2967</Identifier><AffiliationInfo><Affiliation>Department of Research, Central and Western Zealand Hospital, Copenhagen University Hospital, Slagelse, Denmark.</Affiliation></AffiliationInfo><AffiliationInfo><Affiliation>The Research and Implementation Unit PROgrez, Central and West Zealand Hospital, Slagelse, Denmark.</Affiliation></AffiliationInfo><AffiliationInfo><Affiliation>Institute of the Regional Health, University of Southern Denmark, Odense, Denmark.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Poulsen</LastName><ForeName>Mikkel Leck</ForeName><Initials>ML</Initials><Identifier Source="ORCID">0009-0003-1337-5944</Identifier><AffiliationInfo><Affiliation>Department of Research, Central and Western Zealand Hospital, Copenhagen University Hospital, Slagelse, Denmark.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Uhrenholt</LastName><ForeName>Nicolai Gundtoft</ForeName><Initials>NG</Initials><Identifier Source="ORCID">0000-0002-6973-4585</Identifier><AffiliationInfo><Affiliation>Department of Research, Central and Western Zealand Hospital, Copenhagen University Hospital, Slagelse, Denmark.</Affiliation></AffiliationInfo><AffiliationInfo><Affiliation>Department of Clinical Research, Faculty of Health Science, University of Southern Denmark, Odense, Denmark.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Lundberg</LastName><ForeName>Birgitte</ForeName><Initials>B</Initials><AffiliationInfo><Affiliation>Department of Research, Central and Western Zealand Hospital, Copenhagen University Hospital, Slagelse, Denmark.</Affiliation></AffiliationInfo><AffiliationInfo><Affiliation>Central and Western Zealand Hospital, Psychiatry South, Vordingborg, Denmark.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>R&#xf8;nne</LastName><ForeName>Sabrina Trappaud</ForeName><Initials>ST</Initials><Identifier Source="ORCID">0000-0001-6527-9557</Identifier><AffiliationInfo><Affiliation>Department of Research &amp; Psychiatry Westh, Central and Western Zealand Hospital, Copenhagen University Hospital, Slagelse, Denmark.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Uhrenholt</LastName><ForeName>Pernille Gundtoft</ForeName><Initials>PG</Initials><Identifier Source="ORCID">0009-0000-5683-6032</Identifier><AffiliationInfo><Affiliation>Department of Research, Central and Western Zealand Hospital, Copenhagen University Hospital, Slagelse, Denmark.</Affiliation></AffiliationInfo><AffiliationInfo><Affiliation>Department of Clinical Medicine, University of Copenhagen, Copenhagen, Denmark.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>G&#xe6;de</LastName><ForeName>Peter Haulund</ForeName><Initials>PH</Initials><Identifier Source="ORCID">0000-0002-1457-2742</Identifier><AffiliationInfo><Affiliation>Department of Research, Central and Western Zealand Hospital, Copenhagen University Hospital, Slagelse, Denmark.</Affiliation></AffiliationInfo><AffiliationInfo><Affiliation>Institute of the Regional Health, University of Southern Denmark, Odense, Denmark.</Affiliation></AffiliationInfo><AffiliationInfo><Affiliation>Department of Internal Medicine, Central and Western Zealand Hospital, Geriatrics and Neurology, Slagelse, Denmark.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Arnfred</LastName><ForeName>Sidse Marie</ForeName><Initials>SM</Initials><Identifier Source="ORCID">0000-0001-5375-4226</Identifier><AffiliationInfo><Affiliation>Department of Research, Central and Western Zealand Hospital, Copenhagen University Hospital, Slagelse, Denmark.</Affiliation></AffiliationInfo><AffiliationInfo><Affiliation>Department of Clinical Medicine, University of Copenhagen, Copenhagen, Denmark.</Affiliation></AffiliationInfo></Author></AuthorList><Language>eng</Language><PublicationTypeList><PublicationType UI="D016428">Journal Article</PublicationType></PublicationTypeList><ArticleDate DateType="Electronic"><Year>2026</Year><Month>08</Month><Day>18</Day></ArticleDate></Article><MedlineJournalInfo><Country>United States</Country><MedlineTA>Int J Qual Stud Health Well-being</MedlineTA><NlmUniqueID>101256506</NlmUniqueID><ISSNLinking>1748-2623</ISSNLinking></MedlineJournalInfo><ChemicalList><Chemical><RegistryNumber>53AXN4NNHX</RegistryNumber><NameOfSubstance UI="D000099194">Semaglutide</NameOfSubstance></Chemical><Chemical><RegistryNumber>0</RegistryNumber><NameOfSubstance UI="D014150">Antipsychotic Agents</NameOfSubstance></Chemical><Chemical><RegistryNumber>62340-29-8</RegistryNumber><NameOfSubstance UI="D004763">Glucagon-Like Peptides</NameOfSubstance></Chemical></ChemicalList><CitationSubset>IM</CitationSubset><MeshHeadingList><MeshHeading><DescriptorName UI="D006801" MajorTopicYN="N">Humans</DescriptorName></MeshHeading><MeshHeading><DescriptorName UI="D000099194" MajorTopicYN="N">Semaglutide</DescriptorName></MeshHeading><MeshHeading><DescriptorName UI="D008297" MajorTopicYN="N">Male</DescriptorName></MeshHeading><MeshHeading><DescriptorName UI="D012559" MajorTopicYN="Y">Schizophrenia</DescriptorName><QualifierName UI="Q000188" MajorTopicYN="N">drug therapy</QualifierName></MeshHeading><MeshHeading><DescriptorName UI="D000328" MajorTopicYN="N">Adult</DescriptorName></MeshHeading><MeshHeading><DescriptorName UI="D005260" MajorTopicYN="N">Female</DescriptorName></MeshHeading><MeshHeading><DescriptorName UI="D014150" MajorTopicYN="Y">Antipsychotic Agents</DescriptorName><QualifierName UI="Q000009" MajorTopicYN="N">adverse effects</QualifierName><QualifierName UI="Q000627" MajorTopicYN="N">therapeutic use</QualifierName></MeshHeading><MeshHeading><DescriptorName UI="D008875" MajorTopicYN="N">Middle Aged</DescriptorName></MeshHeading><MeshHeading><DescriptorName UI="D006815" MajorTopicYN="Y">Hunger</DescriptorName><QualifierName UI="Q000187" MajorTopicYN="N">drug effects</QualifierName></MeshHeading><MeshHeading><DescriptorName UI="D005247" MajorTopicYN="Y">Feeding Behavior</DescriptorName></MeshHeading><MeshHeading><DescriptorName UI="D004763" MajorTopicYN="Y">Glucagon-Like Peptides</DescriptorName><QualifierName UI="Q000627" MajorTopicYN="N">therapeutic use</QualifierName><QualifierName UI="Q000009" MajorTopicYN="N">adverse effects</QualifierName></MeshHeading><MeshHeading><DescriptorName UI="D036301" MajorTopicYN="N">Qualitative Research</DescriptorName></MeshHeading><MeshHeading><DescriptorName UI="D001068" MajorTopicYN="Y">Feeding and Eating Disorders</DescriptorName><QualifierName UI="Q000139" MajorTopicYN="N">chemically induced</QualifierName></MeshHeading><MeshHeading><DescriptorName UI="D000223" MajorTopicYN="N">Adaptation, Psychological</DescriptorName></MeshHeading></MeshHeadingList><KeywordList Owner="NOTNLM"><Keyword MajorTopicYN="N">Schizophrenia</Keyword><Keyword MajorTopicYN="N">antipsychotics</Keyword><Keyword MajorTopicYN="N">auditory hallucinations</Keyword><Keyword MajorTopicYN="N">coping</Keyword><Keyword MajorTopicYN="N">eating habits</Keyword><Keyword MajorTopicYN="N">food cues</Keyword><Keyword MajorTopicYN="N">hunger</Keyword><Keyword MajorTopicYN="N">interoception</Keyword><Keyword MajorTopicYN="N">qualitative</Keyword><Keyword MajorTopicYN="N">semaglutide</Keyword></KeywordList><CoiStatement>The HISTORI RCT: Financial, material, and other support for the study was obtained from private foundations, including the Novo Nordisk Foundation; the Steno Diabetes Centre Sjaelland; the Steno Diabetes Centre Odense, Denmark; Slagelse Research Grants; and Region Zealand Health Research Foundation. The funders had no role in the design and conduct of the study; collection, management, analysis, and interpretation of the data; preparation, review, or approval of the manuscript; and decision to submit the manuscript for publication.</CoiStatement></MedlineCitation><PubmedData><History><PubMedPubDate PubStatus="medline"><Year>2026</Year><Month>8</Month><Day>18</Day><Hour>13</Hour><Minute>57</Minute></PubMedPubDate><PubMedPubDate PubStatus="pubmed"><Year>2026</Year><Month>8</Month><Day>18</Day><Hour>13</Hour><Minute>56</Minute></PubMedPubDate><PubMedPubDate PubStatus="entrez"><Year>2026</Year><Month>8</Month><Day>18</Day><Hour>7</Hour><Minute>25</Minute></PubMedPubDate><PubMedPubDate PubStatus="pmc-release"><Year>2026</Year><Month>8</Month><Day>18</Day></PubMedPubDate></History><PublicationStatus>ppublish</PublicationStatus><ArticleIdList><ArticleId IdType="pubmed">42610532</ArticleId><ArticleId IdType="pmc">PMC13487855</ArticleId><ArticleId IdType="doi">10.1080/17482631.2026.2717809</ArticleId></ArticleIdList><ReferenceList><Reference><Citation>
+
+Alkholy, R.
+, 
+Lovell, K.
+, 
+Bee, P.
+, 
+Pedley, R.
+, 
+Brooks, H. L.
+, &amp; 
+Drake, R. J.
+ (2025). The impacts of antipsychotic medications on eating-related outcomes: A mixed methods systematic review. Olashore AA, redakt&#xf8;r. 
+<i>PLoS One</i>
+, 
+20
+(2), e0308037. 10.1371/journal.pone.0308037
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1371/journal.pone.0308037</ArticleId><ArticleId IdType="pmc">PMC11790239</ArticleId><ArticleId IdType="pubmed">39899652</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+Althubaiti, A.
+ (2016). Information bias in health research: definition, pitfalls, and adjustment methods. 
+<i>Journal of Multidisciplinary Healthcare</i>
+, 211. 10.2147/jmdh.s104807
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.2147/jmdh.s104807</ArticleId><ArticleId IdType="pmc">PMC4862344</ArticleId><ArticleId IdType="pubmed">27217764</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+Andersen, D. H. K.
+
+Reflective lifeworld research. I: F&#xe6;nomenologi og hermeneutik anvendelse og argumentation I sygeplejen. 1. udgave. 
+<i>Samfundslitteratur. s</i>
+, 237&#x2013;249.</Citation></Reference><Reference><Citation>
+
+Barnard-Kelly, K.
+, 
+Whicher, C. A.
+, 
+Price, H. C.
+, 
+Phiri, P.
+, 
+Rathod, S.
+, &amp; 
+Asher, C.
+ (2022). Liraglutide and the management of overweight and obesity in people with severe mental illness: qualitative sub-study. 
+<i>BMC Psychiatry</i>
+, 
+22
+(1), 21. 10.1186/s12888-021-03666-5
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1186/s12888-021-03666-5</ArticleId><ArticleId IdType="pmc">PMC8740474</ArticleId><ArticleId IdType="pubmed">34996406</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+de Beaurepaire, R.
+ (2021). Binge eating disorders in antipsychotic-treated patients with schizophrenia: prevalence, antipsychotic specificities, and changes over time. 
+<i>Journal of Clinical Psychopharmacology (Baltimore, MD)</i>
+, 
+41
+(2), 114&#x2013;120. 10.1097/JCP.0000000000001357
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1097/JCP.0000000000001357</ArticleId><ArticleId IdType="pubmed">33587392</ArticleId></ArticleIdList></Reference><Reference><Citation>Braun, V. , &amp; Clarke, V. (2022). Thematic analysis: A practical guide. 338 s. SAGE. Los Angeles London New Delhi Singapore Washington DC Melbourne.</Citation></Reference><Reference><Citation>
+
+Braun, V.
+, &amp; 
+Clarke, V.
+ (2025). Reporting guidelines for qualitative research: A values-based approach. 
+<i>Qual Res Psychol.</i>
+, 
+22
+(2), 399&#x2013;438. 10.1080/14780887.2024.2382244
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1080/14780887.2024.2382244</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+Brodrick, B. B.
+, 
+Jacobs, M. A.
+, &amp; 
+McAdams, C. J.
+ (2020). Psychosis in anorexia nervosa: A case report and review of the literature. 
+<i>Psychosomatics</i>
+, 
+61
+(2), 181&#x2013;187. 10.1016/j.psym.2019.06.003
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.psym.2019.06.003</ArticleId><ArticleId IdType="pmc">PMC6933101</ArticleId><ArticleId IdType="pubmed">31371095</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+Bruins, J.
+, 
+J&#xf6;rg, F.
+, 
+Bruggeman, R.
+, 
+Slooff, C.
+, 
+Corpeleijn, E.
+, &amp; 
+Pijnenborg, M.
+ (2014). The effects of lifestyle interventions on (Long-Term) weight management, cardiometabolic risk and depressive symptoms in people with psychotic disorders: A meta-analysis. 
+<i>PLoS One</i>
+, 
+9
+(12), e112276. 10.1371/journal.pone.0112276. Kirchmair R, redakt&#xf8;r.
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1371/journal.pone.0112276</ArticleId><ArticleId IdType="pmc">PMC4256304</ArticleId><ArticleId IdType="pubmed">25474313</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+Carlson, J. L.
+, &amp; 
+Lemly, D. C.
+ (2024). Medical considerations and consequences of eating disorders. 
+<i>Focus (San Francisco, Calif.)</i>
+, 
+22
+(3), 301&#x2013;306. 10.1176/appi.focus.20230042
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1176/appi.focus.20230042</ArticleId><ArticleId IdType="pmc">PMC11231475</ArticleId><ArticleId IdType="pubmed">38988462</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+Celletti, F.
+, 
+Farrar, J.
+, &amp; 
+De Regil, L.
+ (2026). World health organization guideline on the use and indications of glucagon-like Peptide-1 therapies for the treatment of obesity in adults. 
+<i>Journal of the American Medical Association</i>
+, 
+335
+(5), 434. 10.1001/jama.2025.24288
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1001/jama.2025.24288</ArticleId><ArticleId IdType="pubmed">41324410</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+Cobbaert, L.
+, 
+Hay, P.
+, 
+Mitchell, P. B.
+, 
+Roza, S. J.
+, &amp; 
+Perkes, I.
+ (2024). Sensory processing across eating disorders: A systematic review and meta&#x2010;analysis of self&#x2010;report inventories. 
+<i>The International Journal of Eating Disorders</i>
+, 
+57
+(7), 1465&#x2013;1488. 10.1002/eat.24184
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1002/eat.24184</ArticleId><ArticleId IdType="pubmed">38511825</ArticleId></ArticleIdList></Reference><Reference><Citation>Dahlberg, K. , Dahlberg, H. , &amp; Nystr&#xf6;m, M. (2008). Reflective lifeworld research, 370 s 2 ed.). Lund: Studentlitteratur.</Citation></Reference><Reference><Citation>
+
+Deng, C.
+ (2013). Effects of antipsychotic medications on appetite, weight, and insulin resistance. 
+<i>Endocrinology and Metabolism Clinics of North America</i>
+, 
+42
+(3), 545&#x2013;563. 10.1016/j.ecl.2013.05.006
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.ecl.2013.05.006</ArticleId><ArticleId IdType="pubmed">24011886</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+Dhurandhar, E. J.
+, 
+Maki, K. C.
+, 
+Dhurandhar, N. V.
+, 
+Kyle, T. K.
+, 
+Yurkow, S.
+, &amp; 
+Hawkins, M. A. W.
+, (2025). Food noise: definition, measurement, and future research directions. 
+<i>Nutrition &amp; Diabetes</i>
+, 
+15
+(1), 30. 10.1038/s41387-025-00382-x
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1038/s41387-025-00382-x</ArticleId><ArticleId IdType="pmc">PMC12238327</ArticleId><ArticleId IdType="pubmed">40628707</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+Elwyn, R.
+ (2025). Co-occurring eating disorder and psychosis: A lived experience case exploration with examples and suggestions for personalized integrated treatment approach. 
+<i>Journal of Eating Disorders</i>
+, 
+13
+(1), 164. 10.1186/s40337-025-01270-6
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1186/s40337-025-01270-6</ArticleId><ArticleId IdType="pmc">PMC12317487</ArticleId><ArticleId IdType="pubmed">40750894</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+Fan, M.
+, 
+Liu, Z.
+, 
+Wei, A.
+, 
+Gao, R.
+, 
+Luan, P.
+, &amp; 
+He, X.
+ (2025). The relationship between schizophrenia and interoceptive accuracy and sensitivity: A systematic review and meta-analysis. 
+<i>Neuropsychiatric Disease and Treatment</i>
+, 
+21
+, 2307&#x2013;2319. 10.2147/NDT.S545022
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.2147/NDT.S545022</ArticleId><ArticleId IdType="pmc">PMC12535719</ArticleId><ArticleId IdType="pubmed">41116842</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+Febrey, S.
+, 
+Nunns, M.
+, 
+Buckland, J.
+, 
+Abbott, R.
+, 
+Bethel, A.
+, &amp; 
+Whear, R.
+ (2025). What are the experiences, views and perceptions of patients, carers and clinicians of glucagon&#x2010;like Peptide&#x2010;1 receptor agonists (GLP&#x2010;1 RAs)? A scoping review. 
+<i>Health Expectations</i>
+, 
+28
+(2), e70251. 10.1111/hex.70251
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1111/hex.70251</ArticleId><ArticleId IdType="pmc">PMC11995417</ArticleId><ArticleId IdType="pubmed">40227008</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+Fitzgerald, I.
+, 
+Crowley, E. K.
+, 
+N&#xed; Dhubhlaing, C.
+, 
+O&#x2019;Dwyer, S.
+, &amp; 
+Sahm, L. J.
+ (2024). Informing the development of antipsychotic-induced weight gain management guidance: patient experiences and preferences &#x2013; qualitative descriptive study. 
+<i>BJPsych Open</i>
+, 
+10
+(5), e136. 10.1192/bjo.2024.725
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1192/bjo.2024.725</ArticleId><ArticleId IdType="pmc">PMC11698206</ArticleId><ArticleId IdType="pubmed">39086041</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+Frinco, R.
+, 
+Muzzulini, B.
+, 
+Tinti, C.
+, 
+Luminet, O.
+, &amp; 
+Schmidt, S.
+ (2024). A review of longitudinal studies on flashbulb memories. Where we started, are, and are going?
+
+<i>Applied Cognitive Psychology</i>
+, 
+38
+(4). 10.1002/acp.4233
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1002/acp.4233</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+Ganeshalingam, A. A.
+, 
+Uhrenholt, N. G.
+, 
+Arnfred, S.
+, 
+G&#xe6;de, P. H.
+, 
+Bilenberg, N.
+, &amp; 
+Frystyk, J.
+ (2024). Home-based intervention with semaglutide treatment of neuroleptic-related prediabetes (HISTORI): protocol describing a prospective, randomised, placebo controlled and double-blinded multicentre trial. 
+<i>BMJ Open</i>
+, 
+14
+(3), e077173. 10.1136/bmjopen-2023-077173
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1136/bmjopen-2023-077173</ArticleId><ArticleId IdType="pmc">PMC10953037</ArticleId><ArticleId IdType="pubmed">38503415</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+Ganeshalingam, A. A.
+, 
+Uhrenholt, N.
+, 
+Arnfred, S.
+, 
+G&#xe6;de, P.
+, 
+D&#xfc;ring, S.
+, &amp; 
+Stenager, E. N.
+ (2025). Semaglutide treatment of antipsychotic-treated patients with schizophrenia, prediabetes, and obesity: the HISTORI randomized clinical trial. 
+<i>JAMA Psychiatry</i>
+, 
+3
+, 1065. 10.1001/jamapsychiatry.2025.2332
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1001/jamapsychiatry.2025.2332</ArticleId><ArticleId IdType="pmc">PMC12409653</ArticleId><ArticleId IdType="pubmed">40900607</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+Graab&#xe6;k, T.
+, 
+Nguyen, N. T.
+, 
+S&#xf8;rensen, M. S.
+, &amp; 
+Lundby, C.
+ (2025). &#x2018;This is my decision&#x2019;: A qualitative study of individuals&#x2019; perspectives on use of semaglutide for weight loss. 
+<i>Basic &amp; Clinical Pharmacology &amp; Toxicology</i>
+, 
+137
+(1), e70069. 10.1111/bcpt.70069
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1111/bcpt.70069</ArticleId><ArticleId IdType="pmc">PMC12168653</ArticleId><ArticleId IdType="pubmed">40521912</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+Hayashi, D.
+, 
+Edwards, C.
+, 
+Emond, J. A.
+, 
+Gilbert-Diamond, D.
+, 
+Butt, M.
+, &amp; 
+Rigby, A.
+, (2023). What is food noise? A conceptual model of food cue reactivity. 
+<i>Nutrients</i>
+, 
+15
+(22), 4809. 10.3390/nu15224809
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3390/nu15224809</ArticleId><ArticleId IdType="pmc">PMC10674813</ArticleId><ArticleId IdType="pubmed">38004203</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+Heidari, S.
+, 
+Babor, T. F.
+, 
+De Castro, P.
+, 
+Tort, S.
+, &amp; 
+Curno, M.
+ (2016). Sex and gender equity in research: rationale for the SAGER guidelines and recommended use. 
+<i>Research Integrity and Peer Review</i>
+, 
+1
+(1), 2. 10.1186/s41073-016-0007-6
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1186/s41073-016-0007-6</ArticleId><ArticleId IdType="pmc">PMC5793986</ArticleId><ArticleId IdType="pubmed">29451543</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+Heymsfield, S. B.
+, 
+Avena, N. M.
+, 
+Baier, L.
+, 
+Brantley, P.
+, 
+Bray, G. A.
+, &amp; 
+Burnett, L. C.
+, (2014). Hyperphagia: current concepts and future directions proceedings of the 2nd international conference on hyperphagia. 
+<i>Obesity</i>
+, 
+22
+(S1), 10.1002/oby.20646
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1002/oby.20646</ArticleId><ArticleId IdType="pmc">PMC4159941</ArticleId><ArticleId IdType="pubmed">24574081</ArticleId></ArticleIdList></Reference><Reference><Citation>Hiim, H. , &amp; Hippe, E. (2007). L&#xe6;ring gennem oplevelse, forst&#xe5;else og handling: en studiebog I didaktik (2 ed.). K&#xf8;benhavn: Gyldendal.</Citation></Reference><Reference><Citation>
+
+Hjorth&#xf8;j, C.
+, 
+St&#xfc;rup, A. E.
+, 
+McGrath, J. J.
+, &amp; 
+Nordentoft, M.
+ (2017). Years of potential life lost and life expectancy in schizophrenia: A systematic review and meta-analysis. 
+<i>Lancet Psychiatry</i>
+, 
+4
+(4), 295&#x2013;301. 10.1016/S2215-0366(17)30078-0
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/S2215-0366(17)30078-0</ArticleId><ArticleId IdType="pubmed">28237639</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+Ibsen, C. K.
+, 
+Brostr&#xf8;m Kousgaard, M.
+, 
+Olsen, S.
+, 
+Christiansen, A. K. L.
+, 
+Sandholdt, C. T.
+, &amp; 
+R&#xf8;rth, R.
+,(2025). Patients&#x2019; experiences with GLP1-RAs &#x2013; a systematic review. 
+<i>Scandinavian Journal of Primary Health Care</i>
+, 
+43
+(2), 370&#x2013;379. 10.1080/02813432.2025.2477141
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1080/02813432.2025.2477141</ArticleId><ArticleId IdType="pmc">PMC12090293</ArticleId><ArticleId IdType="pubmed">40071612</ArticleId></ArticleIdList></Reference><Reference><Citation>Krogstrup, H. K. (2020). Brugerinvolvering I evaluering og forskning: metoder og form&#xe5;l (1 ed.). Kbh: Hans Reitzel.</Citation></Reference><Reference><Citation>Kvale, S. , &amp; Brinkmann, S. (2022). Interview: det kvalitative forskningsinterview som h&#xe5;ndv&#xe6;rk (3 ed.). Kbh: Hans Reitzel.</Citation></Reference><Reference><Citation>
+
+Kwok, S. C.
+, 
+Xu, X.
+, 
+Duan, W.
+, 
+Wang, X.
+, 
+Tang, Y.
+, &amp; 
+All&#xe9;, M. C.
+ (2021). Autobiographical and episodic memory deficits in schizophrenia: A narrative review and proposed agenda for research. 
+<i>Clinical Psychology Review</i>
+, 
+83
+, 101956. 10.1016/j.cpr.2020.101956
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.cpr.2020.101956</ArticleId><ArticleId IdType="pubmed">33385717</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+L&#xf8;gstrup, K. E.
+ (2017). Den etiske fordring. 4. udgave. In Finck H. (Ed.), 
+<i>Redakt&#xf8;r</i>
+. &#xc5;rhus: Klim.</Citation></Reference><Reference><Citation>
+
+Malterud, K.
+, 
+Siersma, V. D.
+, &amp; 
+Guassora, A. D.
+ (2016). Sample size in qualitative interview studies: guided by information power. 
+<i>Qualitative Health Research</i>
+, 
+26
+(13), 1753&#x2013;1760. 10.1177/1049732315617444
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1177/1049732315617444</ArticleId><ArticleId IdType="pubmed">26613970</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+Palinkas, L. A.
+, 
+Horwitz, S. M.
+, 
+Green, C. A.
+, 
+Wisdom, J. P.
+, 
+Duan, N.
+, &amp; 
+Hoagwood, K.
+ (2015). Purposeful sampling for qualitative data collection and analysis in mixed method implementation research. 
+<i>Administration and Policy in Mental Health and Mental Health Services Research</i>
+, 
+42
+(5), 533&#x2013;544. 10.1007/s10488-013-0528-y
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s10488-013-0528-y</ArticleId><ArticleId IdType="pmc">PMC4012002</ArticleId><ArticleId IdType="pubmed">24193818</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+Pape, L. M.
+, 
+Adriaanse, M. C.
+, 
+Kol, J.
+, 
+Van Straten, A.
+, &amp; 
+Van Meijel, B.
+ (2022). Patient-reported outcomes of lifestyle interventions in patients with severe mental illness: A systematic review and meta-analysis. 
+<i>BMC Psychiatry</i>
+, 
+22
+(1), 261. 10.1186/s12888-022-03854-x
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1186/s12888-022-03854-x</ArticleId><ArticleId IdType="pmc">PMC9006587</ArticleId><ArticleId IdType="pubmed">35418082</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+Pierret, A. C. S.
+, 
+Benton, M.
+, 
+Sen Gupta, P.
+, &amp; 
+Ismail, K.
+ (2024). A qualitative study of the mental health outcomes in people being treated for obesity and type 2 diabetes with glucagon-like peptide-1 receptor agonists. 
+<i>ACTA Diabetologica (Berlin)</i>
+, 
+9
+, 731&#x2013;742. 10.1007/s00592-024-02392-0
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s00592-024-02392-0</ArticleId><ArticleId IdType="pmc">PMC12116896</ArticleId><ArticleId IdType="pubmed">39520512</ArticleId></ArticleIdList></Reference><Reference><Citation>Ric&#x153;ur, P. (1984). Time and narrative. 3. University of Chicago Press. Chicago.</Citation></Reference><Reference><Citation>
+
+Rinaldi, G.
+, 
+Osman, N.
+, 
+Kaess, M.
+, 
+Schimmelmann, B. G.
+, 
+Kindler, J.
+, &amp; 
+Schultze-Lutter, F.
+ (2023). Exploring the complex relationships between coping strategies, locus of control and self-esteem with psychopathology: structural equation modeling with a special focus on clinical high-risk of psychosis. 
+<i>European Psychiatry</i>
+, 
+66
+(1), e88. 10.1192/j.eurpsy.2023.2457
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1192/j.eurpsy.2023.2457</ArticleId><ArticleId IdType="pmc">PMC10755569</ArticleId><ArticleId IdType="pubmed">37848406</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+Sankaranarayanan, A.
+, 
+Johnson, K.
+, 
+Mammen, S. J.
+, 
+Wilding, H. E.
+, 
+Vasani, D.
+, 
+Murali, V.
+, 
+Mitchison, D.
+, 
+Castle, D. J.
+, &amp; 
+Hay, P.
+ (2021). Disordered eating among people with schizophrenia spectrum disorders: A systematic review. 
+<i>Nutrients</i>
+, 
+13
+(11), 3820. 10.3390/nu13113820
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3390/nu13113820</ArticleId><ArticleId IdType="pmc">PMC8618287</ArticleId><ArticleId IdType="pubmed">34836076</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+Schifani, C.
+, 
+Tseng, H. H.
+, 
+Kenk, M.
+, 
+Tagore, A.
+, 
+Kiang, M.
+, &amp; 
+Wilson, A. A.
+, (2018). Cortical stress regulation is disrupted in schizophrenia but not in clinical high risk for psychosis. 
+<i>Brain</i>
+, 
+141
+(7), 2213&#x2013;2224. 10.1093/brain/awy133
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1093/brain/awy133</ArticleId><ArticleId IdType="pmc">PMC6022671</ArticleId><ArticleId IdType="pubmed">29860329</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+Smits, D. W.
+, 
+van Meeteren, K.
+, 
+Klem, M.
+, 
+Alsem, M.
+, &amp; 
+Ketelaar, M.
+ (2020). Designing a tool to support patient and public involvement in research projects: the involvement matrix. 
+<i>Research Involvement and Engagement</i>
+, 
+6
+, 30. 10.1186/s40900-020-00188-4
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1186/s40900-020-00188-4</ArticleId><ArticleId IdType="pmc">PMC7296703</ArticleId><ArticleId IdType="pubmed">32550002</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+Staley, K.
+ (2017). Changing what researchers &#x201c;think and do&#x201d;: is this how involvement impacts on research?
+
+<i>Reset All</i>
+, 
+1
+(1), 10.18546/RFA.01.1.13
+</Citation><ArticleIdList><ArticleId IdType="doi">10.18546/RFA.01.1.13</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+Stanis&#x142;awski, K.
+ (2022). 
+<i>The coping circumplex model: a theoretical synthesis of coping constructs and its empirical verification</i>
+. Wydawnictwo Naukowe UKSW. Warszawa.</Citation></Reference><Reference><Citation>
+
+Stramecki, F.
+, 
+Kotowicz, K.
+, 
+Piotrowski, P.
+, 
+Besz&#x142;ej, J. A.
+, 
+Rymaszewska, J.
+, &amp; 
+Samochowiec, J.
+ (2019). Coping styles and symptomatic manifestation of first-episode psychosis: focus on cognitive performance. 
+<i>Psychiatry Research (Limerick)</i>
+, 
+272
+, 246&#x2013;251. 10.1016/j.psychres.2018.12.083
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.psychres.2018.12.083</ArticleId><ArticleId IdType="pubmed">30590279</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+Waite, F.
+, 
+Diamond, R.
+, 
+Collett, N.
+, 
+Chadwick, E.
+, 
+Bold, E.
+, &amp; 
+Teale, A. L.
+ (2019). The comments of voices on the appearance of patients with psychosis: &amp;Lsquothe voices tell me that I am ugly. 
+<i>BJPsych Open</i>
+, 
+5
+(5), e86. 10.1192/bjo.2019.66
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1192/bjo.2019.66</ArticleId><ArticleId IdType="pmc">PMC6788219</ArticleId><ArticleId IdType="pubmed">31537204</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+Waite, F.
+, 
+Langman, A.
+, 
+Mulhall, S.
+, 
+Glogowska, M.
+, 
+Hartmann-Boyce, J.
+, &amp; 
+Aveyard, P.
+ (2022). The psychological journey of weight gain in psychosis. 
+<i>Psychol Psychother Theory Res Pract</i>
+, 
+95
+(2), 525&#x2013;540. 10.1111/papt.12386
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1111/papt.12386</ArticleId><ArticleId IdType="pmc">PMC9304181</ArticleId><ArticleId IdType="pubmed">35137519</ArticleId></ArticleIdList></Reference><Reference><Citation>
+World Medical Association Declaration of Helsinki . (2013). Ethical principles for medical research involving human subjects. 
+<i>Journal of the American Medical Association</i>
+, 
+310
+(20), 2191.
+</Citation><ArticleIdList><ArticleId IdType="pubmed">24141714</ArticleId></ArticleIdList></Reference></ReferenceList></PubmedData></PubmedArticle><PubmedArticle><MedlineCitation Status="MEDLINE" Owner="NLM" IndexingMethod="Automated"><PMID Version="1">42669356</PMID><DateCompleted><Year>2026</Year><Month>10</Month><Day>08</Day></DateCompleted><DateRevised><Year>2026</Year><Month>10</Month><Day>08</Day></DateRevised><Article PubModel="Print-Electronic"><Journal><ISSN IssnType="Electronic">1873-7064</ISSN><JournalIssue CitedMedium="Internet"><Volume>301</Volume><PubDate><Year>2026</Year><Month>Dec</Month><Day>15</Day></PubDate></JournalIssue><Title>Neuropharmacology</Title><ISOAbbreviation>Neuropharmacology</ISOAbbreviation></Journal><ArticleTitle>Intrathecal semaglutide attenuates burn injury-induced pain in mice through a spinal GLP-1R-linked enkephalin/&#x3b4;-opioid receptor pathway.</ArticleTitle><Pagination><StartPage>111163</StartPage><MedlinePgn>111163</MedlinePgn></Pagination><ELocationID EIdType="doi" ValidYN="Y">10.1016/j.neuropharm.2026.111163</ELocationID><ELocationID EIdType="pii" ValidYN="Y">S0028-3908(26)00338-2</ELocationID><Abstract><AbstractText>Burn injury-induced pain (BIP) is a complex condition whose spinal mechanisms remain incompletely understood. Although spinal glucagon-like peptide-1 receptor (GLP-1R) signaling has been implicated in pain modulation, its contribution to BIP remains unclear. Using a mouse model of second-degree burn injury, we characterized nociceptive behaviors, spinal glial responses, and the temporal and cellular distribution of GLP-1R using immunoblotting, immunofluorescence, and RNAscope in situ hybridization. We then evaluated the antinociceptive effects of intrathecal semaglutide, their sensitivity to pharmacological GLP-1R antagonism, and the functional contribution of endogenous enkephalin/&#x3b4;-opioid receptor (DOR) signaling. Burn injury increased spinal GLP-1R expression during the peak phase of pain hypersensitivity. GLP-1R immunoreactivity and Glp1r transcripts showed a substantial association with GFAP-positive astrocytic profiles, while detectable signals were also present in microglia and neurons. Intrathecal semaglutide attenuated mechanical allodynia and thermal hyperalgesia, and these effects were reduced by pharmacological GLP-1R antagonism. Acute semaglutide responsiveness was also observed in female mice. Semaglutide increased spinal Penk mRNA and enkephalin immunoreactivity in vivo and increased Penk expression and extracellular enkephalin levels in primary spinal astrocyte-enriched cultures. In spinal tissue, enkephalin immunoreactivity was more frequently associated with GFAP-positive profiles than with Iba1-or NeuN-positive profiles. Moreover, enkephalin neutralization and DOR antagonism attenuated semaglutide-induced antinociception. Together, these findings support a functional spinal enkephalin/DOR pathway linked to intrathecal semaglutide treatment and consistent with GLP-1R involvement in BIP.</AbstractText><CopyrightInformation>Copyright &#xa9; 2026 Elsevier Ltd. All rights reserved.</CopyrightInformation></Abstract><AuthorList CompleteYN="Y"><Author ValidYN="Y"><LastName>He</LastName><ForeName>Yongtao</ForeName><Initials>Y</Initials><AffiliationInfo><Affiliation>Key Laboratory of Preclinical Study for New Drugs of Gansu Province, School of Basic Medical Sciences, and State Key Laboratory of Animal Disease Control and Prevention, College of Veterinary Medicine, Lanzhou University, 199 Donggang West Road, Lanzhou, 730000, PR China.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Gao</LastName><ForeName>Jie</ForeName><Initials>J</Initials><AffiliationInfo><Affiliation>Key Laboratory of Preclinical Study for New Drugs of Gansu Province, School of Basic Medical Sciences, and State Key Laboratory of Animal Disease Control and Prevention, College of Veterinary Medicine, Lanzhou University, 199 Donggang West Road, Lanzhou, 730000, PR China.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Liu</LastName><ForeName>Yongpeng</ForeName><Initials>Y</Initials><AffiliationInfo><Affiliation>Key Laboratory of Preclinical Study for New Drugs of Gansu Province, School of Basic Medical Sciences, and State Key Laboratory of Animal Disease Control and Prevention, College of Veterinary Medicine, Lanzhou University, 199 Donggang West Road, Lanzhou, 730000, PR China.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Wu</LastName><ForeName>Shuyuan</ForeName><Initials>S</Initials><AffiliationInfo><Affiliation>Key Laboratory of Preclinical Study for New Drugs of Gansu Province, School of Basic Medical Sciences, and State Key Laboratory of Animal Disease Control and Prevention, College of Veterinary Medicine, Lanzhou University, 199 Donggang West Road, Lanzhou, 730000, PR China.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Kuang</LastName><ForeName>Junzhe</ForeName><Initials>J</Initials><AffiliationInfo><Affiliation>Key Laboratory of Preclinical Study for New Drugs of Gansu Province, School of Basic Medical Sciences, and State Key Laboratory of Animal Disease Control and Prevention, College of Veterinary Medicine, Lanzhou University, 199 Donggang West Road, Lanzhou, 730000, PR China.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Chen</LastName><ForeName>Dan</ForeName><Initials>D</Initials><AffiliationInfo><Affiliation>Key Laboratory of Preclinical Study for New Drugs of Gansu Province, School of Basic Medical Sciences, and State Key Laboratory of Animal Disease Control and Prevention, College of Veterinary Medicine, Lanzhou University, 199 Donggang West Road, Lanzhou, 730000, PR China.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Xu</LastName><ForeName>Biao</ForeName><Initials>B</Initials><AffiliationInfo><Affiliation>Key Laboratory of Preclinical Study for New Drugs of Gansu Province, School of Basic Medical Sciences, and State Key Laboratory of Animal Disease Control and Prevention, College of Veterinary Medicine, Lanzhou University, 199 Donggang West Road, Lanzhou, 730000, PR China.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Zhang</LastName><ForeName>Mengna</ForeName><Initials>M</Initials><AffiliationInfo><Affiliation>Key Laboratory of Preclinical Study for New Drugs of Gansu Province, School of Basic Medical Sciences, and State Key Laboratory of Animal Disease Control and Prevention, College of Veterinary Medicine, Lanzhou University, 199 Donggang West Road, Lanzhou, 730000, PR China.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Fang</LastName><ForeName>Quan</ForeName><Initials>Q</Initials><AffiliationInfo><Affiliation>Key Laboratory of Preclinical Study for New Drugs of Gansu Province, School of Basic Medical Sciences, and State Key Laboratory of Animal Disease Control and Prevention, College of Veterinary Medicine, Lanzhou University, 199 Donggang West Road, Lanzhou, 730000, PR China. Electronic address: fangq@lzu.edu.cn.</Affiliation></AffiliationInfo></Author></AuthorList><Language>eng</Language><PublicationTypeList><PublicationType UI="D016428">Journal Article</PublicationType></PublicationTypeList><ArticleDate DateType="Electronic"><Year>2026</Year><Month>08</Month><Day>30</Day></ArticleDate></Article><MedlineJournalInfo><Country>England</Country><MedlineTA>Neuropharmacology</MedlineTA><NlmUniqueID>0236217</NlmUniqueID><ISSNLinking>0028-3908</ISSNLinking></MedlineJournalInfo><ChemicalList><Chemical><RegistryNumber>53AXN4NNHX</RegistryNumber><NameOfSubstance UI="D000099194">Semaglutide</NameOfSubstance></Chemical><Chemical><RegistryNumber>62340-29-8</RegistryNumber><NameOfSubstance UI="D004763">Glucagon-Like Peptides</NameOfSubstance></Chemical><Chemical><RegistryNumber>0</RegistryNumber><NameOfSubstance UI="D000067757">Glucagon-Like Peptide-1 Receptor</NameOfSubstance></Chemical><Chemical><RegistryNumber>0</RegistryNumber><NameOfSubstance UI="D004745">Enkephalins</NameOfSubstance></Chemical><Chemical><RegistryNumber>0</RegistryNumber><NameOfSubstance UI="C000593834">Glp1r protein, mouse</NameOfSubstance></Chemical></ChemicalList><CitationSubset>IM</CitationSubset><MeshHeadingList><MeshHeading><DescriptorName UI="D000818" MajorTopicYN="N">Animals</DescriptorName></MeshHeading><MeshHeading><DescriptorName UI="D000099194" MajorTopicYN="N">Semaglutide</DescriptorName></MeshHeading><MeshHeading><DescriptorName UI="D004763" MajorTopicYN="Y">Glucagon-Like Peptides</DescriptorName><QualifierName UI="Q000008" MajorTopicYN="N">administration &amp; dosage</QualifierName><QualifierName UI="Q000494" MajorTopicYN="N">pharmacology</QualifierName></MeshHeading><MeshHeading><DescriptorName UI="D013116" MajorTopicYN="Y">Spinal Cord</DescriptorName><QualifierName UI="Q000378" MajorTopicYN="N">metabolism</QualifierName><QualifierName UI="Q000187" MajorTopicYN="N">drug effects</QualifierName></MeshHeading><MeshHeading><DescriptorName UI="D007278" MajorTopicYN="N">Injections, Spinal</DescriptorName></MeshHeading><MeshHeading><DescriptorName UI="D005260" MajorTopicYN="N">Female</DescriptorName></MeshHeading><MeshHeading><DescriptorName UI="D051379" MajorTopicYN="N">Mice</DescriptorName></MeshHeading><MeshHeading><DescriptorName UI="D000067757" MajorTopicYN="Y">Glucagon-Like Peptide-1 Receptor</DescriptorName><QualifierName UI="Q000378" MajorTopicYN="N">metabolism</QualifierName></MeshHeading><MeshHeading><DescriptorName UI="D004745" MajorTopicYN="Y">Enkephalins</DescriptorName><QualifierName UI="Q000378" MajorTopicYN="N">metabolism</QualifierName></MeshHeading><MeshHeading><DescriptorName UI="D002056" MajorTopicYN="Y">Burns</DescriptorName><QualifierName UI="Q000150" MajorTopicYN="N">complications</QualifierName><QualifierName UI="Q000378" MajorTopicYN="N">metabolism</QualifierName><QualifierName UI="Q000188" MajorTopicYN="N">drug therapy</QualifierName></MeshHeading><MeshHeading><DescriptorName UI="D008297" MajorTopicYN="N">Male</DescriptorName></MeshHeading><MeshHeading><DescriptorName UI="D006930" MajorTopicYN="N">Hyperalgesia</DescriptorName><QualifierName UI="Q000188" MajorTopicYN="N">drug therapy</QualifierName><QualifierName UI="Q000378" MajorTopicYN="N">metabolism</QualifierName></MeshHeading><MeshHeading><DescriptorName UI="D010146" MajorTopicYN="Y">Pain</DescriptorName><QualifierName UI="Q000188" MajorTopicYN="N">drug therapy</QualifierName><QualifierName UI="Q000378" MajorTopicYN="N">metabolism</QualifierName><QualifierName UI="Q000209" MajorTopicYN="N">etiology</QualifierName></MeshHeading><MeshHeading><DescriptorName UI="D015398" MajorTopicYN="N">Signal Transduction</DescriptorName><QualifierName UI="Q000187" MajorTopicYN="N">drug effects</QualifierName></MeshHeading><MeshHeading><DescriptorName UI="D008810" MajorTopicYN="N">Mice, Inbred C57BL</DescriptorName></MeshHeading></MeshHeadingList><KeywordList Owner="NOTNLM"><Keyword MajorTopicYN="N">Astrocyte</Keyword><Keyword MajorTopicYN="N">Burn injury-induced pain</Keyword><Keyword MajorTopicYN="N">Enkephalin</Keyword><Keyword MajorTopicYN="N">GLP-1 receptor</Keyword><Keyword MajorTopicYN="N">Semaglutide</Keyword><Keyword MajorTopicYN="N">Spinal cord</Keyword></KeywordList><CoiStatement>Declaration of competing interests The authors declare that they have no known competing financial interests or personal relationships that could have appeared to influence the work reported in this paper.</CoiStatement></MedlineCitation><PubmedData><History><PubMedPubDate PubStatus="received"><Year>2025</Year><Month>12</Month><Day>24</Day></PubMedPubDate><PubMedPubDate PubStatus="revised"><Year>2026</Year><Month>7</Month><Day>21</Day></PubMedPubDate><PubMedPubDate PubStatus="accepted"><Year>2026</Year><Month>8</Month><Day>27</Day></PubMedPubDate><PubMedPubDate PubStatus="medline"><Year>2026</Year><Month>10</Month><Day>8</Day><Hour>23</Hour><Minute>31</Minute></PubMedPubDate><PubMedPubDate PubStatus="pubmed"><Year>2026</Year><Month>8</Month><Day>30</Day><Hour>23</Hour><Minute>36</Minute></PubMedPubDate><PubMedPubDate PubStatus="entrez"><Year>2026</Year><Month>8</Month><Day>30</Day><Hour>19</Hour><Minute>10</Minute></PubMedPubDate></History><PublicationStatus>ppublish</PublicationStatus><ArticleIdList><ArticleId IdType="pubmed">42669356</ArticleId><ArticleId IdType="doi">10.1016/j.neuropharm.2026.111163</ArticleId><ArticleId IdType="pii">S0028-3908(26)00338-2</ArticleId></ArticleIdList></PubmedData></PubmedArticle><PubmedArticle><MedlineCitation Status="MEDLINE" Owner="NLM" IndexingMethod="Automated"><PMID Version="1">42330703</PMID><DateCompleted><Year>2026</Year><Month>08</Month><Day>08</Day></DateCompleted><DateRevised><Year>2026</Year><Month>08</Month><Day>08</Day></DateRevised><Article PubModel="Print-Electronic"><Journal><ISSN IssnType="Electronic">1873-3557</ISSN><JournalIssue CitedMedium="Internet"><Volume>363</Volume><Issue>Pt 1</Issue><PubDate><Year>2026</Year><Month>Dec</Month><Day>15</Day></PubDate></JournalIssue><Title>Spectrochimica acta. Part A, Molecular and biomolecular spectroscopy</Title><ISOAbbreviation>Spectrochim Acta A Mol Biomol Spectrosc</ISOAbbreviation></Journal><ArticleTitle>ATR-FTIR spectroscopy coupled with multivariate analysis for monitoring degradation and secondary structure transitions in therapeutic peptide formulations.</ArticleTitle><Pagination><StartPage>128280</StartPage><MedlinePgn>128280</MedlinePgn></Pagination><ELocationID EIdType="doi" ValidYN="Y">10.1016/j.saa.2026.128280</ELocationID><ELocationID EIdType="pii" ValidYN="Y">S1386-1425(26)00851-6</ELocationID><Abstract><AbstractText>Therapeutic peptides represent an important class of biomolecules with great clinical and economic significance, however their structural complexity and susceptibility to degradation pose significant analytical challenges. This study aimed to evaluate the applicability of attenuated total reflectance-Fourier transform infrared (ATR-FTIR) spectroscopy in combination with multivariate data analysis as a rapid, non-destructive tool for monitoring structural changes and degradation in formulations containing semaglutide and liraglutide as model compounds. Spectral data allowed the detection of subtle conformational changes, particularly in the amide region I, which is directly related to the secondary structure. The application of principal component analysis (PCA) enabled the identification of clustering patterns and classification of samples under different stress conditions, while the analysis of loading and contribution line plots allowed recognition of the main spectral features contributing most to the variance. Despite the relatively short incubation times and using a dry film approach which may introduce conformational changes, clear changes associated with early and advanced phases of degradation were detected. ATR-FTIR results were complemented by liquid chromatography-high-resolution mass spectrometry (LC-HRMS), showing consistency between the spectroscopic, mass spectrometric and chromatographic data. As demonstrated in this proof-of-concept study, this integrated analytical approach indicates potential for application in stability monitoring, formulation studies, process control, and as part of a multi-analytical strategy for product authentication, particularly when structural alterations are expected. The results confirm the applicability of ATR-FTIR spectroscopy combined with multivariate data analysis as a powerful tool for rapid assessment of the behavior of peptide medicines under stress conditions.</AbstractText><CopyrightInformation>Copyright &#xa9; 2024. Published by Elsevier B.V.</CopyrightInformation></Abstract><AuthorList CompleteYN="Y"><Author ValidYN="Y"><LastName>Godzo</LastName><ForeName>Hrisanta</ForeName><Initials>H</Initials><AffiliationInfo><Affiliation>Institute of Applied Chemistry and Pharmaceutical Analysis, Faculty of Pharmacy, Ss Cyril and Methodius University in Skopje, Majka Tereza 47, 1000 Skopje, Macedonia. Electronic address: hrisanta@ff.ukim.edu.mk.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Deconinck</LastName><ForeName>Eric</ForeName><Initials>E</Initials><AffiliationInfo><Affiliation>Division of Chemical and Physical Health Risks, Section Medicines and Healthcare Products, Sciensano, J. Wytsmansstraat 14, B-1050 Brussels, Belgium.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Vanhee</LastName><ForeName>Celine</ForeName><Initials>C</Initials><AffiliationInfo><Affiliation>Division of Chemical and Physical Health Risks, Section Medicines and Healthcare Products, Sciensano, J. Wytsmansstraat 14, B-1050 Brussels, Belgium.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Waeytens</LastName><ForeName>Jehan</ForeName><Initials>J</Initials><AffiliationInfo><Affiliation>Unit of Pharmacognosy, Bioanalysis and Drug Discovery, Universit&#xe9; Libre de Bruxelles, 1050 Brussels, Belgium.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Geskovski</LastName><ForeName>Nikola</ForeName><Initials>N</Initials><AffiliationInfo><Affiliation>Institute of Pharmaceutical Technology, Faculty of Pharmacy, Ss Cyril and Methodius University in Skopje, Majka Tereza 47, 1000 Skopje, Macedonia.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Gigopulu</LastName><ForeName>Olga</ForeName><Initials>O</Initials><AffiliationInfo><Affiliation>Institute of Applied Chemistry and Pharmaceutical Analysis, Faculty of Pharmacy, Ss Cyril and Methodius University in Skopje, Majka Tereza 47, 1000 Skopje, Macedonia.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Brezovska</LastName><ForeName>Katerina</ForeName><Initials>K</Initials><AffiliationInfo><Affiliation>Institute of Applied Chemistry and Pharmaceutical Analysis, Faculty of Pharmacy, Ss Cyril and Methodius University in Skopje, Majka Tereza 47, 1000 Skopje, Macedonia.</Affiliation></AffiliationInfo></Author></AuthorList><Language>eng</Language><PublicationTypeList><PublicationType UI="D016428">Journal Article</PublicationType></PublicationTypeList><ArticleDate DateType="Electronic"><Year>2026</Year><Month>06</Month><Day>17</Day></ArticleDate></Article><MedlineJournalInfo><Country>England</Country><MedlineTA>Spectrochim Acta A Mol Biomol Spectrosc</MedlineTA><NlmUniqueID>9602533</NlmUniqueID><ISSNLinking>1386-1425</ISSNLinking></MedlineJournalInfo><ChemicalList><Chemical><RegistryNumber>0</RegistryNumber><NameOfSubstance UI="D010455">Peptides</NameOfSubstance></Chemical><Chemical><RegistryNumber>53AXN4NNHX</RegistryNumber><NameOfSubstance UI="D000099194">Semaglutide</NameOfSubstance></Chemical></ChemicalList><CitationSubset>IM</CitationSubset><MeshHeadingList><MeshHeading><DescriptorName UI="D017550" MajorTopicYN="N">Spectroscopy, Fourier Transform Infrared</DescriptorName><QualifierName UI="Q000379" MajorTopicYN="N">methods</QualifierName></MeshHeading><MeshHeading><DescriptorName UI="D015999" MajorTopicYN="N">Multivariate Analysis</DescriptorName></MeshHeading><MeshHeading><DescriptorName UI="D017433" MajorTopicYN="N">Protein Structure, Secondary</DescriptorName></MeshHeading><MeshHeading><DescriptorName UI="D010455" MajorTopicYN="Y">Peptides</DescriptorName><QualifierName UI="Q000737" MajorTopicYN="N">chemistry</QualifierName></MeshHeading><MeshHeading><DescriptorName UI="D025341" MajorTopicYN="N">Principal Component Analysis</DescriptorName></MeshHeading><MeshHeading><DescriptorName UI="D000099194" MajorTopicYN="N">Semaglutide</DescriptorName></MeshHeading><MeshHeading><DescriptorName UI="D004339" MajorTopicYN="N">Drug Compounding</DescriptorName></MeshHeading><MeshHeading><DescriptorName UI="D004355" MajorTopicYN="N">Drug Stability</DescriptorName></MeshHeading><MeshHeading><DescriptorName UI="D013058" MajorTopicYN="N">Mass Spectrometry</DescriptorName></MeshHeading></MeshHeadingList><KeywordList Owner="NOTNLM"><Keyword MajorTopicYN="N">ATR-FTIR spectroscopy</Keyword><Keyword MajorTopicYN="N">Degradation</Keyword><Keyword MajorTopicYN="N">Multivariate data analysis</Keyword><Keyword MajorTopicYN="N">Secondary structure</Keyword><Keyword MajorTopicYN="N">Therapeutic peptides</Keyword></KeywordList><CoiStatement>Declaration of competing interest The authors declare that they have no known competing financial interests or personal relationships that could have appeared to influence the work reported in this paper.</CoiStatement></MedlineCitation><PubmedData><History><PubMedPubDate PubStatus="received"><Year>2026</Year><Month>4</Month><Day>3</Day></PubMedPubDate><PubMedPubDate PubStatus="revised"><Year>2026</Year><Month>5</Month><Day>31</Day></PubMedPubDate><PubMedPubDate PubStatus="accepted"><Year>2026</Year><Month>6</Month><Day>16</Day></PubMedPubDate><PubMedPubDate PubStatus="medline"><Year>2026</Year><Month>8</Month><Day>8</Day><Hour>23</Hour><Minute>8</Minute></PubMedPubDate><PubMedPubDate PubStatus="pubmed"><Year>2026</Year><Month>6</Month><Day>22</Day><Hour>21</Hour><Minute>7</Minute></PubMedPubDate><PubMedPubDate PubStatus="entrez"><Year>2026</Year><Month>6</Month><Day>22</Day><Hour>18</Hour><Minute>4</Minute></PubMedPubDate></History><PublicationStatus>ppublish</PublicationStatus><ArticleIdList><ArticleId IdType="pubmed">42330703</ArticleId><ArticleId IdType="doi">10.1016/j.saa.2026.128280</ArticleId><ArticleId IdType="pii">S1386-1425(26)00851-6</ArticleId></ArticleIdList></PubmedData></PubmedArticle><PubmedArticle><MedlineCitation Status="PubMed-not-MEDLINE" Owner="NLM"><PMID Version="1">42894545</PMID><DateCompleted><Year>2026</Year><Month>10</Month><Day>19</Day></DateCompleted><DateRevised><Year>2026</Year><Month>10</Month><Day>20</Day></DateRevised><Article PubModel="Electronic-eCollection"><Journal><ISSN IssnType="Print">2251-6581</ISSN><JournalIssue CitedMedium="Print"><Volume>25</Volume><Issue>2</Issue><PubDate><Year>2026</Year><Month>Dec</Month></PubDate></JournalIssue><Title>Journal of diabetes and metabolic disorders</Title><ISOAbbreviation>J Diabetes Metab Disord</ISOAbbreviation></Journal><ArticleTitle>Economic evaluation of tirzepatide, semaglutide, and liraglutide in the treatment of obese and overweight patients without diabetes: a short-term cost-effectiveness analysis in Iran.</ArticleTitle><Pagination><StartPage>292</StartPage><MedlinePgn>292</MedlinePgn></Pagination><ELocationID EIdType="pii" ValidYN="Y">292</ELocationID><ELocationID EIdType="doi" ValidYN="Y">10.1007/s40200-026-02114-z</ELocationID><Abstract><AbstractText Label="PURPOSE" NlmCategory="UNASSIGNED">GLP-1 and dual GLP-1/GIP receptor agonists have improved obesity treatment, but their high cost requires economic evaluation to guide resource allocation. To assess the short-term cost-effectiveness of subcutaneous tirzepatide, semaglutide, and liraglutide for treating adults with overweight or obesity without diabetes in Iran.</AbstractText><AbstractText Label="METHODS" NlmCategory="UNASSIGNED">A decision-tree model was developed to compare tirzepatide, semaglutide, and liraglutide over 68 weeks in adults aged&#x2009;&#x2265;&#x2009;18 years with BMI&#x2009;&#x2265;&#x2009;30&#xa0;kg/m&#xb2; or &#x2265;&#x2009;27&#xa0;kg/m&#xb2; with at least one additional weight-related complication, excluding those with diabetes, from the payer perspective. Clinical effectiveness, adverse event (AE), and treatment discontinuation data were obtained from published literatures. Quality-adjusted life years (QALYs) were estimated based on BMI changes and AE-related disutility. Direct medical costs included drug acquisition and AE management costs. Deterministic and probabilistic sensitivity analyses were performed.</AbstractText><AbstractText Label="RESULTS" NlmCategory="UNASSIGNED">Compared with semaglutide, tirzepatide generated greater health benefits but at higher costs, resulting in an incremental cost-effectiveness ratio of US$34,423.89/QALY. Liraglutide was dominated by semaglutide. Semaglutide was cost-effective at the Iranian willingness-to-pay threshold of US$ (Purchasing power parity (PPP) 15,558.5/QALY, equal to one time GDP per capita in 2026. Sensitivity analyses confirmed the robustness of the findings.</AbstractText><AbstractText Label="CONCLUSION" NlmCategory="UNASSIGNED">Semaglutide was the cost-effective injectable GLP-1-based therapy in Iran. Although tirzepatide provided greater health benefits, its higher cost limited its cost-effectiveness at current prices.</AbstractText><AbstractText Label="SUPPLEMENTARY INFORMATION" NlmCategory="UNASSIGNED">The online version contains supplementary material available at https://doi.org/10.1007/s40200-026-02114-z.</AbstractText><CopyrightInformation>&#xa9; The Author(s), under exclusive licence to Tehran University of Medical Sciences 2026. Springer Nature or its licensor (e.g. a society or other partner) holds exclusive rights to this article under a publishing agreement with the author(s) or other rightsholder(s); author self-archiving of the accepted manuscript version of this article is solely governed by the terms of such publishing agreement and applicable law.</CopyrightInformation></Abstract><AuthorList CompleteYN="Y"><Author ValidYN="Y"><LastName>Reiszadeh</LastName><ForeName>Negin</ForeName><Initials>N</Initials><AffiliationInfo><Affiliation>Department of Pharmacoeconomics and Pharmaceutical Management, TeMS.C., Islamic Azad University, Tehran, Iran.</Affiliation><Identifier Source="ROR">https://ror.org/01kzn7k21</Identifier><Identifier Source="GRID">grid.411463.5</Identifier><Identifier Source="ISNI">0000 0001 0706 2472</Identifier></AffiliationInfo><AffiliationInfo><Affiliation>Department of Health Policy and Management, School of Public Health and Safety, Shahid Beheshti University of Medical Sciences, Tehran, Iran.</Affiliation><Identifier Source="ROR">https://ror.org/034m2b326</Identifier><Identifier Source="GRID">grid.411600.2</Identifier></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Radmanesh</LastName><ForeName>Ramin</ForeName><Initials>R</Initials><AffiliationInfo><Affiliation>Department of Pharmacoeconomics and Pharmaceutical Management, TeMS.C., Islamic Azad University, Tehran, Iran.</Affiliation><Identifier Source="ROR">https://ror.org/01kzn7k21</Identifier><Identifier Source="GRID">grid.411463.5</Identifier><Identifier Source="ISNI">0000 0001 0706 2472</Identifier></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Heshmat</LastName><ForeName>Ramin</ForeName><Initials>R</Initials><AffiliationInfo><Affiliation>Chronic Diseases Research Center, Endocrinology and Metabolism Population Sciences Institute, Tehran University of Medical Sciences, Tehran, Iran.</Affiliation><Identifier Source="ROR">https://ror.org/01c4pz451</Identifier><Identifier Source="GRID">grid.411705.6</Identifier><Identifier Source="ISNI">0000 0001 0166 0922</Identifier></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Mohammadi</LastName><ForeName>Hamed</ForeName><Initials>H</Initials><AffiliationInfo><Affiliation>Department of Clinical Nutrition, School of Nutritional Sciences and Dietetics, Tehran University of Medical Sciences, Tehran, Iran.</Affiliation><Identifier Source="ROR">https://ror.org/01c4pz451</Identifier><Identifier Source="GRID">grid.411705.6</Identifier><Identifier Source="ISNI">0000 0001 0166 0922</Identifier></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Darvishi</LastName><ForeName>Ali</ForeName><Initials>A</Initials><AffiliationInfo><Affiliation>Department of Health Policy and Management, School of Public Health and Safety, Shahid Beheshti University of Medical Sciences, Tehran, Iran.</Affiliation><Identifier Source="ROR">https://ror.org/034m2b326</Identifier><Identifier Source="GRID">grid.411600.2</Identifier></AffiliationInfo><AffiliationInfo><Affiliation>Health Technology Assessment and Health Economics Research Group, Workplace Health Promotion Research Center, Research Institute for Health Sciences and Environment, Shahid Beheshti University of Medical Sciences, Tehran, Iran.</Affiliation><Identifier Source="ROR">https://ror.org/034m2b326</Identifier><Identifier Source="GRID">grid.411600.2</Identifier></AffiliationInfo></Author></AuthorList><Language>eng</Language><PublicationTypeList><PublicationType UI="D016428">Journal Article</PublicationType></PublicationTypeList><ArticleDate DateType="Electronic"><Year>2026</Year><Month>10</Month><Day>17</Day></ArticleDate></Article><MedlineJournalInfo><Country>Switzerland</Country><MedlineTA>J Diabetes Metab Disord</MedlineTA><NlmUniqueID>101590741</NlmUniqueID><ISSNLinking>2251-6581</ISSNLinking></MedlineJournalInfo><KeywordList Owner="NOTNLM"><Keyword MajorTopicYN="N">Cost&#x2013;effectiveness analysis</Keyword><Keyword MajorTopicYN="N">Iran</Keyword><Keyword MajorTopicYN="N">Liraglutide</Keyword><Keyword MajorTopicYN="N">Obesity</Keyword><Keyword MajorTopicYN="N">Semaglutide</Keyword><Keyword MajorTopicYN="N">Tirzepatide</Keyword></KeywordList><CoiStatement>Competing interestsThe authors declare no competing interests.</CoiStatement></MedlineCitation><PubmedData><History><PubMedPubDate PubStatus="received"><Year>2026</Year><Month>7</Month><Day>21</Day></PubMedPubDate><PubMedPubDate PubStatus="accepted"><Year>2026</Year><Month>10</Month><Day>15</Day></PubMedPubDate><PubMedPubDate PubStatus="medline"><Year>2026</Year><Month>10</Month><Day>19</Day><Hour>5</Hour><Minute>31</Minute></PubMedPubDate><PubMedPubDate PubStatus="pubmed"><Year>2026</Year><Month>10</Month><Day>19</Day><Hour>5</Hour><Minute>30</Minute></PubMedPubDate><PubMedPubDate PubStatus="entrez"><Year>2026</Year><Month>10</Month><Day>19</Day><Hour>3</Hour><Minute>54</Minute></PubMedPubDate><PubMedPubDate PubStatus="pmc-release"><Year>2027</Year><Month>10</Month><Day>17</Day></PubMedPubDate></History><PublicationStatus>epublish</PublicationStatus><ArticleIdList><ArticleId IdType="pubmed">42894545</ArticleId><ArticleId IdType="pmc">PMC13676586</ArticleId><ArticleId IdType="doi">10.1007/s40200-026-02114-z</ArticleId><ArticleId IdType="pii">2114</ArticleId></ArticleIdList><ReferenceList><Reference><Citation>Purnell JQ. Definitions, classification, and epidemiology of obesity. 2015.</Citation><ArticleIdList><ArticleId IdType="pubmed">25905390</ArticleId></ArticleIdList></Reference><Reference><Citation>Liu J, et al. Projecting Global Trends and Inequalities in Adult Overweight and Obesity, 2023&#x2013;2040: Findings From the NCD-RisC Database. Obesity. 2025;33(10):1955&#x2013;67.</Citation><ArticleIdList><ArticleId IdType="doi">10.1002/oby.24358</ArticleId><ArticleId IdType="pmc">PMC12477102</ArticleId><ArticleId IdType="pubmed">40897667</ArticleId></ArticleIdList></Reference><Reference><Citation>Abiri B, et al. Prevalence of overweight and obesity among Iranian population: a systematic review and meta-analysis. J Health Popul Nutr. 2023;42(1):70.</Citation><ArticleIdList><ArticleId IdType="doi">10.1186/s41043-023-00419-w</ArticleId><ArticleId IdType="pmc">PMC10367271</ArticleId><ArticleId IdType="pubmed">37488650</ArticleId></ArticleIdList></Reference><Reference><Citation>Heart N, et al. Clinical guidelines on the identification, evaluation, and treatment of overweight and obesity in adults: the evidence report. National Heart, Lung, and Blood Institute. 1998.</Citation></Reference><Reference><Citation>Collaborators GO. Health effects of overweight and obesity in 195 countries over 25 years. N Engl J Med. 2017;377(1):13&#x2013;27.</Citation><ArticleIdList><ArticleId IdType="doi">10.1056/NEJMoa1614362</ArticleId><ArticleId IdType="pmc">PMC5477817</ArticleId><ArticleId IdType="pubmed">28604169</ArticleId></ArticleIdList></Reference><Reference><Citation>Okunogbe A, et al. Economic impacts of overweight and obesity: current and future estimates for 161 countries. BMJ global health. 2022;7(9):e009773.</Citation><ArticleIdList><ArticleId IdType="doi">10.1136/bmjgh-2022-009773</ArticleId><ArticleId IdType="pmc">PMC9494015</ArticleId><ArticleId IdType="pubmed">36130777</ArticleId></ArticleIdList></Reference><Reference><Citation>Tchang BG, et al. Pharmacologic treatment of overweight and obesity in adults. Endotext [Internet]. 2024.</Citation></Reference><Reference><Citation>Iran NF. o. &#x633;&#x627;&#x645;&#x627;&#x646;&#x647; &#x627;&#x637;&#x644;&#x627;&#x639;&#x62a; &#x62f;&#x627;&#x631;&#x648;&#x6cc;&#x6cc; &#x627;&#x6cc;&#x631;&#x627;&#x646;. [cited 2025 5/1/2025]; Available from: https://irc.fda.gov.ir/nfi</Citation></Reference><Reference><Citation>Moiz A, et al. Mechanisms of GLP-1 receptor agonist-induced weight loss: a review of central and peripheral pathways in appetite and energy regulation. Am J Med. 2025;138(6):934&#x2013;40.</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.amjmed.2025.01.021</ArticleId><ArticleId IdType="pubmed">39892489</ArticleId></ArticleIdList></Reference><Reference><Citation>Kanoski SE, Hayes MR, Skibicka KP. GLP-1 and weight loss: unraveling the diverse neural circuitry. Am J Physiol Regul Integr Comp Physiol. 2016;310(10):R885&#x2013;95.</Citation><ArticleIdList><ArticleId IdType="doi">10.1152/ajpregu.00520.2015</ArticleId><ArticleId IdType="pmc">PMC4888559</ArticleId><ArticleId IdType="pubmed">27030669</ArticleId></ArticleIdList></Reference><Reference><Citation>Nauck MA, et al. The evolving story of incretins (GIP and GLP-1) in metabolic and cardiovascular disease: a pathophysiological update. Diabetes Obes Metabolism. 2021;23:5&#x2013;29.</Citation><ArticleIdList><ArticleId IdType="doi">10.1111/dom.14496</ArticleId><ArticleId IdType="pubmed">34310013</ArticleId></ArticleIdList></Reference><Reference><Citation>Wadden TA, et al. Effect of subcutaneous semaglutide vs placebo as an adjunct to intensive behavioral therapy on body weight in adults with overweight or obesity: the STEP 3 randomized clinical trial. JAMA. 2021;325(14):1403&#x2013;13.</Citation><ArticleIdList><ArticleId IdType="doi">10.1001/jama.2021.1831</ArticleId><ArticleId IdType="pmc">PMC7905697</ArticleId><ArticleId IdType="pubmed">33625476</ArticleId></ArticleIdList></Reference><Reference><Citation>de Mesquita YLL, et al. Efficacy and safety of the dual GIP and GLP-1 receptor agonist tirzepatide for weight loss: a meta-analysis of randomized controlled trials. Int J Obes. 2023;47(10):883&#x2013;92.</Citation><ArticleIdList><ArticleId IdType="doi">10.1038/s41366-023-01337-x</ArticleId><ArticleId IdType="pubmed">37460681</ArticleId></ArticleIdList></Reference><Reference><Citation>Gao L, et al. Tirzepatide versus insulin glargine as second-line or third-line therapy in type 2 diabetes in the Asia-Pacific region: the SURPASS-AP-Combo trial. Nat Med. 2023;29(6):1500&#x2013;10.</Citation><ArticleIdList><ArticleId IdType="doi">10.1038/s41591-023-02344-1</ArticleId><ArticleId IdType="pubmed">37231074</ArticleId></ArticleIdList></Reference><Reference><Citation>Jastreboff AM, et al. Tirzepatide once weekly for the treatment of obesity. N Engl J Med. 2022;387(3):205&#x2013;16.</Citation><ArticleIdList><ArticleId IdType="doi">10.1056/NEJMoa2206038</ArticleId><ArticleId IdType="pubmed">35658024</ArticleId></ArticleIdList></Reference><Reference><Citation>Wilding JP, et al. Once-weekly semaglutide in adults with overweight or obesity. N Engl J Med. 2021;384(11):989&#x2013;1002.</Citation><ArticleIdList><ArticleId IdType="doi">10.1056/NEJMoa2032183</ArticleId><ArticleId IdType="pubmed">33567185</ArticleId></ArticleIdList></Reference><Reference><Citation>Rubino DM, et al. Effect of weekly subcutaneous semaglutide vs daily liraglutide on body weight in adults with overweight or obesity without diabetes: the STEP 8 randomized clinical trial. JAMA. 2022;327(2):138&#x2013;50.</Citation><ArticleIdList><ArticleId IdType="doi">10.1001/jama.2021.23619</ArticleId><ArticleId IdType="pmc">PMC8753508</ArticleId><ArticleId IdType="pubmed">35015037</ArticleId></ArticleIdList></Reference><Reference><Citation>Liu L et al. Safety and effects of anti-obesity medications on weight loss, cardiometabolic, and psychological outcomes in people living with overweight or obesity: a systematic review and meta-analysis. EClinicalMedicine, 2025;79.</Citation><ArticleIdList><ArticleId IdType="pmc">PMC11743856</ArticleId><ArticleId IdType="pubmed">39834714</ArticleId></ArticleIdList></Reference><Reference><Citation>Wadden TA, et al. Tirzepatide after intensive lifestyle intervention in adults with overweight or obesity: the SURMOUNT-3 phase 3 trial. Nat Med. 2023;29(11):2909&#x2013;18.</Citation><ArticleIdList><ArticleId IdType="doi">10.1038/s41591-023-02597-w</ArticleId><ArticleId IdType="pmc">PMC10667099</ArticleId><ArticleId IdType="pubmed">37840095</ArticleId></ArticleIdList></Reference><Reference><Citation>Pi-Sunyer X, et al. A randomized, controlled trial of 3.0&#xa0;mg of liraglutide in weight management. N Engl J Med. 2015;373(1):11&#x2013;22.</Citation><ArticleIdList><ArticleId IdType="doi">10.1056/NEJMoa1411892</ArticleId><ArticleId IdType="pubmed">26132939</ArticleId></ArticleIdList></Reference><Reference><Citation>Rubino D, et al. Effect of continued weekly subcutaneous semaglutide vs placebo on weight loss maintenance in adults with overweight or obesity: the STEP 4 randomized clinical trial. JAMA. 2021;325(14):1414&#x2013;25.</Citation><ArticleIdList><ArticleId IdType="doi">10.1001/jama.2021.3224</ArticleId><ArticleId IdType="pmc">PMC7988425</ArticleId><ArticleId IdType="pubmed">33755728</ArticleId></ArticleIdList></Reference><Reference><Citation>Jiang R, Janssen MB, Pickard AS. US population norms for the EQ-5D-5L and comparison of norms from face-to-face and online samples. Qual Life Res. 2021;30(3):803&#x2013;16.</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s11136-020-02650-y</ArticleId><ArticleId IdType="pmc">PMC7952367</ArticleId><ArticleId IdType="pubmed">33025373</ArticleId></ArticleIdList></Reference><Reference><Citation>Rothberg AE, et al. The impact of weight loss on health-related quality-of-life: implications for cost-effectiveness analyses. Qual Life Res. 2014;23(4):1371&#x2013;6.</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s11136-013-0557-8</ArticleId><ArticleId IdType="pmc">PMC3966959</ArticleId><ArticleId IdType="pubmed">24129672</ArticleId></ArticleIdList></Reference><Reference><Citation>Rezaei S. Population norms of health-related quality of life in Iran: findings from a national EQ-5D-5L study. Health Qual Life Outcomes. 2025;23(1):48.</Citation><ArticleIdList><ArticleId IdType="doi">10.1186/s12955-025-02378-8</ArticleId><ArticleId IdType="pmc">PMC12060525</ArticleId><ArticleId IdType="pubmed">40335997</ArticleId></ArticleIdList></Reference><Reference><Citation>Dennett SL, Boye KS, Yurgin NR. The impact of body weight on patient utilities with or without type 2 diabetes: a review of the medical literature. Value Health. 2008;11(3):478&#x2013;86.</Citation><ArticleIdList><ArticleId IdType="doi">10.1111/j.1524-4733.2007.00260.x</ArticleId><ArticleId IdType="pubmed">18489671</ArticleId></ArticleIdList></Reference><Reference><Citation>Shingler S, et al. Utilities for treatment-related adverse events in type 2 diabetes. J Med Econ. 2015;18(1):45&#x2013;55.</Citation><ArticleIdList><ArticleId IdType="doi">10.3111/13696998.2014.971158</ArticleId><ArticleId IdType="pubmed">25266815</ArticleId></ArticleIdList></Reference><Reference><Citation>UpToDate. [cited 2026 July 15]; Available from: https://www.uptodate.com/</Citation></Reference><Reference><Citation>International Monetary. <i>Fund</i>. Available from: https://www.imf.org/external/datamapper/PPPEX@WEO/OEMDC/ADVEC/WEOWORLD/IRN</Citation></Reference><Reference><Citation>Aronne LJ, et al. Continued treatment with tirzepatide for maintenance of weight reduction in adults with obesity: the SURMOUNT-4 randomized clinical trial. JAMA. 2024;331(1):38&#x2013;48.</Citation><ArticleIdList><ArticleId IdType="doi">10.1001/jama.2023.24945</ArticleId><ArticleId IdType="pmc">PMC10714284</ArticleId><ArticleId IdType="pubmed">38078870</ArticleId></ArticleIdList></Reference><Reference><Citation>Kortt MA, Clarke PM. Estimating utility values for health states of overweight and obese individuals using the SF-36. Qual Life Res. 2005;14(10):2177&#x2013;85.</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s11136-005-8027-6</ArticleId><ArticleId IdType="pubmed">16328898</ArticleId></ArticleIdList></Reference><Reference><Citation>Liu L, et al. Tirzepatide vs semaglutide and liraglutide for weight loss in patients with overweight or obesity without diabetes: A short-term cost-effectiveness analysis in the United States. J Managed Care Specialty Pharm. 2025;31(5):441&#x2013;50.</Citation><ArticleIdList><ArticleId IdType="doi">10.18553/jmcp.2025.31.5.441</ArticleId><ArticleId IdType="pmc">PMC12039506</ArticleId><ArticleId IdType="pubmed">40298310</ArticleId></ArticleIdList></Reference><Reference><Citation>Papantoniou P, Maniadakis N. Semaglutide 2.4&#xa0;mg versus Liraglutide 3&#xa0;mg for the treatment of obesity in Greece: a short-term cost-effectiveness analysis. PharmacoEconomics-Open. 2025;9(3):487&#x2013;97.</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s41669-025-00561-7</ArticleId><ArticleId IdType="pmc">PMC12037448</ArticleId><ArticleId IdType="pubmed">39847271</ArticleId></ArticleIdList></Reference><Reference><Citation>Alshahawey M, et al. Cost-effectiveness analysis of once-weekly semaglutide vs. once-daily liraglutide administered subcutaneously in patients with overweight and obesity: a decision analysis. European Review for Medical &amp; Pharmacological Sciences. 2024;28(9).</Citation><ArticleIdList><ArticleId IdType="pubmed">38766793</ArticleId></ArticleIdList></Reference><Reference><Citation>Son JW, et al. Novel GLP-1-based Medications for Type 2 Diabetes and Obesity. Endocr Rev. 2026;47(2):159&#x2013;77.</Citation><ArticleIdList><ArticleId IdType="doi">10.1210/endrev/bnaf036</ArticleId><ArticleId IdType="pubmed">41054801</ArticleId></ArticleIdList></Reference></ReferenceList></PubmedData></PubmedArticle></PubmedArticleSet>

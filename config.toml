@@ -1,0 +1,37 @@
+# Model names and limits live here, not in code (CLAUDE.md).
+
+[models]
+brief = "claude-sonnet-5-5"   # writes the brief
+verify = "claude-haiku-5-5"   # claim verification (F17), later expansion/extraction
+
+[fetch]
+max_papers = 30          # PubMed abstracts fetched per query
+max_trials = 20          # ClinicalTrials.gov studies fetched per query
+broad_query_hits = 5000  # above this, F25 broad-query rule applies
+timeout_s = 20.0
+max_retries = 4
+
+[pubmed]
+base_url = "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/"
+tool = "literature-radar"
+delay_no_key_s = 0.4     # stays under 3 requests/second
+delay_with_key_s = 0.11  # stays under 10 requests/second
+
+[trials]
+base_url = "https://clinicaltrials.gov/api/v2/studies"
+
+[brief]
+top_k = 10               # papers and trials each sent to the model
+windows_months = [3, 6, 12]
+default_window_months = 6
+
+[ranking]
+bm25_k1 = 1.5
+bm25_b = 0.75
+recency_half_life_days = 180
+bm25_weight = 0.7        # score = 0.7 * bm25_norm + 0.3 * recency
+recency_weight = 0.3
+mmr_lambda = 0.7
+
+[cache]
+ttl_hours = 24

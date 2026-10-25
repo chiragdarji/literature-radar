@@ -1,0 +1,47 @@
+<?xml version="1.0" ?>
+<!-- Hand-written records covering parser edge cases not in the live samples. -->
+<PubmedArticleSet>
+  <PubmedArticle>
+    <MedlineCitation Status="MEDLINE" Owner="NLM">
+      <PMID Version="1">90000001</PMID>
+      <Article PubModel="Print">
+        <Journal>
+          <JournalIssue CitedMedium="Print">
+            <PubDate><MedlineDate>2026 Jan-Feb</MedlineDate></PubDate>
+          </JournalIssue>
+          <Title>Journal of Edge Cases</Title>
+        </Journal>
+        <ArticleTitle>Effect of <i>PCSK9</i> inhibition on LDL-C<sup>2</sup> levels.</ArticleTitle>
+        <AuthorList CompleteYN="Y">
+          <Author ValidYN="Y"><CollectiveName>FOURIER Investigators</CollectiveName></Author>
+          <Author ValidYN="Y"><LastName>Doe</LastName><Initials>J</Initials></Author>
+        </AuthorList>
+        <PublicationTypeList>
+          <PublicationType UI="D016428">Journal Article</PublicationType>
+          <PublicationType UI="D017418">Meta-Analysis</PublicationType>
+        </PublicationTypeList>
+      </Article>
+    </MedlineCitation>
+  </PubmedArticle>
+  <PubmedArticle>
+    <MedlineCitation Status="MEDLINE" Owner="NLM">
+      <PMID Version="1">90000002</PMID>
+      <Article PubModel="Print-Electronic">
+        <Journal>
+          <JournalIssue CitedMedium="Internet">
+            <PubDate><Year>2026</Year><Season>Winter</Season></PubDate>
+          </JournalIssue>
+          <Title>Season Journal</Title>
+        </Journal>
+        <ArticleTitle>An earlier e-pub date.</ArticleTitle>
+        <Abstract><AbstractText>Plain abstract.</AbstractText></Abstract>
+        <AuthorList><Author><LastName>Roe</LastName><Initials>AB</Initials></Author></AuthorList>
+        <PublicationTypeList><PublicationType>Journal Article</PublicationType></PublicationTypeList>
+        <ArticleDate DateType="Electronic"><Year>2025</Year><Month>11</Month><Day>03</Day></ArticleDate>
+      </Article>
+      <CommentsCorrectionsList>
+        <CommentsCorrections RefType="RetractionIn"><RefSource>Retraction notice</RefSource></CommentsCorrections>
+      </CommentsCorrectionsList>
+    </MedlineCitation>
+  </PubmedArticle>
+</PubmedArticleSet>
