@@ -28,3 +28,28 @@ Domain terms met while building, one line each. Add to it every session.
 - **Liraglutide**: an older, daily GLP-1 receptor agonist; semaglutide's usual comparator.
 - **PCSK9**: liver protein that lowers LDL-receptor numbers; blocking it lowers LDL ("bad") cholesterol.
 - **LDL-C**: low-density lipoprotein cholesterol.
+
+## Clinical trials (ClinicalTrials.gov)
+
+- **ClinicalTrials.gov**: US NIH registry of clinical studies worldwide; API v2 at `/api/v2/studies`.
+- **NCT ID**: ClinicalTrials.gov's study ID, "NCT" + 8 digits; cited as `[NCT…]`.
+- **Interventional study**: participants are assigned a treatment by the protocol; these have phases.
+- **Observational study**: researchers watch outcomes without assigning treatment; no phase (`phases` missing).
+- **Early Phase 1 (Phase 0)**: tiny, short exposure in humans to check how a drug behaves, no therapeutic intent.
+- **Phase 1**: first in humans, small groups; safety and dosing range.
+- **Phase 2**: a few hundred patients; does it work, and at what dose; more safety data.
+- **Phase 3**: large, often randomised versus standard care or placebo; the evidence for approval.
+- **Phase 4**: after approval; long-term safety and real-world use.
+- **Phase NA**: "not applicable" — device, behavioural or procedure studies without drug phases.
+- **Overall status**: NOT_YET_RECRUITING, RECRUITING, ENROLLING_BY_INVITATION, ACTIVE_NOT_RECRUITING (running, enrolment closed), COMPLETED, SUSPENDED, TERMINATED (stopped early), WITHDRAWN (stopped before enrolling anyone), UNKNOWN (not updated past its due date).
+- **Lead sponsor**: organisation responsible for the trial (company, university, hospital).
+- **Last update post date**: when the record was last changed on the registry; used for the time window.
+- **Brief summary**: the registry's short plain-language description of the study.
+- **Placebo**: inactive look-alike treatment given to the control group.
+- **Double-blinded**: neither participants nor investigators know who gets which treatment.
+
+## Molecules and targets (cont.)
+
+- **Denosumab**: monoclonal antibody against RANKL that slows bone breakdown; for osteoporosis and bone metastases; new biosimilar wave in India.
+- **Tirzepatide**: dual GIP/GLP-1 receptor agonist; semaglutide's main competitor.
+- **Biosimilar**: a near-identical copy of an approved biological drug, approved after the original's patents expire.
