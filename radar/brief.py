@@ -7,6 +7,7 @@ claim can be checked against the fetched records before anyone sees it (AD-8).
 from __future__ import annotations
 
 import re
+from collections import Counter
 from dataclasses import dataclass, field, replace
 from typing import Any
 
@@ -38,10 +39,16 @@ Never give clinical, dosing or treatment advice.
 
 Output format: JSON matching the schema. Each claim has "text" (one plain sentence, with no IDs inside it) and "ids" (the record IDs that support it, copied exactly as shown in the records, e.g. "PMID:41532579", "NCT07891156", "CTRI:CTRI/2025/06/088110", "CDSCO:SEC-ENDO-2025-12-09-04"). The ids field is how this brief ends each sentence with its sources.
 
+Rules for every claim:
+- Say only what the cited records state. You see a small sample, so do not characterise the wider literature or field ("dominated by", "the main focus", "a wide pipeline", "growing interest").
+- For any count of records, phases or statuses, use the "Counts" lines given with the records; never estimate.
+- Some records mention the query only in passing (as a comparator, or among other drugs or diseases). Describe what each paper or trial actually studies, and leave out records that are not about the query.
+- Do not add significance the records do not state, such as "first", "pivotal" or "practice-changing".
+
 Sections:
-- in_one_line: exactly one claim, the single most important development.
+- in_one_line: exactly one claim, the single most important development, about one or two specific records.
 - research: 3 to 6 claims on what the new papers report. Say when a paper is a review or meta-analysis rather than an original study.
-- trials: 1 to 4 claims on clinical trial activity: how many trials, their phases and statuses, main sponsors, and a notable trial and why it matters.
+- trials: 1 to 4 claims on clinical trial activity: how many trials, their phases and statuses, main sponsors, and a notable trial and why it matters, using only facts in its record (phase, population, comparator, design).
 - india: claims on the CTRI trials and CDSCO decisions given. An SEC (Subject Expert Committee) recommendation is not a final approval; say "recommended" unless a record says approved. Empty list if no India records are given.
 - gaps: what the records disagree on or do not cover; ids optional.
 - next_questions: exactly 3 questions worth exploring next; ids optional.
@@ -119,8 +126,33 @@ def record_text(rec: Record) -> str:
 def build_context(query: str, months: int, records: list[Record]) -> str:
     blocks = "\n\n".join(f"{i}. {record_text(r)}" for i, r in enumerate(records, 1))
     return (f"Query: {query}\nTime window: last {months} months\n\n"
+            f"Counts (computed by code from the records below):\n{record_counts(records)}\n\n"
             f"<records>\n{blocks}\n</records>\n\n"
             "Write the brief as JSON, citing only the IDs above.")
+
+
+def record_counts(records: list[Record]) -> str:
+    """Exact tallies so the model never has to count (counts were its most common error)."""
+    papers = [r for r in records if isinstance(r, Paper)]
+    trials = [r for r in records if isinstance(r, Trial)]
+    india = [r for r in records if isinstance(r, IndiaRecord)]
+    reviews = sum(1 for p in papers if p.is_review)
+    lines = [f"- Papers: {len(papers)} ({reviews} reviews or meta-analyses, "
+             f"{len(papers) - reviews} other)"]
+    if trials:
+        statuses = Counter(t.status for t in trials)
+        phases = Counter("/".join(t.phases) or "no phase" for t in trials)
+        lines.append(f"- Trials: {len(trials)}; by status: {_tally(statuses)}; "
+                     f"by phase: {_tally(phases)}")
+    else:
+        lines.append("- Trials: 0")
+    lines.append(f"- India records: {sum(r.source == 'CTRI' for r in india)} CTRI, "
+                 f"{sum(r.source == 'CDSCO' for r in india)} CDSCO")
+    return "\n".join(lines)
+
+
+def _tally(counter: Counter[str]) -> str:
+    return ", ".join(f"{k} {v}" for k, v in sorted(counter.items(), key=lambda kv: (-kv[1], kv[0])))
 
 
 # --- Model call -------------------------------------------------------------------------------

@@ -139,3 +139,13 @@ def test_refusal_and_truncation_raise(fake_api):
     assert exc.value.category == "bio"
     with pytest.raises(llm.ModelError):
         generate_brief("x", 6, [PAPER], [], [], api=fake_api(lambda k: _response("max_tokens")))
+
+
+def test_context_gives_exact_counts():
+    trial2 = Trial("NCT00000002", "Other", "COMPLETED", (), "X", None)
+    ctx = build_context("semaglutide", 6, [PAPER, TRIAL, trial2, CTRI, CDSCO])
+    assert "- Papers: 1 (1 reviews or meta-analyses, 0 other)" in ctx
+    assert ("- Trials: 2; by status: COMPLETED 1, RECRUITING 1; "
+            "by phase: PHASE2/PHASE3 1, no phase 1") in ctx
+    assert "- India records: 1 CTRI, 1 CDSCO" in ctx
+    assert ctx.index("Counts") < ctx.index("<records>")
